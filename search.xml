@@ -19,7 +19,7 @@
       
       <categories>
           
-          <category> 默认分类 </category>
+          <category> Sklearn </category>
           
       </categories>
       
@@ -27,10 +27,6 @@
         <tags>
             
             <tag> tag1 </tag>
-            
-            <tag> tag2 </tag>
-            
-            <tag> tag3 </tag>
             
         </tags>
       
