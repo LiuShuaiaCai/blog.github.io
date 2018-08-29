@@ -1,0 +1,242 @@
+
+  <!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>项目总结博客</title>
+  <meta name="author" content="LiuShuaiaCai">
+  
+  <meta name="description" content="做好自己">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="项目总结博客"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="项目总结博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+  <body>
+    <a name="top"></a>
+  	<header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">项目总结博客</a></h1>
+  <h2><a href="/">记录项目中的总结和问题</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about-me">About</a></li>
+    
+      <li><a href="/atom.xml">Rss</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  	<div id="content" class="inner">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><div id='index_main' class='hidden_show'>
+	
+	  <article class="post hidden_show">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-08-29T08:46:33.934Z"><a href="/2018/08/29/hello-world/">2018-08-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/08/29/hello-world/">Hello World</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+
+
+    <footer>
+      
+        
+       
+            <a href="/2018/08/29/hello-world/" class="ds-thread-count comment-link alignright" data-thread-key="2018/08/29/hello-world/" data-count-type="comments"></a>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+	
+	  <article class="post hidden_show">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-04-17T04:37:56.000Z"><a href="/2017/04/17/ab-md/">2017-04-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/04/17/ab-md/">apache性能测试工具ab</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1、ab原理"><a href="#1、ab原理" class="headerlink" title="1、ab原理"></a>1、ab原理</h2><p>ab是apachebench的缩写<br>ab命令会创建多个并发访问线程，对同一个URL访问来测试apache的负载压力。测试目标是URL。<br>同样适用于Nginx、Lighthttp、Tomcat、IIS等其它服务器<br>ab命令不会占用很高的CPU，也不会占用很多内存，但却给目标服务器造成巨大的负载，如果负载太多，可能导致目标服务器死机，其原理类似CCI攻击，所以大家测试的时候需要注意。<br>
+      
+    </div>
+
+
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2017/04/17/ab-md/#more" class="more-link">欣赏全文</a>
+          </div>
+        
+       
+            <a href="/2017/04/17/ab-md/" class="ds-thread-count comment-link alignright" data-thread-key="2017/04/17/ab-md/" data-count-type="comments"></a>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+	
+</div>
+<aside id="sidebar" class="alignright">
+	
+	  	<div id="site_search" class="search">
+  <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+  <div id="local-search-result"></div>
+</div>
+
+	
+	  	
+	
+	  	
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/ab/">ab</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+	
+</aside>
+
+<nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+      <div class="clearfix"></div>
+  	</div>
+    <div id = 'r_top'>
+	<ul>
+		<li class='top'><a href='#top'></a></li>
+		<li class='close' data='0'><a href='javascript:;'></a></li>
+		<li class='bottom'><a href='#bottom'></a></li>
+	</ul>
+</div>
+
+    <footer id="footer" class="inner"><a name='bottom'></a>
+<div class="alignleft">
+  
+  &copy; 2018 LiuShuaiaCai
+  
+</div>
+<div class="clearfix"></div>
+</footer>
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/search.js"></script>
+<script type="text/javascript">      
+     var search_path = "search.xml";
+     if (search_path.length == 0) {
+     	search_path = "search.xml";
+     }
+     var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+var duoshuo_shortname = 'feifan';
+var duoshuoQuery = {short_name:duoshuo_shortname};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<script src="/js/toc.js"></script>
+<script src="/js/top.js"></script>
+<script src="/js/syntax.js"></script>
+
+  </body>
+  </html>
+
