@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Deep Learning</title>
+  <title>机器学习笔记</title>
   
-  <subtitle>Study Hard</subtitle>
+  <subtitle>Deep Learning</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ai.feifan.news/"/>
