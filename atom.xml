@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ai.feifan.news/"/>
-  <updated>2018-08-29T11:55:45.511Z</updated>
+  <updated>2018-08-29T11:57:36.940Z</updated>
   <id>http://ai.feifan.news/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="http://ai.feifan.news/2018/08/29/hmm-1/"/>
     <id>http://ai.feifan.news/2018/08/29/hmm-1/</id>
     <published>2018-08-29T11:45:06.000Z</published>
-    <updated>2018-08-29T11:55:45.511Z</updated>
+    <updated>2018-08-29T11:57:36.940Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1、HMM原理"><a href="#1、HMM原理" class="headerlink" title="1、HMM原理"></a>1、HMM原理</h2><p>ab是apachebench的缩写<br>ab命令会创建多个并发访问线程，对同一个URL访问来测试apache的负载压力。测试目标是URL。<br>同样适用于Nginx、Lighthttp、Tomcat、IIS等其它服务器</p><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<h2 id="1、HMM原理"><a href="#1、HMM原理" class="headerlink" title="1、HMM原理"></a>1、HMM原理</h2><p>ab是apachebench的缩写<br>ab命令会创建多个并发访问线程，对同一个URL访问来测试apache的负载压力。测试目标是URL。、Lighthttp、Tomcat、IIS等其它服务器</p><a id="more"></a>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;1、HMM原理&quot;&gt;&lt;a href=&quot;#1、HMM原理&quot; class=&quot;headerlink&quot; title=&quot;1、HMM原理&quot;&gt;&lt;/a&gt;1、HMM原理&lt;/h2&gt;&lt;p&gt;ab是apachebench的缩写&lt;br&gt;ab命令会创建多个并发访问线程，对同一个URL访问来测试apache的负载压力。测试目标是URL。&lt;br&gt;同样适用于Nginx、Lighthttp、Tomcat、IIS等其它服务器&lt;/p&gt;
+      &lt;h2 id=&quot;1、HMM原理&quot;&gt;&lt;a href=&quot;#1、HMM原理&quot; class=&quot;headerlink&quot; title=&quot;1、HMM原理&quot;&gt;&lt;/a&gt;1、HMM原理&lt;/h2&gt;&lt;p&gt;ab是apachebench的缩写&lt;br&gt;ab命令会创建多个并发访问线程，对同一个URL访问来测试apache的负载压力。测试目标是URL。、Lighthttp、Tomcat、IIS等其它服务器&lt;/p&gt;
     
     </summary>
     
