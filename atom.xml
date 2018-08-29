@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ai.feifan.news/"/>
-  <updated>2018-08-29T11:33:58.900Z</updated>
+  <updated>2018-08-29T11:46:25.106Z</updated>
   <id>http://ai.feifan.news/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hmm_1</title>
+    <link href="http://ai.feifan.news/2018/08/29/hmm-1/"/>
+    <id>http://ai.feifan.news/2018/08/29/hmm-1/</id>
+    <published>2018-08-29T11:45:06.000Z</published>
+    <updated>2018-08-29T11:46:25.106Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、HMM原理"><a href="#1、HMM原理" class="headerlink" title="1、HMM原理"></a>1、HMM原理</h2><p>ab是apachebench的缩写<br>ab命令会创建多个并发访问线程，对同一个URL访问来测试apache的负载压力。测试目标是URL。<br>同样适用于Nginx、Lighthttp、Tomcat、IIS等其它服务器<br>ab命令不会占用很高的CPU，也不会占用很多内存，但却给目标服务器造成巨大的负载，如果负载太多，可能导致目标服务器死机，其原理类似CCI攻击，所以大家测试的时候需要注意。<br><a id="more"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1、HMM原理&quot;&gt;&lt;a href=&quot;#1、HMM原理&quot; class=&quot;headerlink&quot; title=&quot;1、HMM原理&quot;&gt;&lt;/a&gt;1、HMM原理&lt;/h2&gt;&lt;p&gt;ab是apachebench的缩写&lt;br&gt;ab命令会创建多个并发访问线程，对同一个URL访问来测试apache的负载压力。测试目标是URL。&lt;br&gt;同样适用于Nginx、Lighthttp、Tomcat、IIS等其它服务器&lt;br&gt;ab命令不会占用很高的CPU，也不会占用很多内存，但却给目标服务器造成巨大的负载，如果负载太多，可能导致目标服务器死机，其原理类似CCI攻击，所以大家测试的时候需要注意。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="http://ai.feifan.news/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="HMM" scheme="http://ai.feifan.news/tags/HMM/"/>
+    
+  </entry>
   
   <entry>
     <title>apache性能测试工具ab</title>
