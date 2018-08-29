@@ -553,6 +553,15 @@ article footer .addthis iframe {
   padding-left: 10px;
   font-family: FontAwesome;
 }
+#index-continer {
+  width: 900px;
+  padding: 0px;
+  margin: 0px;
+  float: left;
+}
+.page {
+  margin-top: 20px;
+}
 .archive-title {
   color: #eee;
   font-weight: normal;
@@ -704,6 +713,7 @@ article footer .addthis iframe {
   margin-bottom: 50px;
   font: 0.9em/1.6 "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
   text-shadow: 0 0 1px #fff;
+  margin-top: 10px;
 }
 .entry .gist {
   background: #eee;
