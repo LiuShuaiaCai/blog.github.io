@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hmm_1 | 机器学习笔记</title>
+  <title>哈夫曼编码与哈夫曼树 | 机器学习笔记</title>
   <meta name="author" content="LiuShuaiaCai">
   
   <meta name="description" content="Deep Learning">
@@ -12,7 +12,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="hmm_1"/>
+  <meta property="og:title" content="哈夫曼编码与哈夫曼树"/>
   <meta property="og:site_name" content="机器学习笔记"/>
 
   
@@ -56,11 +56,11 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2018-08-29T11:45:06.000Z"><a href="/2018/08/29/hmm-1/">2018-08-29</a></time>
+        <time datetime="2018-08-30T01:45:06.000Z"><a href="/2018/08/30/hmm-1/">2018-08-30</a></time>
       
       
   
-    <h1 class="title">hmm_1</h1>
+    <h1 class="title">哈夫曼编码与哈夫曼树</h1>
   
 
     </header>
@@ -126,7 +126,7 @@
   <!-- 
     <section id="comment">
         <h1 class="title">留言</h1>
-        <div class="ds-thread" data-thread-key="2018/08/29/hmm-1/"></div>
+        <div class="ds-thread" data-thread-key="2018/08/30/hmm-1/"></div>
     </section>
  -->
 </article>
@@ -140,7 +140,8 @@
       
   </aside>
 
-
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
 
 
 </div></div>
@@ -172,15 +173,7 @@ if (typeof jQuery == 'undefined') {
 </script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
-<script src="/js/search.js"></script>
-<script type="text/javascript">      
-     var search_path = "search.xml";
-     if (search_path.length == 0) {
-     	search_path = "search.xml";
-     }
-     var path = "/" + search_path;
-     searchFunc(path, 'local-search-input', 'local-search-result');
-</script>
+
 
 
 
@@ -211,6 +204,23 @@ var duoshuoQuery = {short_name:duoshuo_shortname};
 <script src="/js/top.js"></script>
 <script src="/js/syntax.js"></script>
 
-  </body>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
   </html>
 

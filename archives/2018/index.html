@@ -60,9 +60,45 @@
         <div class="post-content">
           <header>
             <div class="icon"></div>
-            <time datetime="2018-08-29T11:45:06.000Z"><a href="/2018/08/29/hmm-1/">2018-08-29</a></time>
+            <time datetime="2018-08-30T06:06:08.000Z"><a href="/2018/08/30/激活函数/">2018-08-30</a></time>
             
-              <h1 class="title"><a href="/2018/08/29/hmm-1/">hmm_1</a></h1>
+              <h1 class="title"><a href="/2018/08/30/激活函数/">激活函数</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2018-08-30T03:46:09.000Z"><a href="/2018/08/30/word2vec/">2018-08-30</a></time>
+            
+              <h1 class="title"><a href="/2018/08/30/word2vec/">word2vec原理分析笔记</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2018-08-30T01:45:06.000Z"><a href="/2018/08/30/hmm-1/">2018-08-30</a></time>
+            
+              <h1 class="title"><a href="/2018/08/30/hmm-1/">哈夫曼编码与哈夫曼树</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2018-08-29T17:57:54.000Z"><a href="/2018/08/30/mathjax/">2018-08-30</a></time>
+            
+              <h1 class="title"><a href="/2018/08/30/mathjax/">在 hexo 中支持 Mathjax</a></h1>
             
           </header>
         </div>
@@ -74,7 +110,7 @@
 	
   <div class="widget tag">
     <h3 class="title">归档</h3>
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">2018年08月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">2017年04月</a><span class="archive-list-count">1</span></li></ul>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">2018年08月</a><span class="archive-list-count">4</span></li></ul>
   </div>
 
 </aside>
@@ -107,15 +143,7 @@ if (typeof jQuery == 'undefined') {
 </script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
-<script src="/js/search.js"></script>
-<script type="text/javascript">      
-     var search_path = "search.xml";
-     if (search_path.length == 0) {
-     	search_path = "search.xml";
-     }
-     var path = "/" + search_path;
-     searchFunc(path, 'local-search-input', 'local-search-result');
-</script>
+
 
 
 
@@ -146,6 +174,23 @@ var duoshuoQuery = {short_name:duoshuo_shortname};
 <script src="/js/top.js"></script>
 <script src="/js/syntax.js"></script>
 
-  </body>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
   </html>
 

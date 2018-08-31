@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Sklearn | 机器学习笔记</title>
+  <title>Word2Vec | 机器学习笔记</title>
   <meta name="author" content="LiuShuaiaCai">
   
   <meta name="description" content="Deep Learning">
@@ -51,7 +51,7 @@
 </header>
   	<div id="content" class="inner">
   	<div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title category">Sklearn</h2>
+<h2 class="archive-title tag">Word2Vec</h2>
 
 
   <div class="archive hidden_show">
@@ -60,9 +60,9 @@
         <div class="post-content">
           <header>
             <div class="icon"></div>
-            <time datetime="2017-04-17T04:37:56.000Z"><a href="/2017/04/17/ab-md/">2017-04-17</a></time>
+            <time datetime="2018-08-30T03:46:09.000Z"><a href="/2018/08/30/word2vec/">2018-08-30</a></time>
             
-              <h1 class="title"><a href="/2017/04/17/ab-md/">apache性能测试工具ab</a></h1>
+              <h1 class="title"><a href="/2018/08/30/word2vec/">word2vec原理分析笔记</a></h1>
             
           </header>
         </div>
@@ -98,15 +98,7 @@ if (typeof jQuery == 'undefined') {
 </script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
-<script src="/js/search.js"></script>
-<script type="text/javascript">      
-     var search_path = "search.xml";
-     if (search_path.length == 0) {
-     	search_path = "search.xml";
-     }
-     var path = "/" + search_path;
-     searchFunc(path, 'local-search-input', 'local-search-result');
-</script>
+
 
 
 
@@ -137,6 +129,23 @@ var duoshuoQuery = {short_name:duoshuo_shortname};
 <script src="/js/top.js"></script>
 <script src="/js/syntax.js"></script>
 
-  </body>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
   </html>
 

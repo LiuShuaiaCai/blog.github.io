@@ -119,6 +119,9 @@ em.search-keyword {
   border-bottom: 1px dashed #4088b8;
   font-weight: bold;
 }
+.mjx-math {
+  font-size: 30px;
+}
 #header {
   text-shadow: 0 0 1px #fff;
   margin: 50px auto;
