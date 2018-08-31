@@ -122,6 +122,9 @@ em.search-keyword {
 .mjx-math {
   font-size: 30px;
 }
+.mjx-chtml {
+  text-align: left;
+}
 #header {
   text-shadow: 0 0 1px #fff;
   margin: 50px auto;

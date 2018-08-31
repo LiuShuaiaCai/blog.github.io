@@ -69,12 +69,7 @@
     </header>
     <div class="entry">
       
-        <h2 id="1、激活函数-Activation-Function"><a href="#1、激活函数-Activation-Function" class="headerlink" title="1、激活函数(Activation Function)"></a>1、激活函数(Activation Function)</h2><p>算法设计</p>
-<h4 id="1-1、什么是激活函数"><a href="#1-1、什么是激活函数" class="headerlink" title="1.1、什么是激活函数"></a>1.1、什么是激活函数</h4><p>如下图，在神经元中，输入的 inputs 通过加权，求和后，还被作用了一个函数，这个函数就是激活函数 Activation Function。<br><img src="/images/active.png" alt="activate"></p>
-<h4 id="1-2、激活函数的特点"><a href="#1-2、激活函数的特点" class="headerlink" title="1.2、激活函数的特点"></a>1.2、激活函数的特点</h4><p>非线性： 当激活函数是线性的时候，一个两层的神经网络就可以逼近基本上所有的函数了。<br>可微： 当优化方法是基于梯度的时候，这个性质是必须的。<br>单调性： 当激活函数是单调的时候，单层网络能够保证是凸函数。<br>_ ： 当激活函数满足这个性质的时候，如果参数的初始化是random的很小的值，那么神经网络的训练将会很高效。<br>输出值范围： 当激活函数输出值是 有限 的时候，基于梯度的优化方法会更加 稳定，因为特征的表示受有限权值的影响更显著；当激活函数的输出是 无限 的时候，模型的训练会更加高效，不过在这种情况小，一般需要更小的学习率。</p>
-<h4 id="1-3、为什么要用激活函数"><a href="#1-3、为什么要用激活函数" class="headerlink" title="1.3、为什么要用激活函数"></a>1.3、为什么要用激活函数</h4><p>如果不用激励函数，每一层输出都是上层输入的线性函数，无论神经网络有多少层，输出都是输入的线性组合。<br>如果使用的话，激活函数给神经元引入了非线性因素，使得神经网络可以任意逼近任何非线性函数，这样神经网络就可以应用到众多的非线性模型中。</p>
-<h2 id="2、sigmoid-函数"><a href="#2、sigmoid-函数" class="headerlink" title="2、sigmoid 函数"></a>2、sigmoid 函数</h2><p>公式：<script type="math/tex">\sigma(x) = \frac{1}{1 + e^{-x}}</script></p>
-<p><img src="/images/sigmoid.png" alt="sigmoid"><br>
+        <h2 id="1、激活函数介绍"><a href="#1、激活函数介绍" class="headerlink" title="1、激活函数介绍"></a>1、激活函数介绍</h2><h3 id="1-1、什么是激活函数"><a href="#1-1、什么是激活函数" class="headerlink" title="1.1、什么是激活函数"></a>1.1、什么是激活函数</h3><p>如下图，在神经元中，输入的 inputs 通过加权，求和后，还被作用了一个函数，这个函数就是激活函数 Activation Function。<br><img src="/images/active.png" alt="activate"><br>
       
     </div>
 
