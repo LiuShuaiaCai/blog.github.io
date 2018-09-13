@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>机器学习笔记</title>
+  <title>ElasticSearch学习笔记（一） | 机器学习笔记</title>
   <meta name="author" content="LiuShuaiaCai">
   
   <meta name="description" content="Deep Learning">
@@ -12,7 +12,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="ElasticSearch学习笔记（一）"/>
   <meta property="og:site_name" content="机器学习笔记"/>
 
   
@@ -50,220 +50,7 @@
 <div class="clearfix"></div>
 </header>
   	<div id="content" class="inner">
-  	<div id="main-col" class="alignleft"><div id="wrapper"><div id='index-continer' class='hidden_show'>
-	<div id='index_main' class='hidden_show'>
-		
-			<article class="post hidden_show">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-09-13T10:04:05.000Z"><a href="/2018/09/13/es-cluster/">2018-09-13</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/09/13/es-cluster/">ElasticSearch集群搭建</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="1、需要下载"><a href="#1、需要下载" class="headerlink" title="1、需要下载"></a>1、需要下载</h2><p>文件安装包</p>
-<ul>
-<li>elasticsearch-head-master</li>
-<li>elasticsearch<br>下载地址：<br><a href="https://www.elastic.co/downloads/elasticsearch" target="_blank" rel="noopener">https://www.elastic.co/downloads/elasticsearch</a><br><a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">https://github.com/mobz/elasticsearch-head</a><br>文件列表：</li>
-<li>elasticsearch-head-master</li>
-<li>elasticsearch1</li>
-<li>elasticsearch2
-      
-    </div>
-
-
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2018/09/13/es-cluster/#more" class="more-link">查看全文</a>
-          </div>
-        
-       
-            <a href="/2018/09/13/es-cluster/" class="ds-thread-count comment-link alignright" data-thread-key="2018/09/13/es-cluster/" data-count-type="comments"></a>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <!--  -->
-</article>
-
-<!-- <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/syntax.js"></script> -->
-
-
-		
-			<article class="post hidden_show">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-09-11T02:15:33.000Z"><a href="/2018/09/11/crf/">2018-09-11</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/09/11/crf/">CRF算法</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>CRF(Conditional Random Field)条件随机场，一种数学算法，在2001年由Lafferty等人提出，基于遵循马尔可夫性的概率图模型。<br>CRF结合了最大熵模型和隐马尔可夫模型的特点，是一种无向图模型，在分词、词性标注、命名实体识别等序列</p>
-
-      
-    </div>
-
-
-    <footer>
-      
-        
-       
-            <a href="/2018/09/11/crf/" class="ds-thread-count comment-link alignright" data-thread-key="2018/09/11/crf/" data-count-type="comments"></a>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <!--  -->
-</article>
-
-<!-- <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/syntax.js"></script> -->
-
-
-		
-			<article class="post hidden_show">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-09-10T07:17:34.000Z"><a href="/2018/09/10/nlp-v1/">2018-09-10</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/09/10/nlp-v1/">自然语言处理（一）</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>自然语言处理（Natural Language Processing,NLP）是研究能够实现人与计算机之间用自然语言进行有效通信的各种理论和方法，也是人工智能领域中一个最重要、最艰难的方向。</p>
-<p>近些年NLP的突破：中文分词、词性标注、词汇语义、语法解析</p>
-<p>文本方面：基于自然语言理解的智能搜索引擎、智能搜索、机器翻译、自动摘要、文本综合、文本分类、信息过滤、垃圾邮件处理、文本数据挖掘等</p>
-<p>语音方面：智能客服、聊天机器人、多媒体信息提取与文本转化</p>
-<h2 id="现在自然语言系统"><a href="#现在自然语言系统" class="headerlink" title="现在自然语言系统"></a>现在自然语言系统</h2><p>自然语言系统基础模块：语言的解析、语义的理解、语言的生成<br><img src="/images/nlp-1.png" alt="nlp-1"><br>自然语言处理的一般构架：<br><img src="/images/nlp-2.png" alt="nlp-2"><br>左侧是语法层面的模块：中文分词、词性标注、句法解析<br>右侧侧重于语义层面：命名实体识别主要用来识别语料中专有名词和未登录词的成词情况，如人名、地名、组织结构名等。受到左侧的中文分词和此行标注的影响。</p>
-<h2 id="开源的中文NLP系统"><a href="#开源的中文NLP系统" class="headerlink" title="开源的中文NLP系统"></a>开源的中文NLP系统</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>包含模块</th>
-<th>开发语言</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.ltp-cloud.com/" target="_blank" rel="noopener">哈工大LTP</a></td>
-<td>中文分词、词性标注、未登录词识别、句法分析、语义角色标注、关键字提取<br>文档：<a href="https://ltp.readthedocs.io/zh_CN/latest/index.html" target="_blank" rel="noopener">https://ltp.readthedocs.io/zh_CN/latest/index.html</a><br>Python文档：<a href="https://pyltp.readthedocs.io/zh_CN/latest/" target="_blank" rel="noopener">https://pyltp.readthedocs.io/zh_CN/latest/</a></td>
-<td>C++</td>
-</tr>
-<tr>
-<td><a href="https://nlp.stanford.edu/software/index.html" target="_blank" rel="noopener">Stanford</a></td>
-<td>中文分词、词性标注、未登录词识别、句法分析、关键词提取</td>
-<td>Java</td>
-</tr>
-<tr>
-<td><a href="https://github.com/fxsjy/jieba" target="_blank" rel="noopener">jieba</a></td>
-<td>中文分词、关键词提取、词性标注、并行分词</td>
-<td>Python</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="整合中文分词模块"><a href="#整合中文分词模块" class="headerlink" title="整合中文分词模块"></a>整合中文分词模块</h2><p>汉语自然语言处理的第一步就是中文分词，按照算法的不同，介绍两大类中文分词模块：</p>
-<ul>
-<li>基于条件随机场（CRF）的中文分词算法开源系统（哈工大的HIT LTP）</li>
-<li>基于张华平NShort的中文分词算法开源系统（结巴分词）</li>
-</ul>
-<h2 id="整合词性标注模块"><a href="#整合词性标注模块" class="headerlink" title="整合词性标注模块"></a>整合词性标注模块</h2><p>词性标注（Port-Of-Speech Tagging）,又称为词类标注，是指判断出在一个句子中每一词所扮演的语法角色。例如：表示人、事物、地点或抽象概念的名称等，词性标注算法比较统一。</p>
-<ul>
-<li>大多数使用HMM（隐马尔科夫模型）或者最大熵算法（如：结巴分词的词性实现）</li>
-<li>使用CRF算法实现（例如：哈工大的LTP3.3中的词性标注）<br>目前最流行的中文词性标签有两大类：北大词性标注集和宾州词性标注集</li>
-</ul>
-
-      
-    </div>
-
-
-    <footer>
-      
-        
-       
-            <a href="/2018/09/10/nlp-v1/" class="ds-thread-count comment-link alignright" data-thread-key="2018/09/10/nlp-v1/" data-count-type="comments"></a>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <!--  -->
-</article>
-
-<!-- <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/syntax.js"></script> -->
-
-
-		
-			<article class="post hidden_show">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-09-10T05:43:34.000Z"><a href="/2018/09/10/word/">2018-09-10</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/09/10/word/">分词原理以及常用的方法</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-
-
-    <footer>
-      
-        
-       
-            <a href="/2018/09/10/word/" class="ds-thread-count comment-link alignright" data-thread-key="2018/09/10/word/" data-count-type="comments"></a>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <!--  -->
-</article>
-
-<!-- <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/syntax.js"></script> -->
-
-
-		
-			<article class="post hidden_show">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="post hidden_show">
   
   <div class="post-content">
     <header>
@@ -273,7 +60,7 @@
       
       
   
-    <h1 class="title"><a href="/2018/09/06/elasticsearch/">ElasticSearch学习笔记（一）</a></h1>
+    <h1 class="title">ElasticSearch学习笔记（一）</h1>
   
 
     </header>
@@ -353,255 +140,68 @@
     <footer>
       
         
-       
-            <a href="/2018/09/06/elasticsearch/" class="ds-thread-count comment-link alignright" data-thread-key="2018/09/06/elasticsearch/" data-count-type="comments"></a>
+
         
-      
-      <div class="clearfix"></div>
-    </footer>
+  
+  <div class="tags">
+    <a href="/tags/ElasticSearch/">ElasticSearch</a>
   </div>
-  <!--  -->
-</article>
 
-<!-- <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/syntax.js"></script> -->
-
-
-		
-			<article class="post hidden_show">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-08-30T06:06:08.000Z"><a href="/2018/08/30/active_funcation/">2018-08-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/08/30/active_funcation/">激活函数</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="1、激活函数介绍"><a href="#1、激活函数介绍" class="headerlink" title="1、激活函数介绍"></a>1、激活函数介绍</h2><h3 id="1-1、什么是激活函数"><a href="#1-1、什么是激活函数" class="headerlink" title="1.1、什么是激活函数"></a>1.1、什么是激活函数</h3><p>如下图，在神经元中，输入的 inputs 通过加权，求和后，还被作用了一个函数，这个函数就是激活函数 Activation Function。<br><img src="/images/active.png" alt="activate"><br>
-      
-    </div>
-
-
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2018/08/30/active_funcation/#more" class="more-link">查看全文</a>
-          </div>
-        
-       
-            <a href="/2018/08/30/active_funcation/" class="ds-thread-count comment-link alignright" data-thread-key="2018/08/30/active_funcation/" data-count-type="comments"></a>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <!--  -->
-</article>
-
-<!-- <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/syntax.js"></script> -->
-
-
-		
-			<article class="post hidden_show">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-08-30T03:46:09.000Z"><a href="/2018/08/30/word2vec/">2018-08-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/08/30/word2vec/">word2vec原理分析笔记</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="1、word2vec介绍"><a href="#1、word2vec介绍" class="headerlink" title="1、word2vec介绍"></a>1、word2vec介绍</h2><p>word2vec 是 Google 于 2013 年开源推出的一个用于获取 word vector (词向量)的工具包。<br>特点：简单、高效<br>作用：把文本转化为词向量</p>
-<h2 id="2、预备知识"><a href="#2、预备知识" class="headerlink" title="2、预备知识"></a>2、预备知识</h2><p>word2vec 中用到的一些重要知识点：sigmoid函数、Beyes公式、Huffman编码<br>
-      
-    </div>
-
-
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2018/08/30/word2vec/#more" class="more-link">查看全文</a>
-          </div>
-        
-       
-            <a href="/2018/08/30/word2vec/" class="ds-thread-count comment-link alignright" data-thread-key="2018/08/30/word2vec/" data-count-type="comments"></a>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <!--  -->
-</article>
-
-<!-- <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/syntax.js"></script> -->
-
-
-		
-			<article class="post hidden_show">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-08-30T01:45:06.000Z"><a href="/2018/08/30/hmm-1/">2018-08-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/08/30/hmm-1/">隐马尔可夫模型</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>隐马尔可夫模型（Hidden Markov Model，HMM）是统计模型，</p>
-<h2 id="1、HMM原理"><a href="#1、HMM原理" class="headerlink" title="1、HMM原理"></a>1、HMM原理</h2><p>ab是apachebench的缩写<br>ab命令会创建多个并发访问线程，对同一个URL访问来测试apache的负载压力。测试目标是URL。、Lighthttp、Tomcat、IIS等其它服务器</p>
-      
-    </div>
-
-
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2018/08/30/hmm-1/#more" class="more-link">查看全文</a>
-          </div>
-        
-       
-            <a href="/2018/08/30/hmm-1/" class="ds-thread-count comment-link alignright" data-thread-key="2018/08/30/hmm-1/" data-count-type="comments"></a>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <!--  -->
-</article>
-
-<!-- <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/syntax.js"></script> -->
-
-
-		
-			<article class="post hidden_show">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-08-29T17:57:54.000Z"><a href="/2018/08/30/mathjax/">2018-08-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/08/30/mathjax/">在 hexo 中支持 Mathjax</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="第一步-使用Kramed代替-Marked"><a href="#第一步-使用Kramed代替-Marked" class="headerlink" title="第一步 使用Kramed代替 Marked"></a>第一步 使用Kramed代替 Marked</h2><p><code>hexo</code> 默认的渲染引擎是 marked，但是 <code>marked</code> 不支持 <code>mathjax</code>。 <code>kramed</code> 是在 <code>marked</code> 的基础上进行修改。我们在工程目录下执行以下命令来安装 <code>kramed</code>.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure></p>
-<p>然后，更改/node_modules/hexo-renderer-kramed/lib/renderer.js，更改：<br>
-      
-    </div>
-
-
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2018/08/30/mathjax/#more" class="more-link">查看全文</a>
-          </div>
-        
-       
-            <a href="/2018/08/30/mathjax/" class="ds-thread-count comment-link alignright" data-thread-key="2018/08/30/mathjax/" data-count-type="comments"></a>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <!--  -->
-</article>
-
-<!-- <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/syntax.js"></script> -->
-
-
-		
-	</div>
-	<nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
 </div>
 
-<aside id="sidebar" class="alignright">
-	
-	  	<div id="site_search" class="search">
-  <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
-  <div id="local-search-result"></div>
-</div>
-
-<script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/search.js"></script>
-<script type="text/javascript">      
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    searchFunc(path, 'local-search-input', 'local-search-result');
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
 </script>
-	
-	  	
-<div class="widget tag">
-  <h3 class="title">分类</h3>
-  <ul class="entry">
-  
-    <li><a href="/categories/算法/">算法</a><small>2</small></li>
-  
-  </ul>
-</div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="2018/09/06/elasticsearch/"></div>
+    </section>
+ -->
+</article>
 
-	
-	  	
-<div class="widget tag">
-  <h3 class="title">标签</h3>
-  <ul class="entry">
-  
-    <li><a href="/tags/CRF/">CRF</a><small>1</small></li>
-  
-    <li><a href="/tags/ElasticSearch/">ElasticSearch</a><small>2</small></li>
-  
-    <li><a href="/tags/HMM/">HMM</a><small>1</small></li>
-  
-    <li><a href="/tags/NLP/">NLP</a><small>1</small></li>
-  
-    <li><a href="/tags/Word2Vec/">Word2Vec</a><small>1</small></li>
-  
-    <li><a href="/tags/分词/">分词</a><small>1</small></li>
-  
-  </ul>
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）ES的安装"><span class="toc-text">（一）ES的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、安装前准备"><span class="toc-text">1、安装前准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、直接下载安装包后，解压即可"><span class="toc-text">2、直接下载安装包后，解压即可</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、运行elasticsearch"><span class="toc-text">3、运行elasticsearch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、验证"><span class="toc-text">4、验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、遇到的问题"><span class="toc-text">5、遇到的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）Python连接ES"><span class="toc-text">（二）Python连接ES</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、安装elasticsearch扩展包"><span class="toc-text">1、安装elasticsearch扩展包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、连接方式"><span class="toc-text">2、连接方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）创建索引"><span class="toc-text">（三）创建索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、非正规创建"><span class="toc-text">1、非正规创建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（最后）ES小笔记"><span class="toc-text">（最后）ES小笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ES和关系型数据库的区别"><span class="toc-text">ES和关系型数据库的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#集群健康"><span class="toc-text">集群健康</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分片"><span class="toc-text">分片</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#作用"><span class="toc-text">作用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#主分片、复制分片"><span class="toc-text">主分片、复制分片</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据"><span class="toc-text">数据</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#请求方法"><span class="toc-text">请求方法</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
 </div>
+      
+  </aside>
 
-	
-</aside>
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
 
 
 </div></div>

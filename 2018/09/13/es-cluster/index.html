@@ -1,0 +1,245 @@
+
+  <!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ElasticSearch集群搭建 | 机器学习笔记</title>
+  <meta name="author" content="LiuShuaiaCai">
+  
+  <meta name="description" content="Deep Learning">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="ElasticSearch集群搭建"/>
+  <meta property="og:site_name" content="机器学习笔记"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="机器学习笔记" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+  <body>
+    <a name="top"></a>
+  	<header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">机器学习笔记</a></h1>
+  <h2><a href="/">Deep Learning</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about-me">About</a></li>
+    
+      <li><a href="/atom.xml">Rss</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  	<div id="content" class="inner">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="post hidden_show">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-09-13T10:04:05.000Z"><a href="/2018/09/13/es-cluster/">2018-09-13</a></time>
+      
+      
+  
+    <h1 class="title">ElasticSearch集群搭建</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1、需要下载"><a href="#1、需要下载" class="headerlink" title="1、需要下载"></a>1、需要下载</h2><p>文件安装包</p>
+<ul>
+<li>elasticsearch-head-master</li>
+<li>elasticsearch<br>下载地址：<br><a href="https://www.elastic.co/downloads/elasticsearch" target="_blank" rel="noopener">https://www.elastic.co/downloads/elasticsearch</a><br><a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">https://github.com/mobz/elasticsearch-head</a><br>文件列表：</li>
+<li>elasticsearch-head-master</li>
+<li>elasticsearch1</li>
+<li>elasticsearch2<a id="more"></a>
+</li>
+</ul>
+<h2 id="2、修改host文件"><a href="#2、修改host文件" class="headerlink" title="2、修改host文件"></a>2、修改host文件</h2><p>127.0.0.1    host1<br>127.0.0.1    host2</p>
+<h2 id="3、修改ES的配置文件"><a href="#3、修改ES的配置文件" class="headerlink" title="3、修改ES的配置文件"></a>3、修改ES的配置文件</h2><p>修改elasticsearch.yml文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#配置文件中未改动的位置我就不展示了</span><br><span class="line"></span><br><span class="line">　　　　#第一个配置文件改动如下</span><br><span class="line">　　　　#集群名称(必须一样)</span><br><span class="line">　　　　cluster.name: carryless-es</span><br><span class="line">　　　　#节点名称(必须不一样)</span><br><span class="line">　　　　node.name: node-1</span><br><span class="line">　　　　#本机的IP地址</span><br><span class="line">　　　　network.host: host1</span><br><span class="line">　　　　#服务的端口号(在本地配置多个时，请注意修改为不一样的端口)</span><br><span class="line">　　　　http.port: 9201</span><br><span class="line">　　　　#服务发现端口</span><br><span class="line">　　　　transport.tcp.port: 9301</span><br><span class="line">　　　　#集群发现IP集合</span><br><span class="line">　　　　discovery.zen.ping.unicast.hosts: [&quot;host1:9301&quot;, &quot;host2:9302&quot;]</span><br><span class="line"></span><br><span class="line">　　　　#第二个配置文件改动如下</span><br><span class="line">　　　　cluster.name: carryless-es</span><br><span class="line">　　　　node.name: node-2</span><br><span class="line">　　　　network.host: host2</span><br><span class="line">　　　　http.port: 9202</span><br><span class="line">　　　　transport.tcp.port: 9302</span><br><span class="line">　　　　discovery.zen.ping.unicast.hosts: [&quot;host1:9301&quot;, &quot;host2:9302&quot;]</span><br></pre></td></tr></table></figure></p>
+<p>解决elasticsearch服务与elasticsearch-head之间的跨域问题，在各自的配置文件中添加如下两行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="4、elasticsearch-head插件安装"><a href="#4、elasticsearch-head插件安装" class="headerlink" title="4、elasticsearch-head插件安装"></a>4、elasticsearch-head插件安装</h2><p>elasticsearch-head是一个用来浏览、与elasticsearch进行交互的web前端展示插件,使用node.js编写，要使用elasticsearch-head插件，需要有node环境，node.js的安装在此不做赘述，不明白的小伙伴请自行搜索。</p>
+<ul>
+<li><p>首先我们使用命令窗口cmd,进入elasticsearch-head插件的目录中，执行以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行完成后，在当前目录下会多出一个名为node_modules的目录，此目录为自动下载所需模块的文件</p>
+</li>
+<li><p>运行head插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后在浏览器中访问 <a href="http://localhost:9100" target="_blank" rel="noopener">http://localhost:9100</a><br><img src="/images/es_cluster.png" alt="es_cluster"></p>
+</li>
+</ul>
+
+      
+    </div>
+
+
+    <footer>
+      
+        
+
+        
+  
+  <div class="tags">
+    <a href="/tags/ElasticSearch/">ElasticSearch</a>
+  </div>
+
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="2018/09/13/es-cluster/"></div>
+    </section>
+ -->
+</article>
+
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、需要下载"><span class="toc-text">1、需要下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、修改host文件"><span class="toc-text">2、修改host文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、修改ES的配置文件"><span class="toc-text">3、修改ES的配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、elasticsearch-head插件安装"><span class="toc-text">4、elasticsearch-head插件安装</span></a></li></ol>
+</div>
+      
+  </aside>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+
+</div></div>
+      <div class="clearfix"></div>
+  	</div>
+    <div id = 'r_top'>
+	<ul>
+		<li class='top'><a href='#top'></a></li>
+		<li class='close' data='0'><a href='javascript:;'></a></li>
+		<li class='bottom'><a href='#bottom'></a></li>
+	</ul>
+</div>
+
+    <footer id="footer" class="inner"><a name='bottom'></a>
+<div class="alignleft">
+  
+  &copy; 2018 LiuShuaiaCai
+  
+</div>
+<div class="clearfix"></div>
+</footer>
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+var duoshuo_shortname = 'feifan';
+var duoshuoQuery = {short_name:duoshuo_shortname};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'https://unpkg.com/embed-js@5.0.3/umd/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<script src="/js/toc.js"></script>
+<script src="/js/top.js"></script>
+<script src="/js/syntax.js"></script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+  </html>
+

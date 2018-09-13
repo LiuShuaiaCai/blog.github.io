@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>隐马尔可夫模型 | 机器学习笔记</title>
+  <title>自然语言处理（一） | 机器学习笔记</title>
   <meta name="author" content="LiuShuaiaCai">
   
   <meta name="description" content="Deep Learning">
@@ -12,7 +12,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="隐马尔可夫模型"/>
+  <meta property="og:title" content="自然语言处理（一）"/>
   <meta property="og:site_name" content="机器学习笔记"/>
 
   
@@ -56,19 +56,60 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2018-08-30T01:45:06.000Z"><a href="/2018/08/30/hmm-1/">2018-08-30</a></time>
+        <time datetime="2018-09-10T07:17:34.000Z"><a href="/2018/09/10/nlp-v1/">2018-09-10</a></time>
       
       
   
-    <h1 class="title">隐马尔可夫模型</h1>
+    <h1 class="title">自然语言处理（一）</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>隐马尔可夫模型（Hidden Markov Model，HMM）是统计模型，</p>
-<h2 id="1、HMM原理"><a href="#1、HMM原理" class="headerlink" title="1、HMM原理"></a>1、HMM原理</h2><p>ab是apachebench的缩写<br>ab命令会创建多个并发访问线程，对同一个URL访问来测试apache的负载压力。测试目标是URL。、Lighthttp、Tomcat、IIS等其它服务器</p>
-<a id="more"></a>
+        <p>自然语言处理（Natural Language Processing,NLP）是研究能够实现人与计算机之间用自然语言进行有效通信的各种理论和方法，也是人工智能领域中一个最重要、最艰难的方向。</p>
+<p>近些年NLP的突破：中文分词、词性标注、词汇语义、语法解析</p>
+<p>文本方面：基于自然语言理解的智能搜索引擎、智能搜索、机器翻译、自动摘要、文本综合、文本分类、信息过滤、垃圾邮件处理、文本数据挖掘等</p>
+<p>语音方面：智能客服、聊天机器人、多媒体信息提取与文本转化</p>
+<h2 id="现在自然语言系统"><a href="#现在自然语言系统" class="headerlink" title="现在自然语言系统"></a>现在自然语言系统</h2><p>自然语言系统基础模块：语言的解析、语义的理解、语言的生成<br><img src="/images/nlp-1.png" alt="nlp-1"><br>自然语言处理的一般构架：<br><img src="/images/nlp-2.png" alt="nlp-2"><br>左侧是语法层面的模块：中文分词、词性标注、句法解析<br>右侧侧重于语义层面：命名实体识别主要用来识别语料中专有名词和未登录词的成词情况，如人名、地名、组织结构名等。受到左侧的中文分词和此行标注的影响。</p>
+<h2 id="开源的中文NLP系统"><a href="#开源的中文NLP系统" class="headerlink" title="开源的中文NLP系统"></a>开源的中文NLP系统</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>包含模块</th>
+<th>开发语言</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.ltp-cloud.com/" target="_blank" rel="noopener">哈工大LTP</a></td>
+<td>中文分词、词性标注、未登录词识别、句法分析、语义角色标注、关键字提取<br>文档：<a href="https://ltp.readthedocs.io/zh_CN/latest/index.html" target="_blank" rel="noopener">https://ltp.readthedocs.io/zh_CN/latest/index.html</a><br>Python文档：<a href="https://pyltp.readthedocs.io/zh_CN/latest/" target="_blank" rel="noopener">https://pyltp.readthedocs.io/zh_CN/latest/</a></td>
+<td>C++</td>
+</tr>
+<tr>
+<td><a href="https://nlp.stanford.edu/software/index.html" target="_blank" rel="noopener">Stanford</a></td>
+<td>中文分词、词性标注、未登录词识别、句法分析、关键词提取</td>
+<td>Java</td>
+</tr>
+<tr>
+<td><a href="https://github.com/fxsjy/jieba" target="_blank" rel="noopener">jieba</a></td>
+<td>中文分词、关键词提取、词性标注、并行分词</td>
+<td>Python</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="整合中文分词模块"><a href="#整合中文分词模块" class="headerlink" title="整合中文分词模块"></a>整合中文分词模块</h2><p>汉语自然语言处理的第一步就是中文分词，按照算法的不同，介绍两大类中文分词模块：</p>
+<ul>
+<li>基于条件随机场（CRF）的中文分词算法开源系统（哈工大的HIT LTP）</li>
+<li>基于张华平NShort的中文分词算法开源系统（结巴分词）</li>
+</ul>
+<h2 id="整合词性标注模块"><a href="#整合词性标注模块" class="headerlink" title="整合词性标注模块"></a>整合词性标注模块</h2><p>词性标注（Port-Of-Speech Tagging）,又称为词类标注，是指判断出在一个句子中每一词所扮演的语法角色。例如：表示人、事物、地点或抽象概念的名称等，词性标注算法比较统一。</p>
+<ul>
+<li>大多数使用HMM（隐马尔科夫模型）或者最大熵算法（如：结巴分词的词性实现）</li>
+<li>使用CRF算法实现（例如：哈工大的LTP3.3中的词性标注）<br>目前最流行的中文词性标签有两大类：北大词性标注集和宾州词性标注集</li>
+</ul>
+
       
     </div>
 
@@ -76,16 +117,11 @@
     <footer>
       
         
-  
-  <div class="categories">
-    <a href="/categories/算法/">算法</a>
-  </div>
-
 
         
   
   <div class="tags">
-    <a href="/tags/HMM/">HMM</a>
+    <a href="/tags/NLP/">NLP</a>
   </div>
 
         <div class="bdsharebuttonbox">
@@ -127,7 +163,7 @@
   <!-- 
     <section id="comment">
         <h1 class="title">留言</h1>
-        <div class="ds-thread" data-thread-key="2018/08/30/hmm-1/"></div>
+        <div class="ds-thread" data-thread-key="2018/09/10/nlp-v1/"></div>
     </section>
  -->
 </article>
@@ -136,7 +172,7 @@
          <!--02-->
         <div id="toc" class="toc-article">
     <div class="toc-title">目录</div>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、HMM原理"><span class="toc-text">1、HMM原理</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#现在自然语言系统"><span class="toc-text">现在自然语言系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开源的中文NLP系统"><span class="toc-text">开源的中文NLP系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整合中文分词模块"><span class="toc-text">整合中文分词模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整合词性标注模块"><span class="toc-text">整合词性标注模块</span></a></li></ol>
 </div>
       
   </aside>
