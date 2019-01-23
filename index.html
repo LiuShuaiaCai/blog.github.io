@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>学习笔记</title>
+  <title>Lsc’s Home</title>
   <meta name="author" content="LiuShuaiaCai">
   
   <meta name="description" content="Deep Learning">
@@ -13,14 +13,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <meta property="og:site_name" content="学习笔记"/>
+  <meta property="og:site_name" content="Lsc’s Home"/>
 
   
     <meta property="og:image" content=""/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Lsc’s Home" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -30,19 +30,17 @@
   <body>
     <a name="top"></a>
   	<header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">学习笔记</a></h1>
-  <h2><a href="/">Deep Learning</a></h2>
+  <h1><a href="/">Lsc’s Home</a></h1>
+  <h2><a href="/">学习笔记</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
   <ul>
     
-      <li><a href="/">Home</a></li>
+      <li><a href="/">首页</a></li>
     
-      <li><a href="/archives">Archives</a></li>
+      <li><a href="/laravel">Laravel</a></li>
     
-      <li><a href="/about-me">About</a></li>
-    
-      <li><a href="/atom.xml">Rss</a></li>
+      <li><a href="/about">关于我</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -69,13 +67,10 @@
     </header>
     <div class="entry">
       
-        <h2 id="1、需要下载"><a href="#1、需要下载" class="headerlink" title="1、需要下载"></a>1、需要下载</h2><p>文件安装包</p>
-<ul>
-<li>elasticsearch-head-master</li>
-<li>elasticsearch<br>下载地址：<br><a href="https://www.elastic.co/downloads/elasticsearch" target="_blank" rel="noopener">https://www.elastic.co/downloads/elasticsearch</a><br><a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">https://github.com/mobz/elasticsearch-head</a><br>文件列表：</li>
-<li>elasticsearch-head-master</li>
-<li>elasticsearch1</li>
-<li>elasticsearch2
+        <h2 id="1、需要下载的文件"><a href="#1、需要下载的文件" class="headerlink" title="1、需要下载的文件"></a>1、需要下载的文件</h2><p>文件安装包</p>
+<pre><code>* elasticsearch-head-master
+* elasticsearch
+</code></pre>
       
     </div>
 
@@ -159,55 +154,17 @@
     <div class="entry">
       
         <p>自然语言处理（Natural Language Processing,NLP）是研究能够实现人与计算机之间用自然语言进行有效通信的各种理论和方法，也是人工智能领域中一个最重要、最艰难的方向。</p>
-<p>近些年NLP的突破：中文分词、词性标注、词汇语义、语法解析</p>
-<p>文本方面：基于自然语言理解的智能搜索引擎、智能搜索、机器翻译、自动摘要、文本综合、文本分类、信息过滤、垃圾邮件处理、文本数据挖掘等</p>
-<p>语音方面：智能客服、聊天机器人、多媒体信息提取与文本转化</p>
-<h2 id="现在自然语言系统"><a href="#现在自然语言系统" class="headerlink" title="现在自然语言系统"></a>现在自然语言系统</h2><p>自然语言系统基础模块：语言的解析、语义的理解、语言的生成<br><img src="/images/nlp-1.png" alt="nlp-1"><br>自然语言处理的一般构架：<br><img src="/images/nlp-2.png" alt="nlp-2"><br>左侧是语法层面的模块：中文分词、词性标注、句法解析<br>右侧侧重于语义层面：命名实体识别主要用来识别语料中专有名词和未登录词的成词情况，如人名、地名、组织结构名等。受到左侧的中文分词和此行标注的影响。</p>
-<h2 id="开源的中文NLP系统"><a href="#开源的中文NLP系统" class="headerlink" title="开源的中文NLP系统"></a>开源的中文NLP系统</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>包含模块</th>
-<th>开发语言</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.ltp-cloud.com/" target="_blank" rel="noopener">哈工大LTP</a></td>
-<td>中文分词、词性标注、未登录词识别、句法分析、语义角色标注、关键字提取<br>文档：<a href="https://ltp.readthedocs.io/zh_CN/latest/index.html" target="_blank" rel="noopener">https://ltp.readthedocs.io/zh_CN/latest/index.html</a><br>Python文档：<a href="https://pyltp.readthedocs.io/zh_CN/latest/" target="_blank" rel="noopener">https://pyltp.readthedocs.io/zh_CN/latest/</a></td>
-<td>C++</td>
-</tr>
-<tr>
-<td><a href="https://nlp.stanford.edu/software/index.html" target="_blank" rel="noopener">Stanford</a></td>
-<td>中文分词、词性标注、未登录词识别、句法分析、关键词提取</td>
-<td>Java</td>
-</tr>
-<tr>
-<td><a href="https://github.com/fxsjy/jieba" target="_blank" rel="noopener">jieba</a></td>
-<td>中文分词、关键词提取、词性标注、并行分词</td>
-<td>Python</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="整合中文分词模块"><a href="#整合中文分词模块" class="headerlink" title="整合中文分词模块"></a>整合中文分词模块</h2><p>汉语自然语言处理的第一步就是中文分词，按照算法的不同，介绍两大类中文分词模块：</p>
-<ul>
-<li>基于条件随机场（CRF）的中文分词算法开源系统（哈工大的HIT LTP）</li>
-<li>基于张华平NShort的中文分词算法开源系统（结巴分词）</li>
-</ul>
-<h2 id="整合词性标注模块"><a href="#整合词性标注模块" class="headerlink" title="整合词性标注模块"></a>整合词性标注模块</h2><p>词性标注（Port-Of-Speech Tagging）,又称为词类标注，是指判断出在一个句子中每一词所扮演的语法角色。例如：表示人、事物、地点或抽象概念的名称等，词性标注算法比较统一。</p>
-<ul>
-<li>大多数使用HMM（隐马尔科夫模型）或者最大熵算法（如：结巴分词的词性实现）</li>
-<li>使用CRF算法实现（例如：哈工大的LTP3.3中的词性标注）<br>目前最流行的中文词性标签有两大类：北大词性标注集和宾州词性标注集</li>
-</ul>
-
+<p>近些年NLP的突破：中文分词、词性标注、词汇语义、语法解析<br>
       
     </div>
 
 
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2018/09/10/nlp-v1/#more" class="more-link">查看全文</a>
+          </div>
         
        
             <a href="/2018/09/10/nlp-v1/" class="ds-thread-count comment-link alignright" data-thread-key="2018/09/10/nlp-v1/" data-count-type="comments"></a>
@@ -241,78 +198,16 @@
     <div class="entry">
       
         <h2 id="（一）ES的安装"><a href="#（一）ES的安装" class="headerlink" title="（一）ES的安装"></a>（一）ES的安装</h2><h3 id="1、安装前准备"><a href="#1、安装前准备" class="headerlink" title="1、安装前准备"></a>1、安装前准备</h3><p>elasticsearch是使用java开发的，所以必须安装Java环境<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ2zee30op42zedrik59weZ ~]<span class="comment"># yum install java</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="2、直接下载安装包后，解压即可"><a href="#2、直接下载安装包后，解压即可" class="headerlink" title="2、直接下载安装包后，解压即可"></a>2、直接下载安装包后，解压即可</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ2zee30op42zedrik59weZ ~]<span class="comment"># https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.0.zip</span></span><br><span class="line">[root@iZ2zee30op42zedrik59weZ ~]<span class="comment"># unzip elasticsearch-5.5.0.zip</span></span><br></pre></td></tr></table></figure>
-<h3 id="3、运行elasticsearch"><a href="#3、运行elasticsearch" class="headerlink" title="3、运行elasticsearch"></a>3、运行elasticsearch</h3><p>进入elasticsearch目录，运行 bin/elasticsearch (or bin\elasticsearch.bat on Windows)</p>
-<h3 id="4、验证"><a href="#4、验证" class="headerlink" title="4、验证"></a>4、验证</h3><p>在shell中输入 curl <a href="http://localhost:9200/" target="_blank" rel="noopener">http://localhost:9200/</a> or Invoke-RestMethod <a href="http://localhost:9200" target="_blank" rel="noopener">http://localhost:9200</a> </p>
-<h3 id="5、遇到的问题"><a href="#5、遇到的问题" class="headerlink" title="5、遇到的问题"></a>5、遇到的问题</h3><p>问题一：OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x0000000085330000, 2060255232, 0) failed; error=’Cannot allocate memory’ (errno=12)</p>
-<pre><code>解决办法：
-由于elasticsearch5.0默认分配jvm空间大小为2g，修改jvm空间分配
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">22</span> <span class="comment"># -Xms2g</span></span><br><span class="line"><span class="number">23</span> <span class="comment"># -Xmx2g</span></span><br><span class="line"><span class="number">24</span> -Xms512m</span><br><span class="line"><span class="number">25</span> -Xmx512m</span><br></pre></td></tr></table></figure>
-</code></pre><p>问题二：Caused by: java.lang.RuntimeException: can not run elasticsearch as root</p>
-<pre><code>解决办法：
-+ 异常描述为不能以root权限运行Elasticsearch.解决办法是运行时加上参数：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/elasticsearch -Des.insecure.allow.root=true</span><br></pre></td></tr></table></figure>
-
-+ 或者修改bin/elasticsearch，加上ES_JAVA_OPTS属性：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ES_JAVA_OPTS=<span class="string">"-Des.insecure.allow.root=true"</span></span><br></pre></td></tr></table></figure>
-</code></pre><p>问题三：ERROR: D is not a recognized option</p>
-<pre><code>解决办法：
-其实上一个错误可以忽略，直接运行下面即可
-+ 创建用户组和用户
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ2zee30op42zedrik59weZ bin]<span class="comment"># groupadd es</span></span><br><span class="line">[root@iZ2zee30op42zedrik59weZ bin]<span class="comment"># useradd liushuaicai -g es -p liushuaicai</span></span><br><span class="line">[root@iZ2zee30op42zedrik59weZ local]<span class="comment"># chown -R liushuaicai:es elasticsearch-5.5.0/</span></span><br><span class="line">[root@iZ2zee30op42zedrik59weZ local]<span class="comment"># su liushuaicai</span></span><br><span class="line">[liushuaicai@iZ2zee30op42zedrik59weZ local]$ cd elasticsearch<span class="number">-5.5</span><span class="number">.0</span>/</span><br><span class="line">[liushuaicai@iZ2zee30op42zedrik59weZ elasticsearch<span class="number">-5.5</span><span class="number">.0</span>]$ ./bin/elasticsearch</span><br></pre></td></tr></table></figure>
-</code></pre><blockquote>
-<p>安装结束。。。</p>
-</blockquote>
-<hr>
-<h2 id="（二）Python连接ES"><a href="#（二）Python连接ES" class="headerlink" title="（二）Python连接ES"></a>（二）Python连接ES</h2><p>这里主要是使用Python来操作ElasticSearch，先介绍一下Python怎样连接ES。</p>
-<h3 id="1、安装elasticsearch扩展包"><a href="#1、安装elasticsearch扩展包" class="headerlink" title="1、安装elasticsearch扩展包"></a>1、安装elasticsearch扩展包</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install elasticsearch</span><br></pre></td></tr></table></figure>
-<h3 id="2、连接方式"><a href="#2、连接方式" class="headerlink" title="2、连接方式"></a>2、连接方式</h3><p>有以下几种连接方式:<br>a)、本地连接方式<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> elasticsearch <span class="keyword">import</span> Elasticsearch</span><br><span class="line"></span><br><span class="line">es = Elasticsearch()</span><br></pre></td></tr></table></figure></p>
-<p>b)、连接多个ES<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> elasticsearch <span class="keyword">import</span> Elasticsearch</span><br><span class="line"></span><br><span class="line">es = Elasticsearch([<span class="string">'localhost:443'</span>, <span class="string">'other_host:443'</span>])</span><br></pre></td></tr></table></figure></p>
-<p>b)、用户密码连接方式<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> elasticsearch <span class="keyword">import</span> Elasticsearch</span><br><span class="line"></span><br><span class="line"><span class="comment"># you can use RFC-1738 to specify the url</span></span><br><span class="line">es = Elasticsearch([<span class="string">'https://user:secret@localhost:443'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># ... or specify common parameters as kwargs</span></span><br><span class="line">es = Elasticsearch(</span><br><span class="line">    [<span class="string">'localhost'</span>, <span class="string">'otherhost'</span>],</span><br><span class="line">    http_auth=(<span class="string">'user'</span>, <span class="string">'secret'</span>),</span><br><span class="line">    scheme=<span class="string">"https"</span>,</span><br><span class="line">    port=<span class="number">443</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># SSL client authentication using client_cert and client_key</span></span><br><span class="line"><span class="keyword">from</span> ssl <span class="keyword">import</span> create_default_context</span><br><span class="line">context = create_default_context(cafile=<span class="string">"path/to/cert.pem"</span>)</span><br><span class="line">es = Elasticsearch(</span><br><span class="line">    [<span class="string">'localhost'</span>, <span class="string">'otherhost'</span>],</span><br><span class="line">    http_auth=(<span class="string">'user'</span>, <span class="string">'secret'</span>),</span><br><span class="line">    scheme=<span class="string">"https"</span>,</span><br><span class="line">    port=<span class="number">443</span>,</span><br><span class="line">    ssl_context=context,</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<p>更多的连接方式，可以查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html" target="_blank" rel="noopener">官方文档</a>或者<a href="https://elasticsearch-py.readthedocs.io/en/master/" target="_blank" rel="noopener">elasticsearch-py</a></p>
-<p>⚠️ 警告</p>
-<pre><code>elasticsearch-py不附带默认的根证书集。
-有工作的SSL证书验证您需要可以指定自己的作为cafile或capath或cadata 或安装CERTIFI将被自动拾取。
-</code></pre><h2 id="（三）创建索引"><a href="#（三）创建索引" class="headerlink" title="（三）创建索引"></a>（三）创建索引</h2><p>ES的索引和MySql的作用是一样的，优化索引可以提高搜索速度</p>
-<h3 id="1、非正规创建"><a href="#1、非正规创建" class="headerlink" title="1、非正规创建"></a>1、非正规创建</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> elasticsearch <span class="keyword">import</span> Elasticsearch</span><br><span class="line">es = Elasticsearch()</span><br><span class="line">doc = &#123;</span><br><span class="line">    <span class="string">'name'</span>: <span class="string">'lsc'</span>,</span><br><span class="line">    <span class="string">'age'</span>: <span class="number">23</span>,</span><br><span class="line">    <span class="string">'sex'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'job'</span>: <span class="string">'php'</span>,</span><br><span class="line">    <span class="string">'other'</span>: &#123;</span><br><span class="line">        <span class="string">'from'</span>: <span class="string">'henan'</span>,</span><br><span class="line">        <span class="string">'city'</span>: <span class="string">'beijing'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">res = es.index(index=<span class="string">'crm'</span>, doc_type=<span class="string">'user'</span>, id=<span class="number">1</span>, body=doc)</span><br><span class="line">print(res[<span class="string">'result'</span>])</span><br></pre></td></tr></table></figure>
-<h2 id="（最后）ES小笔记"><a href="#（最后）ES小笔记" class="headerlink" title="（最后）ES小笔记"></a>（最后）ES小笔记</h2><h4 id="ES和关系型数据库的区别"><a href="#ES和关系型数据库的区别" class="headerlink" title="ES和关系型数据库的区别"></a>ES和关系型数据库的区别</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Relational DB -&gt; Databases -&gt; Tables -&gt; Rows -&gt; Columns</span><br><span class="line">ElasticSearch -&gt; Indices -&gt; Types -&gt; Documents -&gt; Fields</span><br></pre></td></tr></table></figure>
-<h4 id="集群健康"><a href="#集群健康" class="headerlink" title="集群健康"></a>集群健康</h4><blockquote>
-<p>ES根据status判断集群的健康状态，status包括：green|yellow|red 三种颜色</p>
-</blockquote>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>颜色</th>
-<th>意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>green</td>
-<td>所有主分片和副分片都可用</td>
-</tr>
-<tr>
-<td>yellow</td>
-<td>所有主分片都可用，但不是所有的副分片都可用</td>
-</tr>
-<tr>
-<td>red</td>
-<td>不是所有的主分片都可用</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h4 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、一个分片是一个最小级别的“工作单元”，只是保存索引中所有数据的一小片；</span><br><span class="line">2、是一个单一的Lucene实例</span><br><span class="line">3、本身就是一个完整的搜素引擎</span><br></pre></td></tr></table></figure>
-<h6 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、在集群中分配数据</span><br><span class="line">2、文档存储在分片上，分片分配给你的集群节点上</span><br><span class="line">3、索引中的每个文档都属于一个单独的主分片，主分片的数量决定了你最多存储多少数据（理论上主分片对存储多少数据并没有限制，限制取决于实际的使用情况）</span><br></pre></td></tr></table></figure>
-<h6 id="主分片、复制分片"><a href="#主分片、复制分片" class="headerlink" title="主分片、复制分片"></a>主分片、复制分片</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1、复制分片只是主分片的一个副本</span><br><span class="line">2、主分片的数量会在其索引创建完成后修正，但是复制分片的数量会随时变化的</span><br><span class="line">3、下面就是创建的3个主分片1个复制分片(每一个主分片有一个复制分片对应，也就是相当于有3个复制分片)</span><br><span class="line">&#123;</span><br><span class="line">    &quot;settings&quot; : &#123;</span><br><span class="line">        &quot;number_of_shards&quot; : 3,</span><br><span class="line">        &quot;number_of_replicas&quot; : 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">4、同一个节点上保存相同的数据副本是没用的，如果这个节点故障了，所有的数据也就丢失了</span><br></pre></td></tr></table></figure>
-<h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><h6 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET：获取数据</span><br><span class="line">POST：新增数据</span><br><span class="line">PUT：更新|新增指定数据，也就是带上ID</span><br><span class="line">DELETE：删除文档</span><br><span class="line">HEAD：判断数据是否存在</span><br></pre></td></tr></table></figure>
       
     </div>
 
 
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2018/09/06/elasticsearch/#more" class="more-link">查看全文</a>
+          </div>
         
        
             <a href="/2018/09/06/elasticsearch/" class="ds-thread-count comment-link alignright" data-thread-key="2018/09/06/elasticsearch/" data-count-type="comments"></a>
@@ -388,8 +283,7 @@
     </header>
     <div class="entry">
       
-        <h2 id="1、word2vec介绍"><a href="#1、word2vec介绍" class="headerlink" title="1、word2vec介绍"></a>1、word2vec介绍</h2><p>word2vec 是 Google 于 2013 年开源推出的一个用于获取 word vector (词向量)的工具包。<br>特点：简单、高效<br>作用：把文本转化为词向量</p>
-<h2 id="2、预备知识"><a href="#2、预备知识" class="headerlink" title="2、预备知识"></a>2、预备知识</h2><p>word2vec 中用到的一些重要知识点：sigmoid函数、Beyes公式、Huffman编码<br>
+        <h2 id="1、word2vec介绍"><a href="#1、word2vec介绍" class="headerlink" title="1、word2vec介绍"></a>1、word2vec介绍</h2><p>word2vec 是 Google 于 2013 年开源推出的一个用于获取 word vector (词向量)的工具包。<br>特点：简单、高效<br>作用：把文本转化为词向量<br>
       
     </div>
 
@@ -535,6 +429,8 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
+    <li><a href="/categories/ElasticSearch/">ElasticSearch</a><small>2</small></li>
+  
     <li><a href="/categories/算法/">算法</a><small>2</small></li>
   
   </ul>
@@ -577,7 +473,7 @@
     <footer id="footer" class="inner"><a name='bottom'></a>
 <div class="alignleft">
   
-  &copy; 2018 LiuShuaiaCai
+  &copy; 2019 LiuShuaiaCai
   
 </div>
 <div class="clearfix"></div>

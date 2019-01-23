@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ElasticSearch学习笔记（一） | 学习笔记</title>
+  <title>ElasticSearch学习笔记（一） | Lsc’s Home</title>
   <meta name="author" content="LiuShuaiaCai">
   
   <meta name="description" content="Deep Learning">
@@ -13,14 +13,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="ElasticSearch学习笔记（一）"/>
-  <meta property="og:site_name" content="学习笔记"/>
+  <meta property="og:site_name" content="Lsc’s Home"/>
 
   
     <meta property="og:image" content=""/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Lsc’s Home" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -30,19 +30,17 @@
   <body>
     <a name="top"></a>
   	<header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">学习笔记</a></h1>
-  <h2><a href="/">Deep Learning</a></h2>
+  <h1><a href="/">Lsc’s Home</a></h1>
+  <h2><a href="/">学习笔记</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
   <ul>
     
-      <li><a href="/">Home</a></li>
+      <li><a href="/">首页</a></li>
     
-      <li><a href="/archives">Archives</a></li>
+      <li><a href="/laravel">Laravel</a></li>
     
-      <li><a href="/about-me">About</a></li>
-    
-      <li><a href="/atom.xml">Rss</a></li>
+      <li><a href="/about">关于我</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -67,6 +65,7 @@
     <div class="entry">
       
         <h2 id="（一）ES的安装"><a href="#（一）ES的安装" class="headerlink" title="（一）ES的安装"></a>（一）ES的安装</h2><h3 id="1、安装前准备"><a href="#1、安装前准备" class="headerlink" title="1、安装前准备"></a>1、安装前准备</h3><p>elasticsearch是使用java开发的，所以必须安装Java环境<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ2zee30op42zedrik59weZ ~]<span class="comment"># yum install java</span></span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h3 id="2、直接下载安装包后，解压即可"><a href="#2、直接下载安装包后，解压即可" class="headerlink" title="2、直接下载安装包后，解压即可"></a>2、直接下载安装包后，解压即可</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ2zee30op42zedrik59weZ ~]<span class="comment"># https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.0.zip</span></span><br><span class="line">[root@iZ2zee30op42zedrik59weZ ~]<span class="comment"># unzip elasticsearch-5.5.0.zip</span></span><br></pre></td></tr></table></figure>
 <h3 id="3、运行elasticsearch"><a href="#3、运行elasticsearch" class="headerlink" title="3、运行elasticsearch"></a>3、运行elasticsearch</h3><p>进入elasticsearch目录，运行 bin/elasticsearch (or bin\elasticsearch.bat on Windows)</p>
 <h3 id="4、验证"><a href="#4、验证" class="headerlink" title="4、验证"></a>4、验证</h3><p>在shell中输入 curl <a href="http://localhost:9200/" target="_blank" rel="noopener">http://localhost:9200/</a> or Invoke-RestMethod <a href="http://localhost:9200" target="_blank" rel="noopener">http://localhost:9200</a> </p>
@@ -140,6 +139,11 @@
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/ElasticSearch/">ElasticSearch</a>
+  </div>
+
 
         
   
@@ -218,7 +222,7 @@
     <footer id="footer" class="inner"><a name='bottom'></a>
 <div class="alignleft">
   
-  &copy; 2018 LiuShuaiaCai
+  &copy; 2019 LiuShuaiaCai
   
 </div>
 <div class="clearfix"></div>

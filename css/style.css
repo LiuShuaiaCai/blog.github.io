@@ -129,6 +129,9 @@ em.search-keyword {
   text-shadow: 0 0 1px #fff;
   margin: 50px auto;
 }
+#header div {
+  margin-right: 86px;
+}
 #header a {
   color: #eee;
 }
@@ -149,6 +152,8 @@ em.search-keyword {
 }
 #header #main-nav {
   font-family: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  float: left;
   line-height: 2.5em;
 }
 #header #main-nav ul {
@@ -294,7 +299,7 @@ article header .title {
   font-weight: normal;
 }
 article header .title a {
-  color: #444;
+  color: #258fb8;
 }
 article header .title a:hover {
   color: #258fb8;
