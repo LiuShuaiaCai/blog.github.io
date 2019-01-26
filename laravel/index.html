@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   
   <title>Laravel 系列笔记 | Lsc’s Home</title>
-  <meta name="author" content="LiuShuaiaCai">
+  <meta name="author" content="LiuShuaiCai">
   
   <meta name="description" content="Deep Learning">
   
@@ -61,10 +61,14 @@
     </header>
     <div class="entry">
       
-        <h2 id="Laravel-服务容器原理"><a href="#Laravel-服务容器原理" class="headerlink" title="Laravel 服务容器原理"></a><a href="/laravel/provider-base.html">Laravel 服务容器原理</a></h2><p>本文是依赖注入（Depeendency Injection）系列教程的第 5 篇文章，本系列教程主要讲解如何使用 PHP 实现一个轻量级服务容器，教程包括：</p>
-<h2 id="服务容器绑定"><a href="#服务容器绑定" class="headerlink" title="服务容器绑定"></a><a href="/laravel/binding.html">服务容器绑定</a></h2><p>本文是依赖注入（Depeendency Injection）系列教程的第 5 篇文章，本系列教程主要讲解如何使用 PHP 实现一个轻量级服务容器，教程包括：</p>
-<h2 id="绑定-bind-与-singleton-的区别"><a href="#绑定-bind-与-singleton-的区别" class="headerlink" title="绑定 bind 与 singleton 的区别"></a><a href="/laravel/bind-singleton.html">绑定 bind 与 singleton 的区别</a></h2><p>bind 与 singleton 的区别<br>相同：都返回一个类的实例<br>区别：singleton 是单例模式，而 bind 每次都返回一个新的实例</p>
-
+        <h2 id="服务容器原理"><a href="#服务容器原理" class="headerlink" title="服务容器原理"></a><a href="/laravel/provider-base.html">服务容器原理</a></h2><p>本文是依赖注入（Depeendency Injection）系列教程的第 5 篇文章，本系列教程主要讲解如何使用 PHP 实现一个轻量级服务容器，教程包括：</p>
+<!-- ## [服务容器绑定](/laravel/binding.html)
+本文是依赖注入（Depeendency Injection）系列教程的第 5 篇文章，本系列教程主要讲解如何使用 PHP 实现一个轻量级服务容器，教程包括： -->
+<h2 id="控制反转-与-依赖注入"><a href="#控制反转-与-依赖注入" class="headerlink" title="控制反转 与 依赖注入"></a><a href="/laravel/ioc.html">控制反转 与 依赖注入</a></h2><p>本文是依赖注入（Depeendency Injection）系列教程的第 5 篇文章，本系列教程主要讲解如何使用 PHP 实现一个轻量级服务容器，教程包括：</p>
+<h2 id="绑定-bind-与-singleton-的区别"><a href="#绑定-bind-与-singleton-的区别" class="headerlink" title="绑定 bind 与 singleton 的区别"></a><a href="/laravel/bind-singleton.html">绑定 bind 与 singleton 的区别</a></h2><p>bind 与 singleton 的区别</p>
+<pre><code>相同：都返回一个类的实例  
+区别：singleton 是单例模式，而 bind 每次都返回一个新的实例
+</code></pre>
       
     </div>
 
@@ -127,7 +131,7 @@
          <!--02-->
         <div id="toc" class="toc-article">
     <div class="toc-title">目录</div>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Laravel-服务容器原理"><span class="toc-text">Laravel 服务容器原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务容器绑定"><span class="toc-text">服务容器绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定-bind-与-singleton-的区别"><span class="toc-text">绑定 bind 与 singleton 的区别</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务容器原理"><span class="toc-text">服务容器原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控制反转-与-依赖注入"><span class="toc-text">控制反转 与 依赖注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定-bind-与-singleton-的区别"><span class="toc-text">绑定 bind 与 singleton 的区别</span></a></li></ol>
 </div>
       
   </aside>
@@ -149,7 +153,7 @@
     <footer id="footer" class="inner"><a name='bottom'></a>
 <div class="alignleft">
   
-  &copy; 2019 LiuShuaiaCai
+  &copy; 2019 LiuShuaiCai
   
 </div>
 <div class="clearfix"></div>

@@ -4,15 +4,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Lsc’s Home</title>
-  <meta name="author" content="LiuShuaiaCai">
+  <title>服务容器原理 | Lsc’s Home</title>
+  <meta name="author" content="LiuShuaiCai">
   
   <meta name="description" content="Deep Learning">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="服务容器原理"/>
   <meta property="og:site_name" content="Lsc’s Home"/>
 
   
@@ -55,13 +55,18 @@
       
       
   
-    <h1 class="title"></h1>
+    <h1 class="title">服务容器原理</h1>
   
 
     </header>
     <div class="entry">
       
-        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直在使用 Laravel 框架，也没有深入学习和总结，由于年后要项目重构，趁此机会提前总结一下 Laravel 的一些功能，在新项目中能够发挥其作用<br>本篇是服务容器的学习笔记，如有错误，欢迎指出👏👏👏</p>
+<h2 id="什么是服务容器"><a href="#什么是服务容器" class="headerlink" title="什么是服务容器"></a>什么是服务容器</h2><p>Laravel <a href="https://laravel-china.org/docs/laravel/5.7/container/2249#introduction" target="_blank" rel="noopener">文档</a> 中介绍：</p>
+<pre><code>Laravel 服务容器是一个用于 管理类的依赖 和 执行依赖注入 的强大工具。
+依赖注入这个花哨名词实质上是指：类的依赖通过构造函数，或者某些情况下通过 &quot;setter&quot; 方法 &quot;注入&quot; 到类中。
+</code></pre><p>如果对 <code>依赖注入（DI）</code>、<code>控制反转（IOC）</code>和 <code>反射</code> 不太了解，那就自己去百度一下吧</p>
+
       
     </div>
 
@@ -71,6 +76,11 @@
         
 
         
+  
+  <div class="tags">
+    <a href="/undefined">undefined</a>
+  </div>
+
         <div class="bdsharebuttonbox">
     <a href="#" class="bds_more" data-cmd="more"></a>
     <a href="#" class="bds_qzone" data-cmd="qzone"></a>
@@ -119,7 +129,7 @@
          <!--02-->
         <div id="toc" class="toc-article">
     <div class="toc-title">目录</div>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是服务容器"><span class="toc-text">什么是服务容器</span></a></li></ol>
 </div>
       
   </aside>
@@ -141,7 +151,7 @@
     <footer id="footer" class="inner"><a name='bottom'></a>
 <div class="alignleft">
   
-  &copy; 2019 LiuShuaiaCai
+  &copy; 2019 LiuShuaiCai
   
 </div>
 <div class="clearfix"></div>
