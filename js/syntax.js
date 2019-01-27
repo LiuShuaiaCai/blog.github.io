@@ -18,8 +18,8 @@ $('.gutter>pre').each(function(){
 function showall(obj){
 	var data = $(obj).attr('data');
 	if(data == '0'){
-		$(obj).parents('tbody').find('.line').css('display','block');
-		$(obj).parents('tbody').find('br').css('display','block');
+		$(obj).parents('tbody').find('.line').css('display','');
+		$(obj).parents('tbody').find('br').css('display','');
 		$(obj).html('>> 隐藏代码').attr('data','1');
 	}else{
 		$(obj).html('>> 查看全部代码').attr('data','0');

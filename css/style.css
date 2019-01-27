@@ -912,6 +912,7 @@ pre .deletion {
   position: fixed;
   color: #eee;
   width: 270px;
+  margin-left: 30px;
 }
 #toc .toc-title {
   padding: 0px 0px 10px;

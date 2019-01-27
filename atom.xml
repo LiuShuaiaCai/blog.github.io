@@ -5,9 +5,9 @@
   <subtitle>学习笔记</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://ai.feifan.news/"/>
+  <link href="http://blog.feifan.news/"/>
   <updated>2019-01-23T15:11:41.542Z</updated>
-  <id>http://ai.feifan.news/</id>
+  <id>http://blog.feifan.news/</id>
   
   <author>
     <name>LiuShuaiCai</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>ElasticSearch集群搭建</title>
-    <link href="http://ai.feifan.news/2018/09/13/es-cluster/"/>
-    <id>http://ai.feifan.news/2018/09/13/es-cluster/</id>
+    <link href="http://blog.feifan.news/2018/09/13/es-cluster/"/>
+    <id>http://blog.feifan.news/2018/09/13/es-cluster/</id>
     <published>2018-09-13T10:04:05.000Z</published>
     <updated>2019-01-23T15:11:41.542Z</updated>
     
@@ -34,17 +34,17 @@
     
     </summary>
     
-      <category term="ElasticSearch" scheme="http://ai.feifan.news/categories/ElasticSearch/"/>
+      <category term="ElasticSearch" scheme="http://blog.feifan.news/categories/ElasticSearch/"/>
     
     
-      <category term="ElasticSearch" scheme="http://ai.feifan.news/tags/ElasticSearch/"/>
+      <category term="ElasticSearch" scheme="http://blog.feifan.news/tags/ElasticSearch/"/>
     
   </entry>
   
   <entry>
     <title>CRF算法</title>
-    <link href="http://ai.feifan.news/2018/09/11/crf/"/>
-    <id>http://ai.feifan.news/2018/09/11/crf/</id>
+    <link href="http://blog.feifan.news/2018/09/11/crf/"/>
+    <id>http://blog.feifan.news/2018/09/11/crf/</id>
     <published>2018-09-11T02:15:33.000Z</published>
     <updated>2018-09-11T02:34:15.896Z</updated>
     
@@ -60,17 +60,17 @@
     
     </summary>
     
-      <category term="算法" scheme="http://ai.feifan.news/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://blog.feifan.news/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="CRF" scheme="http://ai.feifan.news/tags/CRF/"/>
+      <category term="CRF" scheme="http://blog.feifan.news/tags/CRF/"/>
     
   </entry>
   
   <entry>
     <title>自然语言处理（一）</title>
-    <link href="http://ai.feifan.news/2018/09/10/nlp-v1/"/>
-    <id>http://ai.feifan.news/2018/09/10/nlp-v1/</id>
+    <link href="http://blog.feifan.news/2018/09/10/nlp-v1/"/>
+    <id>http://blog.feifan.news/2018/09/10/nlp-v1/</id>
     <published>2018-09-10T07:17:34.000Z</published>
     <updated>2019-01-23T15:08:10.468Z</updated>
     
@@ -84,14 +84,14 @@
     </summary>
     
     
-      <category term="NLP" scheme="http://ai.feifan.news/tags/NLP/"/>
+      <category term="NLP" scheme="http://blog.feifan.news/tags/NLP/"/>
     
   </entry>
   
   <entry>
     <title>ElasticSearch学习笔记（一）</title>
-    <link href="http://ai.feifan.news/2018/09/06/elasticsearch/"/>
-    <id>http://ai.feifan.news/2018/09/06/elasticsearch/</id>
+    <link href="http://blog.feifan.news/2018/09/06/elasticsearch/"/>
+    <id>http://blog.feifan.news/2018/09/06/elasticsearch/</id>
     <published>2018-09-06T00:43:11.000Z</published>
     <updated>2019-01-23T15:07:10.855Z</updated>
     
@@ -103,17 +103,17 @@
     
     </summary>
     
-      <category term="ElasticSearch" scheme="http://ai.feifan.news/categories/ElasticSearch/"/>
+      <category term="ElasticSearch" scheme="http://blog.feifan.news/categories/ElasticSearch/"/>
     
     
-      <category term="ElasticSearch" scheme="http://ai.feifan.news/tags/ElasticSearch/"/>
+      <category term="ElasticSearch" scheme="http://blog.feifan.news/tags/ElasticSearch/"/>
     
   </entry>
   
   <entry>
     <title>激活函数</title>
-    <link href="http://ai.feifan.news/2018/08/30/active_funcation/"/>
-    <id>http://ai.feifan.news/2018/08/30/active_funcation/</id>
+    <link href="http://blog.feifan.news/2018/08/30/active_funcation/"/>
+    <id>http://blog.feifan.news/2018/08/30/active_funcation/</id>
     <published>2018-08-30T06:06:08.000Z</published>
     <updated>2019-01-23T15:12:45.825Z</updated>
     
@@ -130,8 +130,8 @@
   
   <entry>
     <title>word2vec原理分析笔记</title>
-    <link href="http://ai.feifan.news/2018/08/30/word2vec/"/>
-    <id>http://ai.feifan.news/2018/08/30/word2vec/</id>
+    <link href="http://blog.feifan.news/2018/08/30/word2vec/"/>
+    <id>http://blog.feifan.news/2018/08/30/word2vec/</id>
     <published>2018-08-30T03:46:09.000Z</published>
     <updated>2019-01-23T15:38:57.009Z</updated>
     
@@ -144,14 +144,14 @@
     </summary>
     
     
-      <category term="Word2Vec" scheme="http://ai.feifan.news/tags/Word2Vec/"/>
+      <category term="Word2Vec" scheme="http://blog.feifan.news/tags/Word2Vec/"/>
     
   </entry>
   
   <entry>
     <title>隐马尔可夫模型</title>
-    <link href="http://ai.feifan.news/2018/08/30/hmm-1/"/>
-    <id>http://ai.feifan.news/2018/08/30/hmm-1/</id>
+    <link href="http://blog.feifan.news/2018/08/30/hmm-1/"/>
+    <id>http://blog.feifan.news/2018/08/30/hmm-1/</id>
     <published>2018-08-30T01:45:06.000Z</published>
     <updated>2018-09-11T10:43:11.507Z</updated>
     
@@ -164,17 +164,17 @@
     
     </summary>
     
-      <category term="算法" scheme="http://ai.feifan.news/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://blog.feifan.news/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="HMM" scheme="http://ai.feifan.news/tags/HMM/"/>
+      <category term="HMM" scheme="http://blog.feifan.news/tags/HMM/"/>
     
   </entry>
   
   <entry>
     <title>在 hexo 中支持 Mathjax</title>
-    <link href="http://ai.feifan.news/2018/08/30/mathjax/"/>
-    <id>http://ai.feifan.news/2018/08/30/mathjax/</id>
+    <link href="http://blog.feifan.news/2018/08/30/mathjax/"/>
+    <id>http://blog.feifan.news/2018/08/30/mathjax/</id>
     <published>2018-08-29T17:57:54.000Z</published>
     <updated>2018-08-30T03:59:06.580Z</updated>
     

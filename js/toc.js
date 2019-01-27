@@ -1,8 +1,10 @@
 scroll = function(){
 	$('.toc-text').each(function(){
 		var id = $(this).html();
-		var reg = /\./;
+		// var reg = /\./;
 		id = id.replace('.','-');
+		var reg = new RegExp( ' ' , "g" )
+		id = id.replace(reg,'-');
 		mTop = $('#'+id).offset().top;
 		sTop = $(window).scrollTop();
 		result = mTop - sTop;
