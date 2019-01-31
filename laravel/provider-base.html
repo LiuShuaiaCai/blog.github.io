@@ -61,11 +61,11 @@
     </header>
     <div class="entry">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直在使用 Laravel 框架，也没有深入学习和总结，由于年后要项目重构，趁此机会提前总结一下 Laravel 的一些功能，在新项目中能够发挥其作用<br>本篇是服务容器的学习笔记，如有错误，欢迎指出👏👏👏</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直在使用 Laravel 框架，也没有深入学习和总结，由于年后要项目重构，趁此机会提前再学习总结一下 Laravel 的一些功能，在新项目中能够发挥其作用<br>本篇是 <code>服务容器</code> 的学习笔记，如有错误，欢迎指出👏👏👏</p>
 <h2 id="什么是服务容器"><a href="#什么是服务容器" class="headerlink" title="什么是服务容器"></a>什么是服务容器</h2><p>Laravel <a href="https://laravel-china.org/docs/laravel/5.7/container/2249#introduction" target="_blank" rel="noopener">文档</a> 中介绍：</p>
 <pre><code>Laravel 服务容器是一个用于 管理类的依赖 和 执行依赖注入 的强大工具。
 依赖注入这个花哨名词实质上是指：类的依赖通过构造函数，或者某些情况下通过 &quot;setter&quot; 方法 &quot;注入&quot; 到类中。
-</code></pre><p>如果对 <code>依赖注入（DI）</code>、<code>控制反转（IOC）</code>和 <code>反射</code> 不太了解，那就自己去百度一下吧</p>
+</code></pre><p>如果对 <code>依赖注入（DI）</code>、<code>控制反转（IOC）</code> 不太了解，自己去搜一下，我自己也总结过一篇关于<a href="/laravel/ioc.html">控制反转 与 依赖注入</a>的文章，也可以看一下。</p>
 
       
     </div>
@@ -197,6 +197,23 @@ var duoshuoQuery = {short_name:duoshuo_shortname};
 <script src="/js/top.js"></script>
 <script src="/js/syntax.js"></script>
 
-  </body>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
   </html>
 
