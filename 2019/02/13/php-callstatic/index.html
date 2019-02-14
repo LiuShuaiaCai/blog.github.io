@@ -66,7 +66,7 @@
     </header>
     <div class="entry">
       
-        <p>从 PHP 5.3.0 开始，PHP 增加了一个叫做<code>后期静态绑定</code>的功能，用于在继承范围内引用静态调用的类。简单的说就是：使用 <code>static::</code> 关键字时，类名称不是当前方法所在的类，而是当前对象实例所属的类或者当前调用的类。<br>使用(static)关键字来表示这个别名，和静态方法，静态类没有半毛钱的关系，static::不仅支持静态类，还支持对象（动态类）。</p>
+        <p>从 PHP 5.3.0 开始，PHP 增加了一个叫做<code>后期静态绑定</code>的功能，用于在继承范围内引用静态调用的类。简单的说就是：使用 <code>static::</code> 关键字时，类名称不是当前方法所在的类，而是当前对象实例所属的类或者当前调用的类。<br>使用(static)关键字来表示这个别名，和静态方法，静态类没有半毛钱的关系，static::不仅支持静态类，还支持对象（动态类）。<br><a id="more"></a></p>
 <h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><p>后期静态绑定工作原理是存储了在上一个 “非转发调用” （non-forwarding call）的类名。</p>
 <h2 id="转发调用"><a href="#转发调用" class="headerlink" title="转发调用"></a>转发调用</h2><p>“转发调用”（forwarding call）指的是通过以下几种方式进行的静态调用：self::，parent::，static:: 以及 forward_static_call()</p>
 <h2 id="非转发调用"><a href="#非转发调用" class="headerlink" title="非转发调用"></a>非转发调用</h2><p>“非转发调用” （non-forwarding call）指的是：<br>1、当进行静态方法调用时，该类名即为明确指定的那个（通常在 :: 运算符左侧部分），例如：foo::bar()；<br>2、当进行非静态方法调用时，即为该对象所属的类，例如：$foo-&gt;bar()。</p>
