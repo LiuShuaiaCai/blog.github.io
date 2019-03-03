@@ -3,6 +3,7 @@ scroll = function(){
 		var id = $(this).html();
 		// var reg = /\./;
 		id = id.replace('.','-');
+		id = id.replace(' | ','-');
 		var reg = new RegExp( ' ' , "g" )
 		id = id.replace(reg,'-');
 		mTop = $('#'+id).offset().top;
