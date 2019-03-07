@@ -1,0 +1,326 @@
+
+  <!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>git 知识总结 | Lsc’s Home</title>
+  <meta name="author" content="LiuShuaiCai">
+  
+  <meta name="description" content="Deep Learning">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="git 知识总结"/>
+  <meta property="og:site_name" content="Lsc’s Home"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Lsc’s Home" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+  <body>
+    <a name="top"></a>
+  	<header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Lsc’s Home</a></h1>
+  <h2><a href="/">学习笔记</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/laravel">Laravel</a></li>
+    
+      <li><a href="/redis">Redis</a></li>
+    
+      <li><a href="/about">我</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  	<div id="content" class="inner">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="post hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!-- 
+        <div class="icon"></div>
+        <time datetime="2017-04-24T01:32:11.000Z"><a href="/2017/04/24/git/">2017-04-24</a></time>
+       -->
+      <div class="icon"></div>
+        <time datetime="2017-04-24T01:32:11.000Z"><a href="/2017/04/24/git/">2017-04-24</a></time>
+      
+  
+    <h1 class="title">git 知识总结</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1、What-is-git"><a href="#1、What-is-git" class="headerlink" title="1、What is git"></a>1、What is git</h2><p>git是一个分布式的版本控制系统。<br><a id="more"></a></p>
+<h2 id="2、Git与SVN的区别"><a href="#2、Git与SVN的区别" class="headerlink" title="2、Git与SVN的区别"></a>2、Git与SVN的区别</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Number</th>
+<th style="text-align:left">Git</th>
+<th style="text-align:left">SVN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">分布式</td>
+<td style="text-align:left">集中式</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">元数据存储</td>
+<td style="text-align:left">文件存储</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">本地服务器</td>
+<td style="text-align:left">中央服务器</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">可以不联网</td>
+<td style="text-align:left">必须要有网络</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="3、Git命令"><a href="#3、Git命令" class="headerlink" title="3、Git命令"></a>3、Git命令</h2><h4 id="3-1、git基本步骤"><a href="#3-1、git基本步骤" class="headerlink" title="3.1、git基本步骤"></a>3.1、git基本步骤</h4><pre><code>1、创建本地仓库
+git init &lt;filename&gt;
+2、检出仓库
+git clone &lt;path&gt;
+3、把文件添加到缓存区
+git add .|git add &lt;filename&gt;
+4、提交文件到本地仓库
+git commit -m &#39;修改注释&#39;
+5、把文件推送到远程仓库
+git push
+</code></pre><h4 id="3-2、git常用命令"><a href="#3-2、git常用命令" class="headerlink" title="3.2、git常用命令"></a>3.2、git常用命令</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">git status</td>
+<td style="text-align:left">查看修改状态<br>参数-s以简短形式输出结果</td>
+</tr>
+<tr>
+<td style="text-align:left">git push</td>
+<td style="text-align:left">把文件推送到远程仓库<br>将本地的master分支推送到origin主机的master分支。如果后者不存在，则会被新建:git push origin master<br>如果当前分支只有一个追踪分支，那么主机名都可以省略:git push</td>
+</tr>
+<tr>
+<td style="text-align:left">git pull</td>
+<td style="text-align:left">取回远程主机某个分支的更新，再与本地的指定分支合并<br>取回origin主机的next分支，与本地的master分支合并:git pull origin next:master<br>如果远程分支是与当前分支合并，则冒号后面的部分可以省略:git pull origin next<br>等同于先做git fetch origin，再做git merge origin/next<br>如果当前分支与远程分支存在追踪关系，git pull就可以省略远程分支名:git pull origin<br>如果当前分支只有一个追踪分支，连远程主机名都可以省略:git pull</td>
+</tr>
+<tr>
+<td style="text-align:left">git diff</td>
+<td style="text-align:left">查看执行 git status 的结果的详细信息<br><em> 尚未缓存的改动：git diff<br></em> 查看已缓存的改动： git diff —cached<br><em> 查看已缓存的与未缓存的所有改动：git diff HEAD<br></em> 显示摘要而非整个 diff：git diff —stat</td>
+</tr>
+<tr>
+<td style="text-align:left">git config</td>
+<td style="text-align:left">配置用户名和邮箱地址<br>git config —global user.name ‘runoob’<br>git config —global user.email test@runoob.com</td>
+</tr>
+<tr>
+<td style="text-align:left">git reset HEAD</td>
+<td style="text-align:left">取消已经缓存的内容<br>git reset HEAD —change.php</td>
+</tr>
+<tr>
+<td style="text-align:left">git rm</td>
+<td style="text-align:left">从缓存区删除文件<br>将文件从缓存区和你的硬盘中（工作目录）删除：git rm file<br>只删除缓存区的文件：git rm —cached</td>
+</tr>
+<tr>
+<td style="text-align:left">git mv</td>
+<td style="text-align:left">重命名磁盘文件</td>
+</tr>
+<tr>
+<td style="text-align:left">git branch</td>
+<td style="text-align:left">分支管理:<a href="http://www.runoob.com/git/git-branch.html" target="_blank" rel="noopener">http://www.runoob.com/git/git-branch.html</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>_参考教程_</p>
+<ul>
+<li><a href="http://www.yiibai.com/git" target="_blank" rel="noopener">http://www.yiibai.com/git</a></li>
+<li><a href="http://www.runoob.com/git" target="_blank" rel="noopener">http://www.runoob.com/git</a></li>
+<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">廖雪峰的官方网站</a></li>
+<li><a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">http://www.bootcss.com/p/git-guide/</a></li>
+</ul>
+
+      
+    </div>
+
+
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/PHP/">PHP</a>
+  </div>
+
+
+        
+  
+  <div class="tags">
+    <a href="/tags/git/">git</a>
+  </div>
+
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="2017/04/24/git/"></div>
+    </section>
+ -->
+</article>
+
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、What-is-git"><span class="toc-text">1、What is git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、Git与SVN的区别"><span class="toc-text">2、Git与SVN的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、Git命令"><span class="toc-text">3、Git命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1、git基本步骤"><span class="toc-text">3.1、git基本步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2、git常用命令"><span class="toc-text">3.2、git常用命令</span></a></li></ol></li></ol></li></ol>
+</div>
+      
+  </aside>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+
+</div></div>
+      <div class="clearfix"></div>
+  	</div>
+    <div id = 'r_top'>
+	<ul>
+		<li class='top'><a href='#top'></a></li>
+		<li class='close' data='0'><a href='javascript:;'></a></li>
+		<li class='bottom'><a href='#bottom'></a></li>
+	</ul>
+</div>
+
+    <footer id="footer" class="inner"><a name='bottom'></a>
+<div class="alignleft">
+  
+  &copy; 2019 LiuShuaiCai
+  
+</div>
+<div class="clearfix"></div>
+</footer>
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+var duoshuo_shortname = 'feifan';
+var duoshuoQuery = {short_name:duoshuo_shortname};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'https://unpkg.com/embed-js@5.0.3/umd/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<script src="/js/toc.js"></script>
+<script src="/js/top.js"></script>
+<script src="/js/syntax.js"></script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+  </html>
+

@@ -1,0 +1,391 @@
+
+  <!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>python2.7学习总结 | Lsc’s Home</title>
+  <meta name="author" content="LiuShuaiCai">
+  
+  <meta name="description" content="Deep Learning">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="python2.7学习总结"/>
+  <meta property="og:site_name" content="Lsc’s Home"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Lsc’s Home" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+  <body>
+    <a name="top"></a>
+  	<header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Lsc’s Home</a></h1>
+  <h2><a href="/">学习笔记</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/laravel">Laravel</a></li>
+    
+      <li><a href="/redis">Redis</a></li>
+    
+      <li><a href="/about">我</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  	<div id="content" class="inner">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="post hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!-- 
+        <div class="icon"></div>
+        <time datetime="2017-05-03T02:12:32.000Z"><a href="/2017/05/03/python/">2017-05-03</a></time>
+       -->
+      <div class="icon"></div>
+        <time datetime="2017-05-03T02:12:32.000Z"><a href="/2017/05/03/python/">2017-05-03</a></time>
+      
+  
+    <h1 class="title">python2.7学习总结</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="Python基础"><a href="#Python基础" class="headerlink" title="Python基础"></a>Python基础</h2><h4 id="列表（list）"><a href="#列表（list）" class="headerlink" title=" 列表（list） "></a><strong> 列表（list） </strong></h4><ul>
+<li>列表的截取。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list[<span class="number">0</span>]</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list[<span class="number">-1</span>]</span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list[<span class="number">3</span>:<span class="number">100</span>]</span><br><span class="line">[<span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>列表的重复。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list * <span class="number">3</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>列表的组合</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list2 = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list+list2</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>获取列表长度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> len(list)</span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在列表末尾添加新的元素(append、extend、insert)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list.append(<span class="string">'append'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">'append'</span>]</span><br></pre></td></tr></table></figure>
+<p>  在列表末尾追加另一个列表</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list.extend(list2)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">'append'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>]</span><br></pre></td></tr></table></figure>
+<p>  在指定位置添加元素</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list.insert(<span class="number">0</span>,<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">10</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>删除列表元素（del命令、pop()、remove()）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> list[<span class="number">-1</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">'append'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br></pre></td></tr></table></figure>
+<p>  pop移除列表中的某个元素（默认最后一个）,并返回改元素的值</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">'append'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list.pop()</span><br><span class="line"><span class="string">'d'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">'append'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list.pop(<span class="number">0</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">'append'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新列表,<span style="color:red">更新一个列表中不存在的键时，会报错。</span></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list[<span class="number">4</span>]=<span class="string">'new'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="string">'new'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list[<span class="number">10</span>]=<span class="string">'new10'</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;interactive input&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">IndexError: list assignment index out of range</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>元素是否存在列表中(in、count、index)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">'append'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'append'</span> <span class="keyword">in</span> list</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'hello'</span> <span class="keyword">in</span> list</span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="string">'append'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list.count(<span class="string">'count'</span>)</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list.count(<span class="string">'append'</span>)</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list.index(<span class="string">'append'</span>)</span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list.index(<span class="string">'index'</span>)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;interactive input&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">ValueError: <span class="string">'index'</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">in</span> list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>列表迭代</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="string">'append'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i <span class="keyword">in</span> list:</span><br><span class="line"><span class="meta">... </span>	<span class="keyword">print</span> i</span><br><span class="line"><span class="meta">... </span>	</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line">append</span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">c</span><br><span class="line">d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>反向列表中的元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="string">'append'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list.reverse()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="string">'d'</span>, <span class="string">'c'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>, <span class="string">'append'</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对列表进行排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list = [<span class="number">1</span>,<span class="number">9</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">0</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list.sort()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list.reverse()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>列表最值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list</span><br><span class="line">[<span class="number">10</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>max(list)</span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>min(list)</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="元组（tuple）"><a href="#元组（tuple）" class="headerlink" title=" 元组（tuple）"></a><strong> 元组（tuple）</strong></h4><ul>
+<li>元组和列表基本相同，只是<span style="color:red">元组中的元素不能修改</span></li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">list</th>
+<th style="text-align:left">tuple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">可以修改</td>
+<td style="text-align:left">不可以修改</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>元组和列表的相互转换<br>列表转为元组</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_list = [<span class="number">10</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_tuple = tuple(_list)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_tuple</span><br><span class="line">(<span class="number">10</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>  元组转为列表</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t_list = list(_tuple)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t_list</span><br><span class="line">[<span class="number">10</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>无关闭分隔符<br>任意无符号的对象，以逗号隔开，默认是元组</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_tuple_ = <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_tuple_</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改元组的方法</p>
+<ul>
+<li>通过元组连接</li>
+<li>通过内嵌列表的形式</li>
+</ul>
+</li>
+<li>一个元素的元组</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">错误形式</th>
+<th style="text-align:left">正确格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&gt;&gt;&gt; _tuple = (1)<br>&gt;&gt;&gt; _tuple<br>1</td>
+<td style="text-align:left">&gt;&gt;&gt; _tuple = (1,)<br>&gt;&gt;&gt; _tuple<br>(1,)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="字典（dictionary）"><a href="#字典（dictionary）" class="headerlink" title="字典（dictionary）"></a>字典（dictionary）</h4><p>也可称为map，以键值（key=&gt;value）形式存在的可变容器</p>
+<ul>
+<li>字典键的特性：<ul>
+<li>键不能相同，否则后者会覆盖前者</li>
+<li>键必须不可变，可以用数字、字符串、元组，但不能用列表可变的对象。</li>
+</ul>
+</li>
+<li><p>用字符串输出字典</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info = &#123;<span class="string">'name'</span>:<span class="string">'liushuaicai'</span>,<span class="string">'age'</span>:<span class="string">'25'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str(_info)</span><br><span class="line"><span class="string">"&#123;'age': '25', 'name': 'liushuaicai'&#125;"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看变量的类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(_info)</span><br><span class="line">&lt;type <span class="string">'dict'</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(_tuple)</span><br><span class="line">&lt;type <span class="string">'tuple'</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(_list)</span><br><span class="line">&lt;type <span class="string">'list'</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个字典，以序列中的值作为键，val作为值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict.fromkeys(_list1,_val)</span><br><span class="line">&#123;<span class="number">1</span>: <span class="string">'hello'</span>, <span class="number">2</span>: <span class="string">'hello'</span>, <span class="number">3</span>: <span class="string">'hello'</span>, <span class="number">4</span>: <span class="string">'hello'</span>, <span class="number">5</span>: <span class="string">'hello'</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>浅复制字典</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info</span><br><span class="line">&#123;<span class="string">'age'</span>: <span class="string">'25'</span>, <span class="string">'name'</span>: <span class="string">'liushuaicai'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c_info = _info.copy()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c_info</span><br><span class="line">&#123;<span class="string">'age'</span>: <span class="string">'25'</span>, <span class="string">'name'</span>: <span class="string">'liushuaicai'</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取字典中的值，如果不存在，返回默认值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info.get(<span class="string">'name'</span>)</span><br><span class="line"><span class="string">'liushuaicai'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info.get(<span class="string">'adress'</span>,<span class="string">'北京'</span>)</span><br><span class="line"><span class="string">'\xe5\x8c\x97\xe4\xba\xac'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置字典的键，如果不存在，则为默认值,如果存在，也不改变其值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info.setdefault(<span class="string">'sex'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info</span><br><span class="line">&#123;<span class="string">'age'</span>: <span class="string">'25'</span>, <span class="string">'name'</span>: <span class="string">'liushuaicai'</span>, <span class="string">'sex'</span>: <span class="keyword">None</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info.setdefault(<span class="string">'sex'</span>,<span class="string">'man'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info</span><br><span class="line">&#123;<span class="string">'age'</span>: <span class="string">'25'</span>, <span class="string">'name'</span>: <span class="string">'liushuaicai'</span>, <span class="string">'sex'</span>: <span class="keyword">None</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info.setdefault(<span class="string">'phone'</span>,<span class="string">'15201557941'</span>)</span><br><span class="line"><span class="string">'15201557941'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info</span><br><span class="line">&#123;<span class="string">'phone'</span>: <span class="string">'15201557941'</span>, <span class="string">'age'</span>: <span class="string">'25'</span>, <span class="string">'name'</span>: <span class="string">'liushuaicai'</span>, <span class="string">'sex'</span>: <span class="keyword">None</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把一个字典的键值更新到另一个字典</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_email = &#123;<span class="string">'email'</span>:<span class="string">'shuaicai_liu@qq.com'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info.update(_email)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info</span><br><span class="line">&#123;<span class="string">'phone'</span>: <span class="string">'15201557941'</span>, <span class="string">'age'</span>: <span class="string">'25'</span>, <span class="string">'email'</span>: <span class="string">'shuaicai_liu@qq.com'</span>, <span class="string">'name'</span>: <span class="string">'liushuaicai'</span>, <span class="string">'sex'</span>: <span class="keyword">None</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以列表返回可遍历的元组（数组）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_list = _info.items()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_list</span><br><span class="line">[(<span class="string">'phone'</span>, <span class="string">'15201557941'</span>), (<span class="string">'age'</span>, <span class="string">'25'</span>), (<span class="string">'email'</span>, <span class="string">'shuaicai_liu@qq.com'</span>), (<span class="string">'name'</span>, <span class="string">'liushuaicai'</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> key,value <span class="keyword">in</span> _list:</span><br><span class="line"><span class="meta">... </span>	<span class="keyword">print</span> key,<span class="string">'=&gt;'</span>,value</span><br><span class="line"><span class="meta">... </span>	</span><br><span class="line">phone =&gt; 15201557941</span><br><span class="line">age =&gt; 25</span><br><span class="line">email =&gt; shuaicai_liu@qq.com</span><br><span class="line">name =&gt; liushuaicai</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取字典中所有的键|值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info.keys()</span><br><span class="line">[<span class="string">'phone'</span>, <span class="string">'age'</span>, <span class="string">'email'</span>, <span class="string">'name'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info.values()</span><br><span class="line">[<span class="string">'15201557941'</span>, <span class="string">'25'</span>, <span class="string">'shuaicai_liu@qq.com'</span>, <span class="string">'liushuaicai'</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断字典中是否含有某个键</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info.has_key(<span class="string">'name'</span>)</span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info.has_key(<span class="string">'height'</span>)</span><br><span class="line"><span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除字典中的值(del命令、pop())</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> _info[<span class="string">'sex'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info</span><br><span class="line">&#123;<span class="string">'phone'</span>: <span class="string">'15201557941'</span>, <span class="string">'age'</span>: <span class="string">'25'</span>, <span class="string">'email'</span>: <span class="string">'shuaicai_liu@qq.com'</span>, <span class="string">'name'</span>: <span class="string">'liushuaicai'</span>&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info</span><br><span class="line">&#123;<span class="string">'age'</span>: <span class="number">25</span>, <span class="string">'name'</span>: <span class="string">'liushuaicai'</span>, <span class="string">'sex'</span>: <span class="string">'man'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info.pop(<span class="string">'sex'</span>)</span><br><span class="line"><span class="string">'man'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info</span><br><span class="line">&#123;<span class="string">'age'</span>: <span class="number">25</span>, <span class="string">'name'</span>: <span class="string">'liushuaicai'</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除字典中的所有元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info.clear()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_info</span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="set序列"><a href="#set序列" class="headerlink" title="set序列"></a>set序列</h4><p>set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key，不能有空值。</p>
+<pre><code>&gt;&gt;&gt; _set = set([1,1,2,2,3,4,5,7,7])
+&gt;&gt;&gt; _set
+set([1, 2, 3, 4, 5, 7])
+</code></pre><ul>
+<li><p>set添加元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_set</span><br><span class="line">set([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_set.add(<span class="string">'new'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_set</span><br><span class="line">set([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="string">'new'</span>])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除元素（pop、remove）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_set.remove(<span class="string">'new'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_set</span><br><span class="line">set([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>])</span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_set.pop()</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_set</span><br><span class="line">set([<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串是不可变对象，用replace替换值时，相当于赋给了另外一个变量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>_name = <span class="string">'liushuaicai'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_name.replace(<span class="string">'l'</span>,<span class="string">'L'</span>)</span><br><span class="line"><span class="string">'Liushuaicai'</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Python/">Python</a>
+  </div>
+
+
+        
+  
+  <div class="tags">
+    <a href="/tags/python/">python</a>
+  </div>
+
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="2017/05/03/python/"></div>
+    </section>
+ -->
+</article>
+
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python基础"><span class="toc-text">Python基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#列表（list）"><span class="toc-text"> 列表（list） </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#元组（tuple）"><span class="toc-text"> 元组（tuple）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字典（dictionary）"><span class="toc-text">字典（dictionary）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#set序列"><span class="toc-text">set序列</span></a></li></ol></li></ol></li></ol>
+</div>
+      
+  </aside>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+
+</div></div>
+      <div class="clearfix"></div>
+  	</div>
+    <div id = 'r_top'>
+	<ul>
+		<li class='top'><a href='#top'></a></li>
+		<li class='close' data='0'><a href='javascript:;'></a></li>
+		<li class='bottom'><a href='#bottom'></a></li>
+	</ul>
+</div>
+
+    <footer id="footer" class="inner"><a name='bottom'></a>
+<div class="alignleft">
+  
+  &copy; 2019 LiuShuaiCai
+  
+</div>
+<div class="clearfix"></div>
+</footer>
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+var duoshuo_shortname = 'feifan';
+var duoshuoQuery = {short_name:duoshuo_shortname};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'https://unpkg.com/embed-js@5.0.3/umd/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<script src="/js/toc.js"></script>
+<script src="/js/top.js"></script>
+<script src="/js/syntax.js"></script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+  </html>
+

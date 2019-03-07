@@ -33,4 +33,11 @@ $('.toc-text').click(function(){
 	$(this).css('color','#258fb8');
 })
 
+var body_width = $(document.body).width();
+if(body_width < 1266){
+	$('#sidebar').css('display','no');
+}
+
+
+
 

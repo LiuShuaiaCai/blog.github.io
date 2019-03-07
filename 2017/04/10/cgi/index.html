@@ -1,0 +1,261 @@
+
+  <!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>学习 CGI 和 Fast CGI | Lsc’s Home</title>
+  <meta name="author" content="LiuShuaiCai">
+  
+  <meta name="description" content="Deep Learning">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="学习 CGI 和 Fast CGI"/>
+  <meta property="og:site_name" content="Lsc’s Home"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Lsc’s Home" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+  <body>
+    <a name="top"></a>
+  	<header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Lsc’s Home</a></h1>
+  <h2><a href="/">学习笔记</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/laravel">Laravel</a></li>
+    
+      <li><a href="/redis">Redis</a></li>
+    
+      <li><a href="/about">我</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  	<div id="content" class="inner">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="post hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!-- 
+        <div class="icon"></div>
+        <time datetime="2017-04-10T03:47:32.000Z"><a href="/2017/04/10/cgi/">2017-04-10</a></time>
+       -->
+      <div class="icon"></div>
+        <time datetime="2017-04-10T03:47:32.000Z"><a href="/2017/04/10/cgi/">2017-04-10</a></time>
+      
+  
+    <h1 class="title">学习 CGI 和 Fast CGI</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1、了解CGI"><a href="#1、了解CGI" class="headerlink" title="1、了解CGI"></a>1、了解CGI</h2><p>CGI(Common Gateway Interface)：通用网关接口<br>CGI应用是通过标准的POSIX流(stdin,stdout,stderr和环境变量)加上环境变量，来与HTTP服务器进行通信。<br>功能：绝大数的cgi程序被用来解释、处理来自表单的输入信息，在服务器产生相应的信息的处理，或将相应的信息反馈给浏览器。<br><a id="more"></a></p>
+<h4 id="1-1、工作原理："><a href="#1-1、工作原理：" class="headerlink" title="1.1、工作原理："></a>1.1、工作原理：</h4><p>（1）、 浏览器通过HTML表单或者超链接请求指向一个CGI应用程序的UTL<br>（2）、 web服务器接收用户请求并交给CGI程序处理，包括查询数据库、计算数值或调用系统中其他程序<br>（3）、 CGI程序把处理结果传送给web服务器<br>（4）、 web服务器把结果返回给用户</p>
+<h4 id="1-2、环境变量列表"><a href="#1-2、环境变量列表" class="headerlink" title="1.2、环境变量列表"></a>1.2、环境变量列表</h4><ul>
+<li>SERVER_NAME：运行CGI序为机器名或IP地址。</li>
+<li>SERVER_INTERFACE：WWW服务器的类型，如：CERN型或NCSA型。</li>
+</ul>
+<ul>
+<li>SERVER_PROTOCOL：通信协议，应当是HTTP/1.0。</li>
+<li>SERVER_PORT：TCP端口，一般说来web端口是80。</li>
+<li>HTTP_ACCEPT：HTTP定义的浏览器能够接受的数据类型。</li>
+</ul>
+<ul>
+<li>HTTP_REFERER：发送表单的文件URL。（并非所有的浏览器都传送这一变量）</li>
+<li>HTTP_USER-AGENT：发送表单的浏览的有关信息。</li>
+</ul>
+<ul>
+<li>GETWAY_INTERFACE：CGI程序的版本，在UNIX下为 CGI/1.1。</li>
+<li>PATH_TRANSLATED：PATH_INFO中包含的实际路径名。</li>
+<li>PATH_INFO：浏览器用GET方式发送数据时的附加路径。</li>
+<li>SCRIPT_NAME：CGI程序的路径名。</li>
+<li>QUERY_STRING：表单输入的数据，URL中问号后的内容。</li>
+<li>REMOTE_HOST：发送程序的主机名，不能确定该值。</li>
+<li>REMOTE_ADDR：发送程序的机器的IP地址。</li>
+</ul>
+<ul>
+<li>REMOTE_USER：发送程序的人名。</li>
+<li>CONTENT_TYPE：POST发送，一般为application/xwww-form-urlencoded。</li>
+</ul>
+<ul>
+<li>CONTENT_LENGTH：POST方法输入的数据的字节数。<br>结构图如下：<br><img src="http://onx0p7mg5.bkt.clouddn.com/cgi.jpg" alt="cgi"><br>每当客户请求CGI的时候，WEB服务器就请求操作系统生成一个新的CGI解释器进程(如php-cgi.exe)，CGI 的一个进程则处理完一个请求后退出，下一个请求来时再创建新进程。当然，这样在访问量很少没有并发的情况也行。可是当访问量增大，并发存在，这种方式就不 适合了。于是就有了fastcgi</li>
+</ul>
+<h2 id="2、了解Fast-CGI"><a href="#2、了解Fast-CGI" class="headerlink" title="2、了解Fast CGI"></a>2、了解Fast CGI</h2><p>FastCGI像是一个常驻(long-live)型的CGI，它可以一直执行着，只要激活后，不会每次都要花费时间去fork一次（这是CGI最为人诟病的fork-and-execute 模式）</p>
+<h4 id="2-1、Fast-CGI原理"><a href="#2-1、Fast-CGI原理" class="headerlink" title="2.1、Fast CGI原理"></a>2.1、Fast CGI原理</h4><p>1、Web Server启动时载入FastCGI进程管理器（IIS ISAPI或Apache Module)<br>2、FastCGI进程管理器自身初始化，启动多个CGI解释器进程(可见多个php-cgi)并等待来自Web Server的连接。<br>3、当客户端请求到达Web Server时，FastCGI进程管理器选择并连接到一个CGI解释器。Web server将CGI环境变量和标准输入发送到FastCGI子进程php-cgi。<br>4、FastCGI子进程完成处理后将标准输出和错误信息从同一连接返回Web Server。当FastCGI子进程关闭连接时，请求便告处理完成。FastCGI子进程接着等待并处理来自FastCGI进程管理器(运行在Web Server中)的下一个连接。 在CGI模式中，php-cgi在此便退出了。</p>
+<h4 id="2-2、缺点"><a href="#2-2、缺点" class="headerlink" title="2.2、缺点"></a>2.2、缺点</h4><p>Fast CGI因为是多进程，所以比CGI多线程消耗更多的服务器内存</p>
+
+      
+    </div>
+
+
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/PHP/">PHP</a>
+  </div>
+
+
+        
+  
+  <div class="tags">
+    <a href="/tags/CGI/">CGI</a>
+  </div>
+
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="2017/04/10/cgi/"></div>
+    </section>
+ -->
+</article>
+
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、了解CGI"><span class="toc-text">1、了解CGI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1、工作原理："><span class="toc-text">1.1、工作原理：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2、环境变量列表"><span class="toc-text">1.2、环境变量列表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、了解Fast-CGI"><span class="toc-text">2、了解Fast CGI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1、Fast-CGI原理"><span class="toc-text">2.1、Fast CGI原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2、缺点"><span class="toc-text">2.2、缺点</span></a></li></ol></li></ol></li></ol>
+</div>
+      
+  </aside>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+
+</div></div>
+      <div class="clearfix"></div>
+  	</div>
+    <div id = 'r_top'>
+	<ul>
+		<li class='top'><a href='#top'></a></li>
+		<li class='close' data='0'><a href='javascript:;'></a></li>
+		<li class='bottom'><a href='#bottom'></a></li>
+	</ul>
+</div>
+
+    <footer id="footer" class="inner"><a name='bottom'></a>
+<div class="alignleft">
+  
+  &copy; 2019 LiuShuaiCai
+  
+</div>
+<div class="clearfix"></div>
+</footer>
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+var duoshuo_shortname = 'feifan';
+var duoshuoQuery = {short_name:duoshuo_shortname};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'https://unpkg.com/embed-js@5.0.3/umd/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<script src="/js/toc.js"></script>
+<script src="/js/top.js"></script>
+<script src="/js/syntax.js"></script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+  </html>
+

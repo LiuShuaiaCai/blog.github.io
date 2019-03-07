@@ -40,6 +40,8 @@
     
       <li><a href="/laravel">Laravel</a></li>
     
+      <li><a href="/redis">Redis</a></li>
+    
       <li><a href="/about">我</a></li>
     
   </ul>
@@ -50,6 +52,48 @@
   	<div id="content" class="inner">
   	<div id="main-col" class="alignleft"><div id="wrapper"><div id='index-continer' class='hidden_show'>
 	<div id='index_main' class='hidden_show'>
+		
+			<article class="post hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!-- 
+        <div class="icon"></div>
+        <time datetime="2019-03-05T02:08:46.000Z"><a href="/2019/03/05/redis/">2019-03-05</a></time>
+       -->
+      <div class="icon"></div>
+        <time datetime="2019-03-05T02:08:46.000Z"><a href="/2019/03/05/redis/">2019-03-05</a></time>
+      
+  
+    <h1 class="title"><a href="/2019/03/05/redis/">Redis 系列学习笔记</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>19年学习计划第一步，全面学习Redis的使用：<br>预计学习时间：2周<br>开始学习时间：2019-03-05<br>预计结束时间：2019-03-17</p>
+
+      
+    </div>
+
+
+    <footer>
+      
+        
+       
+            <a href="/2019/03/05/redis/" class="ds-thread-count comment-link alignright" data-thread-key="2019/03/05/redis/" data-count-type="comments"></a>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!--  -->
+</article>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+
 		
 			<article class="post hidden_show">
   
@@ -335,7 +379,7 @@
         <time datetime="2018-08-30T06:06:08.000Z"><a href="/2018/08/30/active_funcation/">2018-08-30</a></time>
       
   
-    <h1 class="title"><a href="/2018/08/30/active_funcation/">激活函数</a></h1>
+    <h1 class="title"><a href="/2018/08/30/active_funcation/">常用激活函数</a></h1>
   
 
     </header>
@@ -459,55 +503,11 @@
 
 
 		
-			<article class="post hidden_show">
-  
-  <div class="post-content">
-    <header>
-      <!-- 
-        <div class="icon"></div>
-        <time datetime="2018-08-29T17:57:54.000Z"><a href="/2018/08/30/mathjax/">2018-08-30</a></time>
-       -->
-      <div class="icon"></div>
-        <time datetime="2018-08-29T17:57:54.000Z"><a href="/2018/08/30/mathjax/">2018-08-30</a></time>
-      
-  
-    <h1 class="title"><a href="/2018/08/30/mathjax/">在 hexo 中支持 Mathjax</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="第一步-使用Kramed代替-Marked"><a href="#第一步-使用Kramed代替-Marked" class="headerlink" title="第一步 使用Kramed代替 Marked"></a>第一步 使用Kramed代替 Marked</h2><p><code>hexo</code> 默认的渲染引擎是 marked，但是 <code>marked</code> 不支持 <code>mathjax</code>。 <code>kramed</code> 是在 <code>marked</code> 的基础上进行修改。我们在工程目录下执行以下命令来安装 <code>kramed</code>.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure></p>
-<p>然后，更改/node_modules/hexo-renderer-kramed/lib/renderer.js，更改：<br>
-      
-    </div>
-
-
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2018/08/30/mathjax/#more" class="more-link">查看全文</a>
-          </div>
-        
-       
-            <a href="/2018/08/30/mathjax/" class="ds-thread-count comment-link alignright" data-thread-key="2018/08/30/mathjax/" data-count-type="comments"></a>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <!--  -->
-</article>
-
-<!-- <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/syntax.js"></script> -->
-
-
-		
 	</div>
 	<nav id="pagination">
   
+  
+    <a href="/page/2/" class="page alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -538,7 +538,21 @@
   
     <li><a href="/categories/ElasticSearch/">ElasticSearch</a><small>2</small></li>
   
-    <li><a href="/categories/PHP/">PHP</a><small>2</small></li>
+    <li><a href="/categories/PHP/">PHP</a><small>6</small></li>
+  
+    <li><a href="/categories/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/categories/Redis/">Redis</a><small>1</small></li>
+  
+    <li><a href="/categories/Tool/">Tool</a><small>1</small></li>
+  
+    <li><a href="/categories/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/categories/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/categories/前端/">前端</a><small>2</small></li>
+  
+    <li><a href="/categories/机器学习/">机器学习</a><small>3</small></li>
   
     <li><a href="/categories/算法/">算法</a><small>2</small></li>
   
@@ -551,19 +565,53 @@
   <h3 class="title">标签</h3>
   <ul class="entry">
   
+    <li><a href="/tags/19Plan/">19Plan</a><small>1</small></li>
+  
+    <li><a href="/tags/Apache/">Apache</a><small>1</small></li>
+  
+    <li><a href="/tags/CGI/">CGI</a><small>1</small></li>
+  
     <li><a href="/tags/CRF/">CRF</a><small>1</small></li>
   
-    <li><a href="/tags/ElasticSearch/">ElasticSearch</a><small>2</small></li>
+    <li><a href="/tags/ES/">ES</a><small>2</small></li>
   
     <li><a href="/tags/HMM/">HMM</a><small>1</small></li>
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>1</small></li>
+  
+    <li><a href="/tags/MachineLearning/">MachineLearning</a><small>1</small></li>
   
     <li><a href="/tags/NLP/">NLP</a><small>1</small></li>
   
     <li><a href="/tags/PHP/">PHP</a><small>2</small></li>
   
+    <li><a href="/tags/Redis/">Redis</a><small>1</small></li>
+  
     <li><a href="/tags/Word2Vec/">Word2Vec</a><small>1</small></li>
   
-    <li><a href="/tags/调试工具/">调试工具</a><small>1</small></li>
+    <li><a href="/tags/ajax分页/">ajax分页</a><small>1</small></li>
+  
+    <li><a href="/tags/doc/">doc</a><small>1</small></li>
+  
+    <li><a href="/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/tags/github/">github</a><small>1</small></li>
+  
+    <li><a href="/tags/javascript/">javascript</a><small>1</small></li>
+  
+    <li><a href="/tags/memcached/">memcached</a><small>1</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>1</small></li>
+  
+    <li><a href="/tags/pcntl/">pcntl</a><small>1</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>1</small></li>
+  
+    <li><a href="/tags/win/">win</a><small>1</small></li>
+  
+    <li><a href="/tags/多文件上传/">多文件上传</a><small>1</small></li>
+  
+    <li><a href="/tags/调试工具/">调试工具</a><small>2</small></li>
   
   </ul>
 </div>
