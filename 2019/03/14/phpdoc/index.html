@@ -1,0 +1,454 @@
+
+  <!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>phpDocumentor 标签 | Lsc’s Home</title>
+  <meta name="author" content="LiuShuaiCai">
+  
+  <meta name="description" content="好记性不如烂笔头">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="phpDocumentor 标签"/>
+  <meta property="og:site_name" content="Lsc’s Home"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Lsc’s Home" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+  <body>
+    <a name="top"></a>
+  	<header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Lsc’s Home</a></h1>
+  <h2>学习笔记 - 好记性不如烂笔头</h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/laravel">Laravel</a></li>
+    
+      <li><a href="/about">我</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  	<div id="content" class="inner">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="post hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!-- 
+        <div class="icon"></div>
+        <time datetime="2019-03-14T05:29:06.000Z"><a href="/2019/03/14/phpdoc/">2019-03-14</a></time>
+       -->
+      <div class="icon"></div>
+        <time datetime="2019-03-14T05:29:06.000Z"><a href="/2019/03/14/phpdoc/">2019-03-14</a></time>
+      
+  
+    <h1 class="title">phpDocumentor 标签</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>phpDocumentor 标签与 JavaDoc 很相似。只有位于文本块(DocBlock)新行开头的标签才会被解析，并且在单行范围内，@ character后面的文本可以保持任意长度。例如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * tags demonstration</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> this tag is parsed, but this <span class="doctag">@version</span> tag is ignored</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0 this version tag is parsed</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>任何 phpDocumentor 无法识别的标签将不会被解析，但会将其以文本的形式作为文本快的一部分进行输出。以下是 phpDocumentor 支持的标签列表：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>适用</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>api</td>
+<td>方法</td>
+<td>声明此元素适用于第三方</td>
+</tr>
+<tr>
+<td>author</td>
+<td>任何</td>
+<td>记录相关作者</td>
+</tr>
+<tr>
+<td>copyright</td>
+<td>任何</td>
+<td>记录相关版权信息</td>
+</tr>
+<tr>
+<td>deprecated</td>
+<td>任何</td>
+<td>声明次此元素不推荐使用，以后的版本中将会弃用</td>
+</tr>
+<tr>
+<td>exmaple</td>
+<td>任何</td>
+<td>显示一部分代码</td>
+</tr>
+<tr>
+<td>filesource</td>
+<td>文件</td>
+<td>在解析结果中包含当前文件的源</td>
+</tr>
+<tr>
+<td>global</td>
+<td>变量</td>
+<td>全局变量及其用法</td>
+</tr>
+<tr>
+<td>ignore</td>
+<td>任何</td>
+<td>忽略的元素</td>
+</tr>
+<tr>
+<td>internal</td>
+<td>任何</td>
+<td>说明此元素是相关程序或库的内部元素，默认隐藏</td>
+</tr>
+<tr>
+<td>licence</td>
+<td>文件，类</td>
+<td>(开源)许可证</td>
+</tr>
+<tr>
+<td>link</td>
+<td>任何</td>
+<td>相关链接</td>
+</tr>
+<tr>
+<td>method</td>
+<td>类</td>
+<td>声明可调用的魔术方法</td>
+</tr>
+<tr>
+<td>package</td>
+<td>文件，类</td>
+<td>所属包</td>
+</tr>
+<tr>
+<td>param</td>
+<td>方法，函数</td>
+<td>声明程序或者方法所用到的参数</td>
+</tr>
+<tr>
+<td>property</td>
+<td>类</td>
+<td>声明类存在的魔术属性</td>
+</tr>
+<tr>
+<td>property-read</td>
+<td>类</td>
+<td>声明类存在的只读的魔术属性</td>
+</tr>
+<tr>
+<td>property-write</td>
+<td>类</td>
+<td>声明类存在的只写的魔法属性</td>
+</tr>
+<tr>
+<td>return</td>
+<td>方法，函数</td>
+<td>方法或者函数返回的值</td>
+</tr>
+<tr>
+<td>see</td>
+<td>任何</td>
+<td>相关参数</td>
+</tr>
+<tr>
+<td>since</td>
+<td>任何</td>
+<td>声明可用版本</td>
+</tr>
+<tr>
+<td>source</td>
+<td>任何（除了文件）</td>
+<td>参考来源</td>
+</tr>
+<tr>
+<td>subpackage</td>
+<td>文件，类</td>
+<td>所属子包</td>
+</tr>
+<tr>
+<td>throws</td>
+<td>方法，函数</td>
+<td>声明特定异常的类型</td>
+</tr>
+<tr>
+<td>todo</td>
+<td>任何</td>
+<td>功能不完善，计划还要开发的任务</td>
+</tr>
+<tr>
+<td>uses</td>
+<td>任何</td>
+<td>表示对单个关联元素的引用</td>
+</tr>
+<tr>
+<td>var</td>
+<td>属性</td>
+<td>方法或者函数的属性</td>
+</tr>
+<tr>
+<td>version</td>
+<td>任何</td>
+<td>当前版本</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>此以上常规标签(regular tags)外，phpDocumentor 中还有一种行内标签(inline tags)。与常规标签不同，行内标签不要求出现在新行的开头，而可以出现在文本流中。以下几个常用的行内标签：</p>
+<pre><code>inline {@internal}
+inline {@inheritdoc}
+inline {@link}
+</code></pre><p>看一下各个标签的例子：</p>
+<h1 id="author"><a href="#author" class="headerlink" title="author"></a>author</h1><p><strong>语法</strong>：<code>@author [name] [&lt;email address&gt;]</code></p>
+<p><strong>描述</strong>：@author标记可用于指示谁创建了结构元素 或已对其进行了重大修改。此标记还可以包含电子邮件地址。</p>
+<p><strong>适用</strong>：全局变量(global variable)、引用(include)、常量(constant)、函数(function)、定义(define)、类(class)、变量(variable)、方法(method)、页面(page)</p>
+<p><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 函数的描述 - 显示作者的例子函数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> LiuShuaicai &lt;liushuaicai@100tal.com&gt;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> LiuShuaicai</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">authorFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="copyright"><a href="#copyright" class="headerlink" title="copyright"></a>copyright</h1><p><strong>语法</strong>：<code>@copyright [description]</code></p>
+<p><strong>描述</strong>：@copyright 元素的版权声明。v1.2 新特性：@copyright 属性可以从父类直接遗传到子类，详情请参考 inline {inheritdoc}</p>
+<p><strong>适用</strong>：全局变量(global variable)、引用(include)、常量(constant)、函数(function)、定义(define)、类(class)、变量(variable)、方法(method)、页面(page)</p>
+<p><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 函数描述 - 显示版权的例子</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> LiuShauicai &lt;liushuaicai@100tal.com&gt;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@copyright</span> Copyright (c) 2019, HaoWeiLai</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyrightFunnction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="deprecated"><a href="#deprecated" class="headerlink" title="deprecated"></a>deprecated</h1><p><strong>语法</strong>：<code>@deprecated [&lt;version&gt;] [&lt;description]&gt;]</code></p>
+<p><strong>描述</strong>：<br>@deprecated标记声明在将来的版本中将删除关联的结构元素，因为它已过时，或者不建议使用它。</p>
+<p>此标记还可以包含一个版本号，直到它被保证包含在软件中为止。从给定的版本开始，函数将被删除，或者可以在不另行通知的情况下删除。如果指定，版本号必须遵循与@version标记向量相同的规则。</p>
+<p>建议（但不是必需）提供一个附加说明，说明为什么不推荐使用关联元素。如果它被另一个方法取代，建议在指向新元素的同一phpdoc中添加一个@see标记。</p>
+<p><strong>适用</strong>：全局变量(global variable)、引用(include)、常量(constant)、函数(function)、定义(define)、类(class)、变量 (variable)、方法(method)</p>
+<p><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@deprecated</span></span></span><br><span class="line"><span class="comment">  * <span class="doctag">@deprecated</span> 1.0.0</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@deprecated</span> No longer used by internal code and not recommended.</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@deprecated</span> 1.0.0 No longer used by internal code and not recommended.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">deprecatedFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="example"><a href="#example" class="headerlink" title="example"></a>example</h1><p><strong>语法</strong>：<code>@example [location] [&lt;start-line&gt; [&lt;number-of-line&gt;]] [&lt;description&gt;]</code><br> or inline：<code>{@example [location] [&lt;start-line&gt; [&lt;number-of-line&gt;]] [&lt;description&gt;]}</code></p>
+<p><strong>描述</strong>：<br>@example标记可用于通过显示使用它们的文件的内容来演示结构元素的使用。</p>
+<p>必须指定文件的位置。它可以指定为相对或绝对URI，或指定为相对或绝对文件路径。在位置周围使用双引号来明确指定它是文件路径。</p>
+<p>如果指定，起始行必须是正整数。它指定了显示示例的行号；如果未指定起始行，则完整显示示例文件。<br>该行号可以可选地后跟另一个正整数，指定从起始行开始呈现的行数。如果省略，则示例文件从起始行显示到文件末尾。</p>
+<p>建议（但不要求）提供附加说明以提供有关所呈现代码的更详细说明。</p>
+<p><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@example</span> example1.php Counting in action.</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@example</span> http://example.com/example2.phps Counting in action by a 3rd party.</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@example</span> "My Own Example.php" My counting.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">exampleFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="global"><a href="#global" class="headerlink" title="global"></a>global</h1><p><strong>语法</strong>：<code>@global [type] [name]</code> or <code>@global [type] [description]</code></p>
+<p><strong>描述</strong>：@global语法可用于记录函数中全局变量的使用<br><a href="http://manual.phpdoc.org/HTMLframesConverter/default/?spm=a2c4e.11153940.blogcont691719.9.12921de8uyH6wq" target="_blank" rel="noopener">http://manual.phpdoc.org/HTMLframesConverter/default/?spm=a2c4e.11153940.blogcont691719.9.12921de8uyH6wq</a></p>
+<p><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@global</span> test $GLOBALS['baz'] </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@name</span> $bar</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$GLOBALS[<span class="string">'bar'</span>] = <span class="keyword">new</span> test</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * example of basic <span class="doctag">@global</span> usage in a function</span></span><br><span class="line"><span class="comment"> * assume global variables "$foo" and "$bar" are already documented</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@global</span> bool used to control the weather</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@global</span> test used to calculate the division tables</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> bool $baz </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> mixed </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">function1</span><span class="params">($baz)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">global</span> $foo,$bar;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> ($baz)</span><br><span class="line">   &#123;</span><br><span class="line">      $a = <span class="number">5</span>;</span><br><span class="line">   &#125; <span class="keyword">else</span></span><br><span class="line">   &#123;</span><br><span class="line">      $a = <span class="keyword">array</span>(<span class="number">1</span>,<span class="number">4</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> $a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="ignore"><a href="#ignore" class="headerlink" title="ignore"></a>ignore</h1><p><strong>语法</strong>：<code>@ignore [&lt;description&gt;]</code><br><strong>描述</strong>：@ignore标记告诉phpDocumentor 不要处理与标记关联的结构元素。使用的一个示例可能是防止重复记录条件常量。<br>建议（但不要求）提供附加说明，说明为什么要忽略相关元素。</p>
+<p><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">if</span> ($ostest) &#123;</span><br><span class="line">     <span class="comment">/**</span></span><br><span class="line"><span class="comment">      * This define will either be 'Unix' or 'Windows'</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">     define(<span class="string">"OS"</span>,<span class="string">"Unix"</span>);</span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="comment">/**</span></span><br><span class="line"><span class="comment">      * <span class="doctag">@ignore</span></span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">     define(<span class="string">"OS"</span>,<span class="string">"Windows"</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="license"><a href="#license" class="headerlink" title="license"></a>license</h1><p><strong>语法</strong>：<code>@license [&lt;url&gt;] [name]</code><br><strong>描述</strong>：@license标记为用户提供元素的许可证名称和URL<br><strong>适用</strong>：引用(include)、页面(page)、函数(function)、定义(define)、类(class)、变量 (variable)、方法(method)<br><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@license</span> GPL</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@license</span> http://opensource.org/licenses/gpl-license.php GNU Public License</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="link"><a href="#link" class="headerlink" title="link"></a>link</h1><p><strong>语法</strong>：<code>@link [URI] [&lt;description&gt;]</code> or inline <code>{@link [URI] [&lt;description&gt;]}</code><br><strong>描述</strong>：@link标记可用于定义结构元素之间的关系或链接，或者在内联使用时将长描述的一部分定义 到URI<br><strong>适用</strong>：引用(include)、页面(page)、类(class)、函数(function)、定义(define)、方法(method)、变量 (variable)<br><strong>示例</strong>：<br>普通标签：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@link</span> http://example.com/my/bar Documentation of Foo.</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span> integer Indicates the number of items.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">count</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     &lt;...&gt;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>内联标签：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * This method counts the occurrences of Foo.</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * When no more Foo (&#123;<span class="doctag">@link</span> http://example.com/my/bar&#125;) are given this</span></span><br><span class="line"><span class="comment">  * function will add one as there must always be one Foo.</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span> integer Indicates the number of items.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">count</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     &lt;...&gt;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="method"><a href="#method" class="headerlink" title="method"></a>method</h1><p><strong>语法</strong>：<code>@method [return type] [name]([[type] [parameter]&lt;, …&gt;]) [&lt;description&gt;]</code><br><strong>描述</strong>：@method标记用于类包含 __call() 魔术方法并定义一些确定用途的情况。<br><strong>适用</strong>：类（class）、接口（interface）<br><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* show off <span class="doctag">@method</span></span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@method</span> int borp() borp(int $int1, int $int2) multiply two integers</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Magician</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__call</span><span class="params">($method, $params)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ($method == <span class="string">'borp'</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (count($params) == <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> $params[<span class="number">0</span>] * $params[<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="package"><a href="#package" class="headerlink" title="package"></a>package</h1><p><strong>语法</strong>：<code>@package [level 1]\[level 2]\[etc.]</code><br><strong>描述</strong>：<br>@package标记可以用作命名空间的对应物或补充。命名空间提供了结构元素的功能细分，其中@package标记可以提供逻辑细分，以哪种方式可以将元素与不同的层次结构分组。<br><strong>适用</strong>：类(class)、页面（page）<br><strong>示例</strong>：<br>文件级示例：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Page-Level DocBlock example.</span></span><br><span class="line"><span class="comment"> * This DocBlock precedes another DocBlock and will be parsed as the page-level.</span></span><br><span class="line"><span class="comment"> * Put your <span class="doctag">@package</span> and <span class="doctag">@subpackage</span> tags here</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> pagelevel_package</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * function bluh</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bluh</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>类级示例：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* class bluh</span></span><br><span class="line"><span class="comment">* class-level DocBlock example.</span></span><br><span class="line"><span class="comment">* <span class="doctag">@package</span> applies_to_bluh</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">bluh</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * This variable is parsed as part of package applies_to_bluh</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> $foo;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * So is this function</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="param"><a href="#param" class="headerlink" title="param"></a>param</h1><p><strong>语法</strong>：<code>@param [type] [name] [&lt;description&gt;]</code><br><strong>描述</strong>：<br>使用@param标记，可以记录函数或方法的单个参数的类型和功能。如果提供它必须包含一个 类型来表明预期的内容; 另一方面，描述是可选的，但在复杂结构的情况下，例如关联数组，则推荐使用。<br><strong>适用</strong>：方法(method)、函数(function)<br><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * Counts the number of items in the provided array.</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> mixed[] $items Array structure to count the elements of.</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span> int Returns the number of elements.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">count</span><span class="params">(array $items)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     &lt;...&gt;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="property"><a href="#property" class="headerlink" title="property"></a>property</h1><p><strong>语法</strong>：<code>@property [type] [name] [&lt;description&gt;]</code><br><strong>描述</strong>：@property标记用于类包含 <strong>get()和</strong>set()魔术方法并允许特定名称的情况。<br><strong>适用</strong>：类（class）、接口（interface）<br><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * show off <span class="doctag">@property</span>, <span class="doctag">@property</span>-read, <span class="doctag">@property</span>-write</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@property</span> mixed $regular regular read/write property</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@property</span>-read int $foo the foo prop</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@property</span>-write string $bar the bar prop</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Magician</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $_thingy;</span><br><span class="line">    <span class="keyword">private</span> $_bar;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__get</span><span class="params">($var)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> ($var) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'foo'</span> :</span><br><span class="line">                <span class="keyword">return</span> <span class="number">45</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'regular'</span> :</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;_thingy;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__set</span><span class="params">($var, $val)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> ($var) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'bar'</span> :</span><br><span class="line">                <span class="keyword">$this</span>-&gt;_bar = $val;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'regular'</span> :</span><br><span class="line">                <span class="keyword">if</span> (is_string($val)) &#123;</span><br><span class="line">                    <span class="keyword">$this</span>-&gt;_thingy = $val;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="return"><a href="#return" class="headerlink" title="return"></a>return</h1><p><strong>语法</strong>：<code>@return [type] [&lt;description&gt;]</code><br><strong>描述</strong>：@return标记用于记录函数或方法的返回值。<br><strong>适用</strong>：方法(method)、函数(function)<br><strong>示例</strong>：<br>返回多种类型：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span> string|null The label's text or null if none provided.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getLabel</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     &lt;...&gt;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * example of basic <span class="doctag">@return</span> usage</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> mixed </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">function1</span><span class="params">($baz)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span> ($baz)</span><br><span class="line">   &#123;</span><br><span class="line">      $a = <span class="number">5</span>;</span><br><span class="line">   &#125; <span class="keyword">else</span></span><br><span class="line">   &#123;</span><br><span class="line">      $a = <span class="keyword">array</span>(<span class="number">1</span>,<span class="number">4</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> $a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Type表示的值可以是数组。必须按照以下选项之一的格式定义类型：</p>
+<ul>
+<li><p>未指定，没有给出所表示数组的内容的定义。例：@return array</p>
+</li>
+<li><p>如果指定包含单个类型，则Type定义会通知读者每个数组元素的类型。然后只需要一个Type作为给定数组的元素。<br>例： @return int[]</p>
+</li>
+<li><p>请注意，mixed也是单一类型，使用此关键字可以指示每个数组元素包含任何可能的类型。</p>
+</li>
+<li><p>如果指定包含多个类型，则Type定义会通知读者每个数组元素的类型。每个元素可以是任何给定类型。例：@return (int|string)[]</p>
+</li>
+</ul>
+<h1 id="see"><a href="#see" class="headerlink" title="see"></a>see</h1><p><strong>语法</strong>：<code>@see [URI | FQSEN] [&lt;description&gt;]</code> or online <code>{@see [URI | FQSEN] [&lt;description&gt;]}</code><br><strong>描述</strong>：<br>@see标记可用于定义对其他结构元素或URI 的引用 。</p>
+<p>定义对另一个结构元素的引用时，可以通过附加双冒号并提供该元素的名称（也称为FQSEN）来提供特定元素。</p>
+<p>@see仅显示元素文档的链接。如果要显示超链接，请使用@link或inline@link</p>
+<p><strong>适用</strong>：全局变量(global variable)、引用(include)、函数(function)、定义(define)、类(class)、变量(variable)、方法(method)、页面(page)</p>
+<p><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* class 1</span></span><br><span class="line"><span class="comment">* </span></span><br><span class="line"><span class="comment">* example of use of the :: scope operator</span></span><br><span class="line"><span class="comment">* <span class="doctag">@see</span> subclass::method()</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">main_class</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * example of linking to same class, outputs &lt;u&gt;main_class::parent_method()&lt;/u&gt;</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@see</span> parent_method</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> foo = <span class="number">3</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * subclass inherits this method.</span></span><br><span class="line"><span class="comment">    * example of a word which is either a constant or class name, in this case a classname</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@see</span> subclass</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@see</span> subclass::$foo</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">parent_method</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;foo==<span class="number">9</span>) <span class="keyword">die</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* this class extends main_class.</span></span><br><span class="line"><span class="comment">* example of linking to a constant, and of putting more than one element on the same line</span></span><br><span class="line"><span class="comment">* <span class="doctag">@see</span> main_class, TEST_CONST</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">subclass extends main_class</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * example of same class lookup - see will look through parent hierarchy to</span></span><br><span class="line"><span class="comment">    * find the method in &#123; <span class="doctag">@link</span> main_class&#125;</span></span><br><span class="line"><span class="comment">    * the above inline link tag will parse as &lt;u&gt;main_class&lt;/u&gt;</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@see</span> parent_method()</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> $foo = <span class="number">9</span>;</span><br><span class="line">&#125;</span><br><span class="line">     </span><br><span class="line">    define(<span class="string">"TEST_CONST"</span>,<span class="string">"foobar"</span>);</span><br></pre></td></tr></table></figure></p>
+<h1 id="since"><a href="#since" class="headerlink" title="since"></a>since</h1><p><strong>语法</strong>：<code>@since [version] [&lt;description&gt;]</code><br><strong>描述</strong>：@since标记可用于指示特定结构元素的版本可用。<br><strong>适用</strong>：全局变量(global variable)、引用(include)、常量(constant)、函数(function)、定义(define)、类(class)、变量 (variable)、方法(method)、页面(page)<br><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Page-level DocBlock</span></span><br><span class="line"><span class="comment">* <span class="doctag">@package</span> BigImportantProjectWithLotsofVersions</span></span><br><span class="line"><span class="comment">* <span class="doctag">@version</span> 72.5</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* function datafunction</span></span><br><span class="line"><span class="comment">* <span class="doctag">@since</span> Version 21.1</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">datafunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="source"><a href="#source" class="headerlink" title="source"></a>source</h1><p><strong>语法</strong>：<code>@source [&lt;start-line&gt; [&lt;number-of-lines&gt;]] [&lt;description&gt;]</code><br><strong>描述</strong>：<br>@source标记可以用于通过呈现源代码来传达结构元素的实现 ，或者更典型地 - 它的一部分。</p>
+<p>如果指定，起始行必须是正整数。计数从结构元素的主体开始的线（即带有开口支撑的线）开始；如果未指定起始行，则结构元素的来源将完整呈现。</p>
+<p>该行号可以可选地后跟另一个正整数，指定从起始行开始呈现的行数。如果省略，则结构元素的源从起始线到其末端（即具有右括号的线）呈现。</p>
+<p><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@source</span> 2 1 Check that ensures lazy counting.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> === <span class="keyword">$this</span>-&gt;count) &#123;</span><br><span class="line">        &lt;...&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="throws"><a href="#throws" class="headerlink" title="throws"></a>throws</h1><p><strong>语法</strong>：<code>@throws [Type] [&lt;description&gt;]</code><br><strong>描述</strong>：@throws标记可用于指示结构元素可能抛出特定类型的错误，提供的类型必须表示类Exception或其任何子类的对象。<br><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * Counts the number of items in the provided array.</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> mixed[] $array Array structure to count the elements of.</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@throws</span> InvalidArgumentException if the provided argument is not of type</span></span><br><span class="line"><span class="comment">  *     'array'.</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span> int Returns the number of elements.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">count</span><span class="params">($items)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">     &lt;...&gt;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><p><strong>语法</strong>：<code>@todo [description]</code><br><strong>描述</strong>：@todo记录对尚未实现的元素的计划更改。<br><strong>适用</strong>：任何<br><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Page-level DocBlock</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> unfinished</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@todo</span> finish the functions on this page</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * function datafunction</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@todo</span> make it do something</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">datafunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="uses"><a href="#uses" class="headerlink" title="uses"></a>uses</h1><p><strong>语法</strong>：<code>@uses [ FQSEN ] [&lt;description&gt;]</code><br><strong>描述</strong>：<br>@uses标签用于描述当前元素与任何其他结构元素之间的消费关系 。</p>
+<p>@uses类似于@see（有关格式和结构的详细信息，请参阅@see的文档）。@uses标记与@see的不同之处在于@see是单向链接，这意味着包含@see标记的文档包含指向其他结构元素或URI的链接，但不暗示链接。</p>
+<p>文档生成器应该在接收元素的文档中创建一个@ used-by标记，该标记链接回与@uses标记关联的元素。</p>
+<p>定义对另一个结构元素的引用时，您可以通过提供FQSEN来引用特定元素 。</p>
+<p>@uses标签COULD附加了一个描述，以提供有关目标元素用法的更多信息。</p>
+<p><strong>示例</strong>：<br>示例一：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* class 1</span></span><br><span class="line"><span class="comment">* </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">main_class</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@var</span> integer </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> foo = <span class="number">3</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * subclass inherits this method.</span></span><br><span class="line"><span class="comment">    * example of a word which is either a constant or class name,</span></span><br><span class="line"><span class="comment">    * in this case a classname</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@uses</span> subclass sets a temporary variable</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@uses</span> subclass::$foo this is compared to TEST_CONST</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@uses</span> TEST_CONST compared to subclass::$foo, we</span></span><br><span class="line"><span class="comment">    *                   die() if not found</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">parent_method</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;foo==<span class="number">9</span>) <span class="keyword">die</span>;</span><br><span class="line">        $test = <span class="keyword">new</span> subclass;</span><br><span class="line">        $a = $test-&gt;foo;</span><br><span class="line">        <span class="keyword">if</span> ($a == TEST_CONST) <span class="keyword">die</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* this class extends main_class.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">subclass extends main_class</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@var</span> integer </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> $foo = <span class="number">9</span>;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">define(<span class="string">"TEST_CONST"</span>,<span class="string">"foobar"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>示例二：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* class 1</span></span><br><span class="line"><span class="comment">* </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">main_class</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@var</span> integer </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> foo = <span class="number">3</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * subclass inherits this method.</span></span><br><span class="line"><span class="comment">    * example of a word which is either a constant or class name,</span></span><br><span class="line"><span class="comment">    * in this case a classname</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@uses</span> subclass sets a temporary variable</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@uses</span> subclass::$foo this is compared to TEST_CONST</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@uses</span> TEST_CONST compared to subclass::$foo, we</span></span><br><span class="line"><span class="comment">    *                   die() if not found</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">parent_method</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;foo==<span class="number">9</span>) <span class="keyword">die</span>;</span><br><span class="line">        $test = <span class="keyword">new</span> subclass;</span><br><span class="line">        $a = $test-&gt;foo;</span><br><span class="line">        <span class="keyword">if</span> ($a == TEST_CONST) <span class="keyword">die</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* this class extends main_class.</span></span><br><span class="line"><span class="comment">* <span class="doctag">@usedby</span> main_class::parent_method() sets a temporary variable</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">subclass extends main_class</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@var</span> integer </span></span><br><span class="line"><span class="comment">    * <span class="doctag">@usedby</span> main_class::parent_method() this is compared to TEST_CONST</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">var</span> $foo = <span class="number">9</span>;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@usedby</span> main_class::parent_method() compared to subclass::$foo, we</span></span><br><span class="line"><span class="comment">*                                      die() if not found</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">define(<span class="string">"TEST_CONST"</span>,<span class="string">"foobar"</span>);</span><br></pre></td></tr></table></figure></p>
+<h1 id="var"><a href="#var" class="headerlink" title="var"></a>var</h1><p><strong>语法</strong>：<code>@var [“Type”] [$element_name] [&lt;description&gt;]</code><br><strong>描述</strong>：<br>@var标记定义了属性值表示的数据类型。</p>
+<p>@var标记必须包含它所记录的元素的名称。例外情况是属性声明仅引用单个属性。在这种情况下，可以省略属性的名称。</p>
+<p>当复合语句用于定义一系列属性时使用此方法。这样的复合语句只能有一个DocBlock，而表示几个项目。</p>
+<p><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@var</span> string|null Should contain a description </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  <span class="keyword">protected</span> $description = <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>记录复合语句:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@var</span> string $name        Should contain a description</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@var</span> string $description Should contain a description</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">protected</span> $name, $description;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="version"><a href="#version" class="headerlink" title="version"></a>version</h1><p><strong>语法</strong>：<code>@version [&lt;vector&gt;] [&lt;description&gt;]</code><br><strong>描述</strong>：@version标记表示结构元素的当前版本<br><strong>示例</strong>：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * example of <span class="doctag">@version</span> tag with CVS tag</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> $Id: tags.version.pkg,v 1.2 2006-04-29 04:08:27 cellog Exp $;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">datafunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Custom version string</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> customversionstring1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">blah</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="更多标签内容查看"><a href="#更多标签内容查看" class="headerlink" title="更多标签内容查看"></a>更多标签内容查看</h1><p><a href="http://manual.phpdoc.org/HTMLframesConverter/default/?spm=a2c4e.11153940.blogcont691719.9.12921de8uyH6wq" target="_blank" rel="noopener">http://manual.phpdoc.org/HTMLframesConverter/default/?spm=a2c4e.11153940.blogcont691719.9.12921de8uyH6wq</a></p>
+<p><a href="https://docs.phpdoc.org/references/phpdoc/index.html" target="_blank" rel="noopener">https://docs.phpdoc.org/references/phpdoc/index.html</a></p>
+
+      
+    </div>
+
+
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/PHP/">PHP</a>
+  </div>
+
+
+        
+  
+  <div class="tags">
+    <a href="/tags/PHP/">PHP</a>
+  </div>
+
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="2019/03/14/phpdoc/"></div>
+    </section>
+ -->
+</article>
+
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#author"><span class="toc-text">author</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#copyright"><span class="toc-text">copyright</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#deprecated"><span class="toc-text">deprecated</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#example"><span class="toc-text">example</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#global"><span class="toc-text">global</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ignore"><span class="toc-text">ignore</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#license"><span class="toc-text">license</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#link"><span class="toc-text">link</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#method"><span class="toc-text">method</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#package"><span class="toc-text">package</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#param"><span class="toc-text">param</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#property"><span class="toc-text">property</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#return"><span class="toc-text">return</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#see"><span class="toc-text">see</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#since"><span class="toc-text">since</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#source"><span class="toc-text">source</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#throws"><span class="toc-text">throws</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#todo"><span class="toc-text">todo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#uses"><span class="toc-text">uses</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#var"><span class="toc-text">var</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#version"><span class="toc-text">version</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更多标签内容查看"><span class="toc-text">更多标签内容查看</span></a></li></ol>
+</div>
+      
+  </aside>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+
+</div></div>
+      <div class="clearfix"></div>
+  	</div>
+    <div id = 'r_top'>
+	<ul>
+		<li class='top'><a href='#top'></a></li>
+		<li class='close' data='0'><a href='javascript:;'></a></li>
+		<li class='bottom'><a href='#bottom'></a></li>
+	</ul>
+</div>
+
+    <footer id="footer" class="inner"><a name='bottom'></a>
+<div class="alignleft">
+  
+  &copy; 2019 LiuShuaiCai
+  
+</div>
+<div class="clearfix"></div>
+</footer>
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+var duoshuo_shortname = 'feifan';
+var duoshuoQuery = {short_name:duoshuo_shortname};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'https://unpkg.com/embed-js@5.0.3/umd/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<script src="/js/toc.js"></script>
+<script src="/js/top.js"></script>
+<script src="/js/syntax.js"></script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+  </html>
+
