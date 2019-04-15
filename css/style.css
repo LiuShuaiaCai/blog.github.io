@@ -726,6 +726,13 @@ article footer .addthis iframe {
   text-shadow: 0 0 1px #fff;
   margin-top: 10px;
 }
+#foot {
+  height: 50px;
+  text-align: center;
+}
+#foot #cnzz_stat_icon_1277138807 a {
+  color: #fff;
+}
 .entry .gist {
   background: #eee;
   border: 1px solid #ddd;

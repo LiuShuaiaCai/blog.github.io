@@ -540,10 +540,24 @@
   
     
     <entry>
+      <title></title>
+      <link href="/redis/index.html"/>
+      <url>/redis/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
       <title>Laravel 系列笔记</title>
       <link href="/laravel/bind-singleton.html"/>
       <url>/laravel/bind-singleton.html</url>
       <content type="html"><![CDATA[<h2 id="bind-与-singleton-的区别"><a href="#bind-与-singleton-的区别" class="headerlink" title="bind 与 singleton 的区别"></a>bind 与 singleton 的区别</h2><pre><code>相同：都返回一个类的实例  区别：singleton 是单例模式，而 bind 每次都返回一个新的实例</code></pre><h2 id="看一个栗子："><a href="#看一个栗子：" class="headerlink" title="看一个栗子："></a>看一个栗子：</h2><h4 id="创建UserController控制器"><a href="#创建UserController控制器" class="headerlink" title="创建UserController控制器"></a>创建UserController控制器</h4><p>1、我是创建了一个 UserController 控制器，什么也没写，接下来会在 AppServiceProvider 绑定到这个控制器上<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Web</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>2、我在 AppServiceProvider 中的 register 方法中注册，当然也可以新创建一个服务提供者，代码如下</p><h4 id="bind-简单绑定测试"><a href="#bind-简单绑定测试" class="headerlink" title="bind 简单绑定测试"></a>bind 简单绑定测试</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// bind 简单绑定</span></span><br><span class="line">    <span class="keyword">$this</span>-&gt;app-&gt;bind(<span class="string">'user'</span>,UserController::class);</span><br><span class="line">    <span class="comment">// 解析 bind-1</span></span><br><span class="line">    $bind_app1 = <span class="keyword">$this</span>-&gt;app-&gt;make(<span class="string">'user'</span>);</span><br><span class="line">    $bind_app1-&gt;name = <span class="string">'bind_app_1'</span>;</span><br><span class="line">    <span class="comment">// 解析 bind-2</span></span><br><span class="line">    $bind_app2 = <span class="keyword">$this</span>-&gt;app-&gt;make(<span class="string">'user'</span>);</span><br><span class="line">    $bind_app2-&gt;name = <span class="string">'bind_app_2'</span>;</span><br><span class="line">    <span class="comment">// 打印 bind 绑定</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"bind_app1 = "</span>.$bind_app1-&gt;name;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"bind_app2 = "</span>.$bind_app2-&gt;name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果如下：</span></span><br><span class="line">bind_app1 = bind_app_1</span><br><span class="line">bind_app2 = bind_app_2</span><br></pre></td></tr></table></figure><h4 id="singleton-单例绑定测试"><a href="#singleton-单例绑定测试" class="headerlink" title="singleton 单例绑定测试"></a>singleton 单例绑定测试</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// singleton 单例绑定</span></span><br><span class="line">    <span class="keyword">$this</span>-&gt;app-&gt;singleton(<span class="string">'user'</span>,UserController::class);</span><br><span class="line">    <span class="comment">// 解析 singleton-1</span></span><br><span class="line">    $singleton_app1 = <span class="keyword">$this</span>-&gt;app-&gt;make(<span class="string">'user'</span>);</span><br><span class="line">    $singleton_app1-&gt;name = <span class="string">'singleton_app_1'</span>;</span><br><span class="line">    <span class="comment">// 解析 singleton-2</span></span><br><span class="line">    $singleton_app2 = <span class="keyword">$this</span>-&gt;app-&gt;make(<span class="string">'user'</span>);</span><br><span class="line">    $singleton_app2-&gt;name = <span class="string">'singleton_app_2'</span>;</span><br><span class="line">    <span class="comment">// 打印 singleton 绑定</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"singleton_app1 = "</span>.$singleton_app1-&gt;name;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"singleton_app2 = "</span>.$singleton_app2-&gt;name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果如下：</span></span><br><span class="line">singleton_app1 = singleton_app_2</span><br><span class="line">singleton_app2 = singleton_app_2</span><br></pre></td></tr></table></figure><p>这样就能很容易看出差别了。。。</p>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/laravel/binding.html"/>
+      <url>/laravel/binding.html</url>
+      <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
@@ -585,20 +599,6 @@
       <title>PHP 新特性</title>
       <link href="/php-new-features/index.html"/>
       <url>/php-new-features/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <link href="/redis/index.html"/>
-      <url>/redis/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <link href="/laravel/binding.html"/>
-      <url>/laravel/binding.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
