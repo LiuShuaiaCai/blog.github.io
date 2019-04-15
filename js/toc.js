@@ -4,8 +4,11 @@ scroll = function(){
 		// var reg = /\./;
 		id = id.replace('.','-');
 		id = id.replace(' | ','-');
+		id = id.replace('_','-');
 		var reg = new RegExp( ' ' , "g" )
 		id = id.replace(reg,'-');
+		// console.log(id)
+		// console.log($('#'+id).offset())
 		mTop = $('#'+id).offset().top;
 		sTop = $(window).scrollTop();
 		result = mTop - sTop;

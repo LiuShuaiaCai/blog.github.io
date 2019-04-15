@@ -1,0 +1,266 @@
+
+  <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>JWT 简介 | Lsc’s Home</title>
+  <meta name="author" content="LiuShuaiCai">
+  
+  <meta name="description" content="好记性不如烂笔头">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="JWT 简介">
+  <meta property="og:site_name" content="Lsc’s Home">
+
+  
+    <meta property="og:image" content>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Lsc’s Home" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+</html>
+  <body>
+    <a name="top"></a>
+  	<header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Lsc’s Home</a></h1>
+  <h2>学习笔记 - 好记性不如烂笔头</h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/laravel">Laravel</a></li>
+    
+      <li><a href="/about">我</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  	<div id="content" class="inner">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="post hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!-- 
+        <div class="icon"></div>
+        <time datetime="2019-04-11T07:33:56.000Z"><a href="/2019/04/11/jwt/">2019-04-11</a></time>
+       -->
+      <div class="icon"></div>
+        <time datetime="2019-04-11T07:33:56.000Z"><a href="/2019/04/11/jwt/">2019-04-11</a></time>
+      
+  
+    <h1 class="title">JWT 简介</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="/images/jwt.jpg" alt="JWT"><br><a id="more"></a><br>原文：<a href="https://jwt.io/introduction/" target="_blank" rel="noopener">https://jwt.io/introduction</a></p>
+<h2 id="1、什么是JWT"><a href="#1、什么是JWT" class="headerlink" title="1、什么是JWT"></a>1、什么是JWT</h2><p>JSON Web Token (JWT) 是一个开放标准 （<a href="https://tools.ietf.org/html/rfc7519" target="_blank" rel="noopener">RFC 7519</a>），它定义了一种紧凑并且独立的方式，用于在各方之间作为 JSON 对象安全的传输信息。此信息可以通过数字签名进行验证和信任。JWT 可以使用加密（使用 <a href="https://tools.ietf.org/html/rfc2104" target="_blank" rel="noopener">HMAC</a> 算法）或者使用 RSA 或者 ECDSA 的公钥/私钥对进行签名。</p>
+<p>虽然 JWT 可以通过加密在各方之间提供保密，但 JWT 将专注于「签名令牌」。「签名令牌」可以验证其中包含的声明的完整性，而「加密令牌」则隐藏在其他地方的声明。当使用公钥/私钥对签名令牌时，签名还证明只有持有私钥的一方是签署它的一方。</p>
+<h2 id="2、什么时候应该使用-JWT"><a href="#2、什么时候应该使用-JWT" class="headerlink" title="2、什么时候应该使用 JWT"></a>2、什么时候应该使用 JWT</h2><p>以下是 JSON Web Token 的一些使用场景：</p>
+<ul>
+<li><p>Authorization（授权）：这是使用 JWT 的最常见方案。一旦用户登录，之后的每个请求都将包括 JWT，允许用户访问该令牌允许访问的路由、服务和资源。Single Sign On(单点登录) 是一种现在防范使用 JWT 的功能，应为它的开销很小，并且能够在不同的域中轻松使用。</p>
+</li>
+<li><p>Information Exchange（信息交换）：JWT 是在各端之间安全传输信息的好方法。因为 JWT 可以签名 - 例如，使用公钥/私钥时，你可以确定发送人是否准确，此外，由于使用标头和有效负载计算签名，你还可以验证内容是否被篡改。</p>
+</li>
+</ul>
+<h2 id="3、什么是-JWT-结构"><a href="#3、什么是-JWT-结构" class="headerlink" title="3、什么是 JWT 结构"></a>3、什么是 JWT 结构</h2><p>在紧凑形式中，JSON Web Token 由三部分组成，各部分之间用圆点（.）连接，它们是：</p>
+<ul>
+<li>Header（头信息）</li>
+<li>Payload（有效荷载）</li>
+<li>Signature（签名）</li>
+</ul>
+<p>因此，JWT 格式通常如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xxxxx.yyyyy.zzzzz</span><br></pre></td></tr></table></figure>
+<p><strong><em>接下来，具体看一下各个部分：</em></strong></p>
+<h3 id="3-1、Header"><a href="#3-1、Header" class="headerlink" title="3.1、Header"></a>3.1、Header</h3><p>Header 通常由两部分组成：<strong>签名类型</strong>（即“JWT”） 和 <strong>签名算法</strong>（例如 HMAC SHA256 或 RSA ）。<br>例如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"alg"</span>: <span class="string">"HS256"</span>,</span><br><span class="line">    <span class="string">"typ"</span>: <span class="string">"JWT"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，这个 JSON 被编码为 Base64Url ，形成 JWT 的第一部分。</p>
+<h3 id="3-2、Payload"><a href="#3-2、Payload" class="headerlink" title="3.2、Payload"></a>3.2、Payload</h3><p>令牌的第二部分是 payload，其中包含声明。声明是关于实体（通常是指用户）和其他数据的声明，声明有三种类型：registered、public 和 private。</p>
+<ul>
+<li><p>Registered claims: 这是一组预先定义的声明，这些声明不是强制，但是建议提供一组有用的、可相互操作的声明。其中包括：iss (issuer), exp (expiration time), sub(subject), aud (audience) 等。</p>
+</li>
+<li><p>Public claims: 可以随意定义。但是为避免冲突，应在 <a href="https://www.iana.org/assignments/jwt/jwt.xhtml" target="_blank" rel="noopener">IANA JSON Web Token 注册表</a> 中定义它们，或者将其定义为包含防冲突命名空间的URI。</p>
+</li>
+<li><p>Private claims: 用于在同意使用它们的各方之间共享信息，并且不是注册的或公开的声明。</p>
+</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"sub"</span>: <span class="string">"1234567890"</span>,</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"John Doe"</span>,</span><br><span class="line">  <span class="string">"admin"</span>: <span class="keyword">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，payload 经过 Base64Url 编码，形成 JSON Web Token 的第二部分。</p>
+<p><strong>⚠️注意：对于签名令牌，虽然可以防止信息被篡改，但是任何人都可以读取。除非加密，否则不要将私密信息放在 JWT 的 payload 或者 header 中。</strong></p>
+<h3 id="3-3、Signature"><a href="#3-3、Signature" class="headerlink" title="3.3、Signature"></a>3.3、Signature</h3><p>要创建签名部分，你必须有编码过的 header、编码过的 payload、密钥，签名算法是 header 中指定的那个算法（HS256），然后对其进行签名。形成 JSON Web Token 的第三部分。<br>例如，如果要使用 HMAC SHA256 算法，将按以下方式创建签名：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">    base64UrlEncode(header) + <span class="string">"."</span> + base64UrlEncode(payload), </span><br><span class="line">    secret</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>签名是用于验证消息在传递过程中是否被修改，并且，对于使用私钥签名的 token，还可以验证 JWT 的发件方是否是它所声称的发送方。</p>
+<h3 id="3-4、Putting-all-together"><a href="#3-4、Putting-all-together" class="headerlink" title="3.4、Putting all together"></a>3.4、Putting all together</h3><p>JWT 最后结果由三个部分用点（.）连接起来的 Base64-URL 字符串，可以在 HTML 和 HTTP 环境中轻松传递，而与基于 XML 的标准（如 SAML）相比更加紧凑。</p>
+<p>下面显示了一个 JWT 的例子，它包括 header 和 payload，以及加密的签名。<br><img src="/images/jwt2.png" alt="JWT2"></p>
+<p>你可以使用 <a href="http://jwt.io/" target="_blank" rel="noopener">jwt.io Debugger</a> 来解码，验证和生成 JWT。<br><img src="/images/jwt3.png" alt="JWT3"></p>
+<h2 id="4、JWT-如何工作"><a href="#4、JWT-如何工作" class="headerlink" title="4、JWT 如何工作"></a>4、JWT 如何工作</h2><p>在身份验证中，当用户登录成功后，将返回 JSON Web Token。由于 Token 是凭证，因此必须非常小心以防止出现安全问题。一般情况下，不应该将 Token 保留的时间超过要求。</p>
+<p>每当用户想要访问受保护的路由或资源时，用户代理应该使用<strong>承载模式</strong>发送 JWT，通常在 <strong>Authorization</strong> 标头中，标题的内容应该如下所示：</p>
+<pre><code>Authorization: Bearer &lt;token&gt;
+</code></pre><p>在某些情况下，这可以是无状态授权机制。服务器中受保护的路由将检查 <code style="color:#c7254e">Authorization</code> 标头中有效的 JWT，如果存在，则允许用户访问受保护的资源。如果 JWT 中包含必要的数据，则可以减少查询数据库以减少某些操作的需要，尽管可能并非如此。</p>
+<p>如果在头信息 <code style="color:#c7254e">Authorization</code> 中发送 Token，则跨域资源共享（CORS）将不会成为问题，因为它不使用 cookie。</p>
+<p>下图展示了如何获取 JWT 并使用访问 API 或资源：<br><img src="/images/jwt4.png" alt="JWT4"><br>1、应用程序或客户端向授权服务器请求授权。这是通过其中一个不同的授权流程执行的。例如，典型的 <a href="http://openid.net/connect/" target="_blank" rel="noopener">OpenID Connect</a> 兼容Web应用程序将/oauth/authorize使用<a href="http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth" target="_blank" rel="noopener">授权代码</a>流通过端点；<br>2、给予授权后，授权服务器会向应用程序返回访问令牌；<br>3、应用程序使用访问令牌来访问受保护的资源（如API）。</p>
+<p><strong>⚠️注意：使用签名令牌，令牌中包含的所有信息都会向用户或其他方公开，即使他们无法更改，这意味着你不应该在令牌中放置一些私秘的信息。</strong></p>
+<h2 id="5、为什么使用-JWT"><a href="#5、为什么使用-JWT" class="headerlink" title="5、为什么使用 JWT"></a>5、为什么使用 JWT</h2><p>让我们来谈谈JSON Web Tokens（JWT）与Simple Web Tokens（SWT）和Security Assertion Markup Language Tokens（SAML）相比的好处。</p>
+<p>由于 JSON 比 XML 更简洁，因此在编码时它的大小也更小，使得 JWT 比 SAML 更紧凑，这也使得 JWT 成为在 HTML 和 HTTP 传递信息的不错选择。</p>
+<p>在安全方面，SWT 只能使用 HMAC 算法通过共享密钥对称签名。但是，JWT 和 SAML 令牌可以使用 X.509 证书形式的公钥/私钥对进行签名，与简单的 JSON 签名相比，使用 XML 数字签名对 XML 进行签名而不会引入模糊的安全漏洞非常困难。</p>
+<p>JSON 解析器在大多数语言中很常见，因为它们直接映射到对象。相反，XML 没有自然的文档到对象映射。这使得使用 JWT 比使用 SAML 断言更容易。</p>
+<p>关于使用，JWT 用于互联网规模。这突出了在多个平台（尤其是移动平台）上轻松进行JSON Web Token 的客户端处理。<br><img src="/images/jwt5.png" alt="JWT5"><br>比较编码的JWT和编码的SAML的长度。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇文章是对 <a href="https://jwt.io/introduction" target="_blank" rel="noopener">官方文章</a> 的粗略（有些地方不太通顺）翻译，有助于自己对 JWT 有了初步的了解，接下来会结合各方资料学习使用一下。</p>
+
+      
+    </div>
+
+
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/用户认证/">用户认证</a>
+  </div>
+
+
+        
+  
+  <div class="tags">
+    <a href="/tags/JWT/">JWT</a>
+  </div>
+
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="2019/04/11/jwt/"></div>
+    </section>
+ -->
+</article>
+
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、什么是JWT"><span class="toc-text">1、什么是JWT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、什么时候应该使用-JWT"><span class="toc-text">2、什么时候应该使用 JWT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、什么是-JWT-结构"><span class="toc-text">3、什么是 JWT 结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1、Header"><span class="toc-text">3.1、Header</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2、Payload"><span class="toc-text">3.2、Payload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3、Signature"><span class="toc-text">3.3、Signature</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4、Putting-all-together"><span class="toc-text">3.4、Putting all together</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、JWT-如何工作"><span class="toc-text">4、JWT 如何工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、为什么使用-JWT"><span class="toc-text">5、为什么使用 JWT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+</div>
+      
+  </aside>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+
+</div></div>
+      <div class="clearfix"></div>
+  	</div>
+    <div id="r_top">
+	<ul>
+		<li class="top"><a href="#top"></a></li>
+		<li class="close" data="0"><a href="javascript:;"></a></li>
+		<li class="bottom"><a href="#bottom"></a></li>
+	</ul>
+</div>
+
+    <footer id="footer" class="inner"><div id="foot">
+  <a name="bottom"></a>
+  <div id="youmeng"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277138807'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277138807%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script></div>
+  <div class="alignleft2">
+    
+    &copy; 2019 LiuShuaiCai
+    
+  我相信自己会成功的！
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+</footer>
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+var duoshuo_shortname = 'feifan';
+var duoshuoQuery = {short_name:duoshuo_shortname};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'https://unpkg.com/embed-js@5.0.3/umd/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<script src="/js/toc.js"></script>
+<script src="/js/top.js"></script>
+<script src="/js/syntax.js"></script>
+  </body>
+  </html>
+

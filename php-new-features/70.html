@@ -1,0 +1,320 @@
+
+  <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>PHP 新特性 | Lsc’s Home</title>
+  <meta name="author" content="LiuShuaiCai">
+  
+  <meta name="description" content="好记性不如烂笔头">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="PHP 新特性">
+  <meta property="og:site_name" content="Lsc’s Home">
+
+  
+    <meta property="og:image" content>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Lsc’s Home" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+</html>
+  <body>
+    <a name="top"></a>
+  	<header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Lsc’s Home</a></h1>
+  <h2>学习笔记 - 好记性不如烂笔头</h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/laravel">Laravel</a></li>
+    
+      <li><a href="/about">我</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  	<div id="content" class="inner">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="page hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!--  -->
+      <div class="icon"></div>
+        <time datetime="2019-04-13T06:24:07.000Z"><a href="/php-new-features/70.html">2019-04-13</a></time>
+      
+  
+    <h1 class="title">PHP 新特性</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1、类型声明"><a href="#1、类型声明" class="headerlink" title="1、类型声明"></a>1、类型声明</h2><h3 id="1-1、标量类型声明"><a href="#1-1、标量类型声明" class="headerlink" title="1.1、标量类型声明"></a>1.1、标量类型声明</h3><p>标量类型声明可以使用下列类型参数：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>中文</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>class</td>
+<td>类名</td>
+<td>PHP5.0</td>
+</tr>
+<tr>
+<td>interface</td>
+<td>接口</td>
+<td>PHP5.0</td>
+</tr>
+<tr>
+<td>array</td>
+<td>数组</td>
+<td>PHP5.1</td>
+</tr>
+<tr>
+<td>callable</td>
+<td>回调</td>
+<td>PHP5.4</td>
+</tr>
+<tr>
+<td>string</td>
+<td>字符串</td>
+<td>PHP7.0</td>
+</tr>
+<tr>
+<td>int</td>
+<td>整数</td>
+<td>PHP7.0</td>
+</tr>
+<tr>
+<td>float</td>
+<td>浮点数</td>
+<td>PHP7.0</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>布尔值</td>
+<td>PHP7.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在非严格模式下，bool 和 int 参数类型的可有容错性。也就是说，bool 类型可以传字符串类型（string）、数字型（整型[int]、浮点型[float]），返回结果都是布尔值（true|false）。int 类型可以传浮点型(float)，返回结果为整型（int）。<br>在严格模式下（strict_types=1），传入其他类型会报 <code>Fatal error:</code> 错误，看下面的小例子：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span>(strict_types=<span class="number">1</span>);</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Persion</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">age</span><span class="params">(int $age)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> $age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">name</span><span class="params">(string $name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> $name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">isAlive</span><span class="params">(bool $alive)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> $alive;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$persion = <span class="keyword">new</span> Persion();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $persion-&gt;name(<span class="string">'lsc'</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> $persion-&gt;age(<span class="number">454.3</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line">var_dump($persion-&gt;isAlive(<span class="string">'lsc'</span>));</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>非严格模式下调用，</em></strong>正确输出结果：</p>
+<pre><code>lsc
+454
+bool(false)
+</code></pre><p><strong><em>严格模式下调用，</em></strong>结果会报错：</p>
+<pre><code>lsc
+
+Fatal error: Uncaught TypeError: Argument 1 passed to Persion::age() must be of the type integer, float given, called in /Users/liushuaicai/Desktop/PHP/test.php on line 25 and defined in /Users/liushuaicai/Desktop/PHP/test.php:5
+Stack trace:
+#0 /Users/liushuaicai/Desktop/PHP/test.php(25): Persion-&gt;age(454.3)
+#1 {main}
+thrown in /Users/liushuaicai/Desktop/PHP/test.php on line 5
+</code></pre><h3 id="1-2、返回值类型声明"><a href="#1-2、返回值类型声明" class="headerlink" title="1.2、返回值类型声明"></a>1.2、返回值类型声明</h3><p>PHP7 增加返回类型声明，对返回的数据类型进行限制。可用的类型与参数声明中可用的类型相同。例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">arraySum</span><span class="params">(array ...$arrays)</span>: <span class="title">array</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> array_map(<span class="function"><span class="keyword">function</span><span class="params">(array $array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> array_sum($array);</span><br><span class="line">    &#125;, $arrays);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print_r(arraySum([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]));</span><br></pre></td></tr></table></figure></p>
+<p>对数组求和，返回数组类型，输出结果：</p>
+<pre><code>Array
+(
+    [0] =&gt; 6
+    [1] =&gt; 15
+    [2] =&gt; 24
+)
+</code></pre><h2 id="2、Closure的call方法"><a href="#2、Closure的call方法" class="headerlink" title="2、Closure的call方法"></a>2、Closure的call方法</h2><p>Closure 类在平常的工作中也没有用过，在这里也学习一下，先来看一下新方法 call()。Closure::call() 现在有着更好的性能，简短干练的暂时绑定一个方法到对象上闭包并调用它。来看一个例子，来对比一下 bindTo 和 call 方法。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;<span class="keyword">private</span> $x = <span class="number">1</span>;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// PHP7 之前版本代码</span></span><br><span class="line">$getXCB = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;x;&#125;;</span><br><span class="line">$getX = $getXCB-&gt;bindTo(<span class="keyword">new</span> A, <span class="string">'A'</span>); <span class="comment">// 中间层闭包</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'PHP7 之前版本代码:'</span>.$getX();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// PHP7+ 版本代码</span></span><br><span class="line">$getX = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;x;&#125;;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'PHP7+ 版本代码:'</span>.$getX-&gt;call(<span class="keyword">new</span> A);</span><br></pre></td></tr></table></figure></p>
+<p>输出结果：</p>
+<pre><code>PHP7 之前版本代码:1
+PHP7+ 版本代码:1
+</code></pre><h2 id="3、匿名类"><a href="#3、匿名类" class="headerlink" title="3、匿名类"></a>3、匿名类</h2><p>现在支持通过 new class 来实例化一个匿名类，这可以用来代替一些“用后即焚”的完整定义。官方实例：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Logger</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">log</span><span class="params">(string $msg)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Application</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $logger;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getLogger</span><span class="params">()</span>:<span class="title">Logger</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;logger;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setLogger</span><span class="params">(Logger $logger)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;logger = $logger;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$app = <span class="keyword">new</span> Application;</span><br><span class="line">$app-&gt;setLogger(<span class="keyword">new</span> <span class="class"><span class="keyword">class</span> <span class="keyword">implements</span> <span class="title">Logger</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">log</span><span class="params">(string $msg)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> $msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">var_dump($app-&gt;getLogger());</span><br></pre></td></tr></table></figure></p>
+<p>打印结果是 Logger 对象：</p>
+<pre><code>object(class@anonymous)#3 (0) {
+}
+</code></pre><p>这种方法看起来挺方便的，不过在工作中还真没这么用过，一时半会也想不起在什么具体场景下使用。</p>
+<h2 id="4、太空船操作符"><a href="#4、太空船操作符" class="headerlink" title="4、太空船操作符"></a>4、太空船操作符</h2><p>太空船操作符（&lt;=&gt;）在比较变量时非常有用，变量可以是数值（字符串型、整型、浮点型）、数组、对象。可以用于书写清晰易读的用于 usort、uasort、uksort 的回调函数，具体使用规则如下：</p>
+<ul>
+<li>当符号两边相等时返回0</li>
+<li>当符号右边大于左边时返回-1</li>
+<li>当符号左边大于右边时返回1<br>例如下面的例子：<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$int1 = <span class="number">1</span>;</span><br><span class="line">$int2 = <span class="number">2</span>;</span><br><span class="line">$int3 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$int1 &lt;=&gt; $int3 = '</span>. ($int1 &lt;=&gt; $int3);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$int1 &lt;=&gt; $int2 = '</span>. ($int1 &lt;=&gt; $int2);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'$int2 &lt;=&gt; $int3 = '</span>. ($int2 &lt;=&gt; $int3);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>结果为：</p>
+<pre><code>$int1 &lt;=&gt; $int3 = 0
+$int1 &lt;=&gt; $int2 = -1
+$int2 &lt;=&gt; $int3 = 1
+</code></pre><p>这个操作符在进行数组排序时是非常有用的，看个例子：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">normal_sort</span><span class="params">($a, $b)</span>:<span class="title">int</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ($a == $b)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">elseif</span> ($a &gt; $b)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">space_sort</span><span class="params">($a, $b)</span>:<span class="title">int</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $a &lt;=&gt; $b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$normalArray = [<span class="number">1</span>, <span class="number">67</span>, <span class="number">56</span>, <span class="number">34</span>, <span class="number">98</span>, <span class="number">45</span>];</span><br><span class="line">$spaceArray = [<span class="number">1</span>, <span class="number">67</span>, <span class="number">56</span>, <span class="number">34</span>, <span class="number">98</span>, <span class="number">45</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对数组进行升序排序</span></span><br><span class="line">usort($normalArray, <span class="string">'normal_sort'</span>);</span><br><span class="line">print_r($normalArray);</span><br><span class="line"></span><br><span class="line">usort($spaceArray, <span class="string">'space_sort'</span>);</span><br><span class="line">print_r($spaceArray);</span><br></pre></td></tr></table></figure></p>
+<p>对两个相同的数组，分别用了两个方法进行了排序，结果是一样的，不过 space_sort 方法的代码更为简洁。</p>
+<h2 id="5、null-合并运算符"><a href="#5、null-合并运算符" class="headerlink" title="5、null 合并运算符"></a>5、null 合并运算符</h2><p>我们经常使用三元运算符来实现 if-else 的功能，例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$post = ($_POST[<span class="string">'title'</span>]) ? $_POST[<span class="string">'title'</span>] : <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure></p>
+<p>如果 <code>$_POST</code>、<code>$_POST[&#39;title&#39;]</code> 不存在时，就会抛出 <strong>Notice: Undefined index:</strong> 的错误。为了解决这个问题，一般采用 islet() 函数，例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$post = <span class="keyword">isset</span>($_POST[<span class="string">'title'</span>]) ? $_POST[<span class="string">'title'</span>] : <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以解决报错，不过很麻烦，PHP7 推荐使用合并运算符（??），在第一个操作存在时可直接被返回，不然返回第二个操作，具体如下：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$post = $_POST[<span class="string">'title'</span>] ?? <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure></p>
+<p>它会检查 <code>$_POST[&#39;title&#39;]</code> 是否存在，如果存在返回 <code>$_POST[&#39;title&#39;]</code>，不存在返回 NULL。<br>合并运算符还有另外一个好处是可以连续使用，相当于多个判读 if - elseif - else：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$post = $_POST[<span class="string">'title'</span>] ?? $_GET[<span class="string">'title'</span>] ?? <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure></p>
+<p>如果 POST 不存在，返回 GET，GET 不存在，返回 NULL。相当于下面的代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_POST[<span class="string">'title'</span>]))</span><br><span class="line">    $title = $_POST[<span class="string">'title'</span>];</span><br><span class="line"><span class="keyword">elseif</span> (<span class="keyword">isset</span>($_GET[<span class="string">'title'</span>]))</span><br><span class="line">    $title = $_GET[<span class="string">'title'</span>];</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    $title = <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure></p>
+<p>通过上面的例子可以看到，合并运算符代码简短、方便、容易理解。</p>
+<h2 id="6、统一语法变量"><a href="#6、统一语法变量" class="headerlink" title="6、统一语法变量"></a>6、统一语法变量</h2><p>有时候会遇到这样的情况：方法、变量、类名等会被保存在某个变量里，例如下面的例子：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$object[<span class="string">'class'</span>]-&gt;name;</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中， $object[‘class’] 会先被解析，之后的 name 属性会再被解析，通常由左到右解析。看一下下面的情况：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">error_reporting(E_ALL);</span><br><span class="line">$first = [<span class="string">'name'</span> =&gt; <span class="string">'second'</span>];</span><br><span class="line">$second = <span class="string">'Howdy'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $$first[<span class="string">'name'</span>];</span><br></pre></td></tr></table></figure></p>
+<p>在 PHP5.x 中，这样写没问题，这段代码会被执行，并且会被输出 Howdy。不过这样很容易造成混淆，解析的顺序发生了改变（不是从左到右的顺序）。<br>为了避免这种不一致性，PHP7 引入了统一变量的语法，用 {} 包括来区分解析的前后，例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> $&#123;$first[<span class="string">'name'</span>]&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>如果不使用这种写法，上面的代码不会有任何的输出，并且会有 Notice 级别的错误：</p>
+<pre><code>Notice: Array to string conversion in /Users/liushuaicai/Desktop/PHP/test.php on line 34
+
+Notice: Undefined variable: Array in /Users/liushuaicai/Desktop/PHP/test.php on line 34 
+</code></pre><h2 id="7、其它新特性和变更"><a href="#7、其它新特性和变更" class="headerlink" title="7、其它新特性和变更"></a>7、其它新特性和变更</h2><h3 id="7-1、常量数组"><a href="#7-1、常量数组" class="headerlink" title="7.1、常量数组"></a>7.1、常量数组</h3><p>从 PHP5.6 开始，常量数组可以使用 const 关键字来声明，方法如下：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> STORES = [<span class="string">'en'</span>, <span class="string">'fr'</span>, <span class="string">'ar'</span>];</span><br></pre></td></tr></table></figure></p>
+<p>在 PHP7 中，常量数组可以通过 define 函数来初始化，例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">'STORES'</span>, [<span class="string">'en'</span>, <span class="string">'fr'</span>, <span class="string">'ar'</span>]);</span><br></pre></td></tr></table></figure></p>
+<h3 id="7-2、Switch-中的多个-default-默认值"><a href="#7-2、Switch-中的多个-default-默认值" class="headerlink" title="7.2、Switch 中的多个 default 默认值"></a>7.2、Switch 中的多个 default 默认值</h3><p>在 PHP7 之前，多个 default 默认值在 switch 语句中是被允许的，例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(<span class="keyword">true</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'I am first one'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'I am second one'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但从 PHP7 开始，这样的代码就会产生 Fatal 级别的错误，错误内容如下：</p>
+<pre><code>Fatal error: Switch statements may only contain one default clause in /Users/liushuaicai/Desktop/PHP/test.php on line 35
+</code></pre><h3 id="7-3、session-start-函数中的选项数组"><a href="#7-3、session-start-函数中的选项数组" class="headerlink" title="7.3、session_start 函数中的选项数组"></a>7.3、session_start 函数中的选项数组</h3><p>在 PHP7 之前，使用 session 时，必须先调用 session_start() 函数。这个函数并没有传递参数，所有关于 session 的相关配置都在 php.ini 文件中。<br>从 PHP7 开始，可以在调用 session_start() 函数时，可以把 session 相关配置以数组形式传入函数，这些设置信息将覆盖 php.ini 中的 session 配置，例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">session_start([</span><br><span class="line">    <span class="string">'cookie_lifetime'</span> =&gt; <span class="number">3600</span>,</span><br><span class="line">    <span class="string">'read_and_close'</span> =&gt; <span class="keyword">true</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure></p>
+<h3 id="7-4、unserialize-函数引入过滤器"><a href="#7-4、unserialize-函数引入过滤器" class="headerlink" title="7.4、unserialize 函数引入过滤器"></a>7.4、unserialize 函数引入过滤器</h3><p>通常我们使用 serialize 和 unserialize 两个方法分别对对象进行「序列化」和「反序列化」操作。然而，unserialize() 函数并不安全，因为他没有任何过滤项，并且可以反序列化任何类型的对象。因此，PHP7 在该函数中引入了过滤器，默认情况下允许反序列化所有类型的对象。使用方法如下：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$result = unserialize(</span><br><span class="line">    $object, </span><br><span class="line">    [<span class="string">'allowed_classes'</span> =&gt; [<span class="string">'ClassName1'</span>, <span class="string">'ClassName2'</span>, <span class="string">'ClassName3'</span>]]</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+
+    <footer>
+      
+        
+
+        
+  
+  <div class="tags">
+    <a href="/undefined">undefined</a>
+  </div>
+
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="php-new-features/70.html"></div>
+    </section>
+ -->
+</article>
+
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、类型声明"><span class="toc-text">1、类型声明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1、标量类型声明"><span class="toc-text">1.1、标量类型声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2、返回值类型声明"><span class="toc-text">1.2、返回值类型声明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、Closure的call方法"><span class="toc-text">2、Closure的call方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、匿名类"><span class="toc-text">3、匿名类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、太空船操作符"><span class="toc-text">4、太空船操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、null-合并运算符"><span class="toc-text">5、null 合并运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、统一语法变量"><span class="toc-text">6、统一语法变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、其它新特性和变更"><span class="toc-text">7、其它新特性和变更</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1、常量数组"><span class="toc-text">7.1、常量数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2、Switch-中的多个-default-默认值"><span class="toc-text">7.2、Switch 中的多个 default 默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3、session-start-函数中的选项数组"><span class="toc-text">7.3、session_start 函数中的选项数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4、unserialize-函数引入过滤器"><span class="toc-text">7.4、unserialize 函数引入过滤器</span></a></li></ol></li></ol>
+</div>
+      
+  </aside>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+</div></div>
+      <div class="clearfix"></div>
+  	</div>
+    <div id="r_top">
+	<ul>
+		<li class="top"><a href="#top"></a></li>
+		<li class="close" data="0"><a href="javascript:;"></a></li>
+		<li class="bottom"><a href="#bottom"></a></li>
+	</ul>
+</div>
+
+    <footer id="footer" class="inner"><div id="foot">
+  <a name="bottom"></a>
+  <div id="youmeng"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277138807'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277138807%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script></div>
+  <div class="alignleft2">
+    
+    &copy; 2019 LiuShuaiCai
+    
+  我相信自己会成功的！
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+</footer>
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+var duoshuo_shortname = 'feifan';
+var duoshuoQuery = {short_name:duoshuo_shortname};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'https://unpkg.com/embed-js@5.0.3/umd/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<script src="/js/toc.js"></script>
+<script src="/js/top.js"></script>
+<script src="/js/syntax.js"></script>
+  </body>
+  </html>
+

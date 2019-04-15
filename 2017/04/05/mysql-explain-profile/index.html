@@ -1,7 +1,7 @@
 
   <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>Mysql的sql分析（explain|profile） | Lsc’s Home</title>
@@ -12,11 +12,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Mysql的sql分析（explain|profile）"/>
-  <meta property="og:site_name" content="Lsc’s Home"/>
+  <meta property="og:title" content="Mysql的sql分析（explain|profile）">
+  <meta property="og:site_name" content="Lsc’s Home">
 
   
-    <meta property="og:image" content=""/>
+    <meta property="og:image" content>
   
 
   <link href="/favicon.png" rel="icon">
@@ -26,7 +26,7 @@
   
 
 </head>
-
+</html>
   <body>
     <a name="top"></a>
   	<header id="header" class="inner"><div class="alignleft">
@@ -195,7 +195,7 @@
 </table>
 </div>
 <pre><code>注意点：1、join语句的使用，永远用小结果集驱动大结果集。2、仔细分析上面字段的类型。
-</code></pre><h3 id="2、压力测试"><a href="#2、压力测试" class="headerlink" title="2、压力测试"></a>2、压力测试</h3><p>压力测试<a href="">select benchmark(count,sql)</a>;计算sql语句执行count次所花费的时间<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select benchmark(1000000000,&quot;select count(*) from pre_templet_floor&quot;);</span><br><span class="line">+----------------------------------------------------------------+</span><br><span class="line">| benchmark(1000000000,&quot;select count(*) from pre_templet_floor&quot;) |</span><br><span class="line">+----------------------------------------------------------------+</span><br><span class="line">|                                                              0 |</span><br><span class="line">+----------------------------------------------------------------+</span><br><span class="line">1 row in set (4.63 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select count(*) from pre_templet_floor;</span><br><span class="line">+----------+</span><br><span class="line">| count(*) |</span><br><span class="line">+----------+</span><br><span class="line">|       27 |</span><br><span class="line">+----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+</code></pre><h3 id="2、压力测试"><a href="#2、压力测试" class="headerlink" title="2、压力测试"></a>2、压力测试</h3><p>压力测试<a href>select benchmark(count,sql)</a>;计算sql语句执行count次所花费的时间<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select benchmark(1000000000,&quot;select count(*) from pre_templet_floor&quot;);</span><br><span class="line">+----------------------------------------------------------------+</span><br><span class="line">| benchmark(1000000000,&quot;select count(*) from pre_templet_floor&quot;) |</span><br><span class="line">+----------------------------------------------------------------+</span><br><span class="line">|                                                              0 |</span><br><span class="line">+----------------------------------------------------------------+</span><br><span class="line">1 row in set (4.63 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select count(*) from pre_templet_floor;</span><br><span class="line">+----------+</span><br><span class="line">| count(*) |</span><br><span class="line">+----------+</span><br><span class="line">|       27 |</span><br><span class="line">+----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
 <h3 id="3、Profile详解"><a href="#3、Profile详解" class="headerlink" title="3、Profile详解"></a>3、Profile详解</h3><p>profile用于查看一个sql的具体消耗。</p>
 <h4 id="3-1、查看profile是否开启，默认为关闭"><a href="#3-1、查看profile是否开启，默认为关闭" class="headerlink" title="3.1、查看profile是否开启，默认为关闭"></a>3.1、查看profile是否开启，默认为关闭</h4><p>方法一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select @@profiling;</span><br><span class="line">+-------------+</span><br><span class="line">| @@profiling |</span><br><span class="line">+-------------+</span><br><span class="line">|           0 |    --0为关闭，1为开启</span><br><span class="line">+-------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
 <p>方法二：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;%profil%&apos;;</span><br><span class="line">+------------------------+-------+</span><br><span class="line">| Variable_name          | Value |</span><br><span class="line">+------------------------+-------+</span><br><span class="line">| have_profiling         | YES   |    --只读变量，用于控制是否由系统变量开启或禁用profiling </span><br><span class="line">| profiling              | OFF   |    --开启SQL语句剖析功能 </span><br><span class="line">| profiling_history_size | 15    |    --设置保留profiling的数目，缺省为15，范围为0至100，为0时将禁用profiling </span><br><span class="line">+------------------------+-------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
@@ -371,21 +371,26 @@ SWAPS：显示swap的次数。
 </div></div>
       <div class="clearfix"></div>
   	</div>
-    <div id = 'r_top'>
+    <div id="r_top">
 	<ul>
-		<li class='top'><a href='#top'></a></li>
-		<li class='close' data='0'><a href='javascript:;'></a></li>
-		<li class='bottom'><a href='#bottom'></a></li>
+		<li class="top"><a href="#top"></a></li>
+		<li class="close" data="0"><a href="javascript:;"></a></li>
+		<li class="bottom"><a href="#bottom"></a></li>
 	</ul>
 </div>
 
-    <footer id="footer" class="inner"><a name='bottom'></a>
-<div class="alignleft">
-  
-  &copy; 2019 LiuShuaiCai
-  
+    <footer id="footer" class="inner"><div id="foot">
+  <a name="bottom"></a>
+  <div id="youmeng"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277138807'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277138807%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script></div>
+  <div class="alignleft2">
+    
+    &copy; 2019 LiuShuaiCai
+    
+  我相信自己会成功的！
+  </div>
+  <div class="clearfix"></div>
 </div>
-<div class="clearfix"></div>
+
 </footer>
     <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
 <script type="text/javascript">
@@ -427,24 +432,6 @@ var duoshuoQuery = {short_name:duoshuo_shortname};
 <script src="/js/toc.js"></script>
 <script src="/js/top.js"></script>
 <script src="/js/syntax.js"></script>
-
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-</body>
+  </body>
   </html>
 

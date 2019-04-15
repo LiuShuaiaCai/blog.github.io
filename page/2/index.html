@@ -1,7 +1,7 @@
 
   <!DOCTYPE HTML>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>第 2 页 | Lsc’s Home</title>
@@ -13,10 +13,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <meta property="og:site_name" content="Lsc’s Home"/>
+  <meta property="og:site_name" content="Lsc’s Home">
 
   
-    <meta property="og:image" content=""/>
+    <meta property="og:image" content>
   
 
   <link href="/favicon.png" rel="icon">
@@ -26,7 +26,7 @@
   
 
 </head>
-
+</html>
   <body>
     <a name="top"></a>
   	<header id="header" class="inner"><div class="alignleft">
@@ -48,8 +48,98 @@
 <div class="clearfix"></div>
 </header>
   	<div id="content" class="inner">
-  	<div id="main-col" class="alignleft"><div id="wrapper"><div id='index-continer' class='hidden_show'>
-	<div id='index_main' class='hidden_show'>
+  	<div id="main-col" class="alignleft"><div id="wrapper"><div id="index-continer" class="hidden_show">
+	<div id="index_main" class="hidden_show">
+		
+			<article class="post hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!-- 
+        <div class="icon"></div>
+        <time datetime="2018-08-30T06:06:08.000Z"><a href="/2018/08/30/active_funcation/">2018-08-30</a></time>
+       -->
+      <div class="icon"></div>
+        <time datetime="2018-08-30T06:06:08.000Z"><a href="/2018/08/30/active_funcation/">2018-08-30</a></time>
+      
+  
+    <h1 class="title"><a href="/2018/08/30/active_funcation/">常用激活函数</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1、激活函数介绍"><a href="#1、激活函数介绍" class="headerlink" title="1、激活函数介绍"></a>1、激活函数介绍</h2><h3 id="1-1、什么是激活函数"><a href="#1-1、什么是激活函数" class="headerlink" title="1.1、什么是激活函数"></a>1.1、什么是激活函数</h3><p>如下图，在神经元中，输入的 inputs 通过加权，求和后，还被作用了一个函数，这个函数就是激活函数 Activation Function。<br><img src="/images/active.png" alt="activate"><br>
+      
+    </p></div>
+
+
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2018/08/30/active_funcation/#more" class="more-link">查看全文</a>
+          </div>
+        
+       
+            <a href="/2018/08/30/active_funcation/" class="ds-thread-count comment-link alignright" data-thread-key="2018/08/30/active_funcation/" data-count-type="comments"></a>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!--  -->
+</article>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+
+		
+			<article class="post hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!-- 
+        <div class="icon"></div>
+        <time datetime="2018-08-30T03:46:09.000Z"><a href="/2018/08/30/word2vec/">2018-08-30</a></time>
+       -->
+      <div class="icon"></div>
+        <time datetime="2018-08-30T03:46:09.000Z"><a href="/2018/08/30/word2vec/">2018-08-30</a></time>
+      
+  
+    <h1 class="title"><a href="/2018/08/30/word2vec/">word2vec原理分析笔记</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1、word2vec介绍"><a href="#1、word2vec介绍" class="headerlink" title="1、word2vec介绍"></a>1、word2vec介绍</h2><p>word2vec 是 Google 于 2013 年开源推出的一个用于获取 word vector (词向量)的工具包。<br>特点：简单、高效<br>作用：把文本转化为词向量<br>
+      
+    </p></div>
+
+
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2018/08/30/word2vec/#more" class="more-link">查看全文</a>
+          </div>
+        
+       
+            <a href="/2018/08/30/word2vec/" class="ds-thread-count comment-link alignright" data-thread-key="2018/08/30/word2vec/" data-count-type="comments"></a>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!--  -->
+</article>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+
 		
 			<article class="post hidden_show">
   
@@ -118,7 +208,7 @@
         <h2 id="第一步-使用Kramed代替-Marked"><a href="#第一步-使用Kramed代替-Marked" class="headerlink" title="第一步 使用Kramed代替 Marked"></a>第一步 使用Kramed代替 Marked</h2><p><code>hexo</code> 默认的渲染引擎是 marked，但是 <code>marked</code> 不支持 <code>mathjax</code>。 <code>kramed</code> 是在 <code>marked</code> 的基础上进行修改。我们在工程目录下执行以下命令来安装 <code>kramed</code>.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure></p>
 <p>然后，更改/node_modules/hexo-renderer-kramed/lib/renderer.js，更改：<br>
       
-    </div>
+    </p></div>
 
 
     <footer>
@@ -258,7 +348,7 @@
       
         <h2 id="1、What-is-git"><a href="#1、What-is-git" class="headerlink" title="1、What is git"></a>1、What is git</h2><p>git是一个分布式的版本控制系统。<br>
       
-    </div>
+    </p></div>
 
 
     <footer>
@@ -303,7 +393,7 @@
       
         <h2 id="1、Memcached的原理"><a href="#1、Memcached的原理" class="headerlink" title="1、Memcached的原理"></a>1、Memcached的原理</h2><p>Memcache是一个高性能的分布式的内存对象缓存系统，通过在内存里维护一个统一的巨大的hash表，它能够用来存储各种格式的数据，包括图像、视频、文件以及数据库检索的结果等。简单的说就是将数据调用到内存中，然后从内存中读取，从而大大提高读取速度。<br>Memcache是项目的名称，Memcached是一个程序。<br>
       
-    </div>
+    </p></div>
 
 
     <footer>
@@ -395,7 +485,7 @@
       
         <h2 id="1、ab原理"><a href="#1、ab原理" class="headerlink" title="1、ab原理"></a>1、ab原理</h2><p>ab是apachebench的缩写<br>ab命令会创建多个并发访问线程，对同一个URL访问来测试apache的负载压力。测试目标是URL。<br>同样适用于Nginx、Lighthttp、Tomcat、IIS等其它服务器<br>ab命令不会占用很高的CPU，也不会占用很多内存，但却给目标服务器造成巨大的负载，如果负载太多，可能导致目标服务器死机，其原理类似CCI攻击，所以大家测试的时候需要注意。<br>
       
-    </div>
+    </p></div>
 
 
     <footer>
@@ -407,125 +497,6 @@
         
        
             <a href="/2017/04/17/ab/" class="ds-thread-count comment-link alignright" data-thread-key="2017/04/17/ab/" data-count-type="comments"></a>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <!--  -->
-</article>
-
-<!-- <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/syntax.js"></script> -->
-
-
-		
-			<article class="post hidden_show">
-  
-  <div class="post-content">
-    <header>
-      <!-- 
-        <div class="icon"></div>
-        <time datetime="2017-04-11T02:54:06.000Z"><a href="/2017/04/11/win-dos/">2017-04-11</a></time>
-       -->
-      <div class="icon"></div>
-        <time datetime="2017-04-11T02:54:06.000Z"><a href="/2017/04/11/win-dos/">2017-04-11</a></time>
-      
-  
-    <h1 class="title"><a href="/2017/04/11/win-dos/">win常用命令</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="1、win的一些常用命令"><a href="#1、win的一些常用命令" class="headerlink" title="1、win的一些常用命令"></a>1、win的一些常用命令</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">md</td>
-<td style="text-align:left">创建目录</td>
-</tr>
-<tr>
-<td style="text-align:left">rd[/S /Q]</td>
-<td style="text-align:left">删除子目录（加上参数为强制删除S:递归，Q：安静模式，强制）</td>
-</tr>
-<tr>
-<td style="text-align:left">del[/p /q /f]</td>
-<td style="text-align:left">删除文件（p：每次询问，q:不询问，f强制删除）</td>
-</tr>
-<tr>
-<td style="text-align:left">tree[/f]</td>
-<td style="text-align:left">树状显示目录下的文件及文件夹</td>
-</tr>
-<tr>
-<td style="text-align:left">type</td>
-<td style="text-align:left">查看文件内容</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-      
-    </div>
-
-
-    <footer>
-      
-        
-       
-            <a href="/2017/04/11/win-dos/" class="ds-thread-count comment-link alignright" data-thread-key="2017/04/11/win-dos/" data-count-type="comments"></a>
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-  <!--  -->
-</article>
-
-<!-- <script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/syntax.js"></script> -->
-
-
-		
-			<article class="post hidden_show">
-  
-  <div class="post-content">
-    <header>
-      <!-- 
-        <div class="icon"></div>
-        <time datetime="2017-04-10T06:58:30.000Z"><a href="/2017/04/10/summary-3/">2017-04-10</a></time>
-       -->
-      <div class="icon"></div>
-        <time datetime="2017-04-10T06:58:30.000Z"><a href="/2017/04/10/summary-3/">2017-04-10</a></time>
-      
-  
-    <h1 class="title"><a href="/2017/04/10/summary-3/">三月份工作总结</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>终于闲下来了，趁此时间把三月份总结一下</p>
-<h2 id="1、Ajax分页"><a href="#1、Ajax分页" class="headerlink" title="1、Ajax分页"></a>1、Ajax分页</h2><p>企业购的后台模板管理、楼层管理中用到的ajax分页（商品的选择、搜索），自己写了一下，还不是很完整，先记录一下（注：下面的数据都是修改过的，不会对我们的网站产生任何影响）。<br>
-      
-    </div>
-
-
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2017/04/10/summary-3/#more" class="more-link">查看全文</a>
-          </div>
-        
-       
-            <a href="/2017/04/10/summary-3/" class="ds-thread-count comment-link alignright" data-thread-key="2017/04/10/summary-3/" data-count-type="comments"></a>
         
       
       <div class="clearfix"></div>
@@ -554,7 +525,7 @@
 <aside id="sidebar" class="alignright">
 	
 	  	<div id="site_search" class="search">
-  <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+  <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
   <div id="local-search-result"></div>
 </div>
 
@@ -578,7 +549,7 @@
   
     <li><a href="/categories/Mysql/">Mysql</a><small>1</small></li>
   
-    <li><a href="/categories/PHP/">PHP</a><small>7</small></li>
+    <li><a href="/categories/PHP/">PHP</a><small>8</small></li>
   
     <li><a href="/categories/Python/">Python</a><small>1</small></li>
   
@@ -592,7 +563,9 @@
   
     <li><a href="/categories/机器学习/">机器学习</a><small>3</small></li>
   
-    <li><a href="/categories/算法/">算法</a><small>2</small></li>
+    <li><a href="/categories/用户认证/">用户认证</a><small>2</small></li>
+  
+    <li><a href="/categories/算法/">算法</a><small>1</small></li>
   
   </ul>
 </div>
@@ -607,8 +580,6 @@
   
     <li><a href="/tags/CGI/">CGI</a><small>1</small></li>
   
-    <li><a href="/tags/CRF/">CRF</a><small>1</small></li>
-  
     <li><a href="/tags/ES/">ES</a><small>2</small></li>
   
     <li><a href="/tags/HMM/">HMM</a><small>1</small></li>
@@ -616,6 +587,8 @@
     <li><a href="/tags/Hexo/">Hexo</a><small>2</small></li>
   
     <li><a href="/tags/JS/">JS</a><small>1</small></li>
+  
+    <li><a href="/tags/JWT/">JWT</a><small>2</small></li>
   
     <li><a href="/tags/MachineLearning/">MachineLearning</a><small>1</small></li>
   
@@ -657,21 +630,26 @@
 </div></div>
       <div class="clearfix"></div>
   	</div>
-    <div id = 'r_top'>
+    <div id="r_top">
 	<ul>
-		<li class='top'><a href='#top'></a></li>
-		<li class='close' data='0'><a href='javascript:;'></a></li>
-		<li class='bottom'><a href='#bottom'></a></li>
+		<li class="top"><a href="#top"></a></li>
+		<li class="close" data="0"><a href="javascript:;"></a></li>
+		<li class="bottom"><a href="#bottom"></a></li>
 	</ul>
 </div>
 
-    <footer id="footer" class="inner"><a name='bottom'></a>
-<div class="alignleft">
-  
-  &copy; 2019 LiuShuaiCai
-  
+    <footer id="footer" class="inner"><div id="foot">
+  <a name="bottom"></a>
+  <div id="youmeng"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277138807'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277138807%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script></div>
+  <div class="alignleft2">
+    
+    &copy; 2019 LiuShuaiCai
+    
+  我相信自己会成功的！
+  </div>
+  <div class="clearfix"></div>
 </div>
-<div class="clearfix"></div>
+
 </footer>
     <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
 <script type="text/javascript">
@@ -713,24 +691,6 @@ var duoshuoQuery = {short_name:duoshuo_shortname};
 <script src="/js/toc.js"></script>
 <script src="/js/top.js"></script>
 <script src="/js/syntax.js"></script>
-
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-</body>
+  </body>
   </html>
 
