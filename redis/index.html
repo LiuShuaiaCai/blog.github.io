@@ -56,7 +56,7 @@
     <header>
       <!--  -->
       <div class="icon"></div>
-        <time datetime="2019-03-07T00:42:38.687Z"><a href="/redis/index.html">2019-03-07</a></time>
+        <time datetime="2019-05-06T15:38:02.746Z"><a href="/redis/index.html">2019-05-06</a></time>
       
   
     <h1 class="title"></h1>
@@ -197,6 +197,23 @@ var duoshuoQuery = {short_name:duoshuo_shortname};
 <script src="/js/toc.js"></script>
 <script src="/js/top.js"></script>
 <script src="/js/syntax.js"></script>
-  </body>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
   </html>
 
