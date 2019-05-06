@@ -161,7 +161,52 @@
 <pre><code>[2019-05-06 02:08:42] channel1.ERROR: this is channel1 [] []
 [2019-05-06 02:08:42] channel2.ERROR: this is channel2 [] []
 [2019-05-06 02:08:42] channel2.ERROR: this is logger3 [] []
-</code></pre><h3 id="3-5、自定义日志格式"><a href="#3-5、自定义日志格式" class="headerlink" title="3.5、自定义日志格式"></a>3.5、自定义日志格式</h3><p>在 Monolog 中，可以通过 <code>setFormatter</code> 方法设置自定义的日志格式：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="string">"./vendor/autoload.php"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">StreamHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Formatter</span>\<span class="title">LineFormatter</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Formatter</span>\<span class="title">JsonFormatter</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建处理器</span></span><br><span class="line">$stream = <span class="keyword">new</span> StreamHandler(<span class="string">'./log/log3.log'</span>, Logger::DEBUG);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 自定义日志格式</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@var</span> string $dateFormat 时间格式</span></span><br><span class="line"><span class="comment"> * 默认时间格式："Y-m-d H:i:s"</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$dateFormat = <span class="string">"Y-m-d H:i:s"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@var</span> string $output 输出格式</span></span><br><span class="line"><span class="comment"> * 默认输出格式："[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n"</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$output = <span class="string">"%datetime%#%channel%#%level_name%#%message% %context% %extra%\n"</span>;</span><br><span class="line"><span class="comment">// 格式化日志</span></span><br><span class="line">$formatter = <span class="keyword">new</span> LineFormatter($output, $dateFormat);</span><br><span class="line">$stream-&gt;setFormatter($formatter);</span><br><span class="line"><span class="comment">// $stream-&gt;setFormatter(new JsonFormatter());</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个Logger实例</span></span><br><span class="line">$logger = <span class="keyword">new</span> Logger(<span class="string">'channel'</span>);</span><br><span class="line">$logger-&gt;pushHandler($stream);</span><br><span class="line">$logger-&gt;error(<span class="string">'自定义日志格式'</span>);</span><br></pre></td></tr></table></figure></p>
+</code></pre><p>流处理器 StreamHandler 的参数：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stream</td>
+<td>resource 或者 string</td>
+<td>无（必传）</td>
+<td>文件流</td>
+</tr>
+<tr>
+<td>level</td>
+<td>int</td>
+<td>100(debug)</td>
+<td>将触发此处理程序的最低日志记录级别</td>
+</tr>
+<tr>
+<td>bubble</td>
+<td>bool</td>
+<td>true</td>
+<td>消息处理后，指示消息是否推送到其他通道</td>
+</tr>
+<tr>
+<td>filePermission</td>
+<td>int 或者 null</td>
+<td>644</td>
+<td>日志文件权限</td>
+</tr>
+<tr>
+<td>useLocking</td>
+<td>bool</td>
+<td>false</td>
+<td>写入之前尝试锁定日志文件</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="3-5、自定义日志格式"><a href="#3-5、自定义日志格式" class="headerlink" title="3.5、自定义日志格式"></a>3.5、自定义日志格式</h3><p>在 Monolog 中，可以通过 <code>setFormatter</code> 方法设置自定义的日志格式：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="string">"./vendor/autoload.php"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">StreamHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Formatter</span>\<span class="title">LineFormatter</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Formatter</span>\<span class="title">JsonFormatter</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建处理器</span></span><br><span class="line">$stream = <span class="keyword">new</span> StreamHandler(<span class="string">'./log/log3.log'</span>, Logger::DEBUG);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 自定义日志格式</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@var</span> string $dateFormat 时间格式</span></span><br><span class="line"><span class="comment"> * 默认时间格式："Y-m-d H:i:s"</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$dateFormat = <span class="string">"Y-m-d H:i:s"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@var</span> string $output 输出格式</span></span><br><span class="line"><span class="comment"> * 默认输出格式："[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n"</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$output = <span class="string">"%datetime%#%channel%#%level_name%#%message% %context% %extra%\n"</span>;</span><br><span class="line"><span class="comment">// 格式化日志</span></span><br><span class="line">$formatter = <span class="keyword">new</span> LineFormatter($output, $dateFormat);</span><br><span class="line">$stream-&gt;setFormatter($formatter);</span><br><span class="line"><span class="comment">// $stream-&gt;setFormatter(new JsonFormatter());</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个Logger实例</span></span><br><span class="line">$logger = <span class="keyword">new</span> Logger(<span class="string">'channel'</span>);</span><br><span class="line">$logger-&gt;pushHandler($stream);</span><br><span class="line">$logger-&gt;error(<span class="string">'自定义日志格式'</span>);</span><br></pre></td></tr></table></figure></p>
 <p>打印日志：</p>
 <pre><code>2019-05-06 03:02:25#channel#ERROR#自定义日志格式 [] []
 </code></pre><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://learnku.com/articles/8108/the-log-system-of-laravel-monolog" target="_blank" rel="noopener">Laravel 的日志系统 - monolog</a><br><a href="https://github.com/Seldaek/monolog" target="_blank" rel="noopener">官方文档</a><br>想了解更多可以查看官方文档。</p>
