@@ -4,7 +4,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>服务容器原理 | Lsc’s Home</title>
+  <title>了解 Go 的语言结构 | Lsc’s Home</title>
   <meta name="author" content="LiuShuaiCai">
   
   <meta name="description" content="为了自己的野心要不断努力！">
@@ -12,7 +12,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="服务容器原理">
+  <meta property="og:title" content="了解 Go 的语言结构">
   <meta property="og:site_name" content="Lsc’s Home">
 
   
@@ -56,20 +56,37 @@
     <header>
       <!--  -->
       <div class="icon"></div>
-        <time datetime="2019-01-24T15:10:11.000Z"><a href="/laravel/provider-base.html">2019-01-24</a></time>
+        <time datetime="2019-05-06T16:12:00.000Z"><a href="/go/verbal_construction.html">2019-05-07</a></time>
       
   
-    <h1 class="title">服务容器原理</h1>
+    <h1 class="title">了解 Go 的语言结构</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直在使用 Laravel 框架，也没有深入学习和总结，由于年后要项目重构，趁此机会提前再学习总结一下 Laravel 的一些功能，在新项目中能够发挥其作用<br>本篇是 <code>服务容器</code> 的学习笔记，如有错误，欢迎指出👏👏👏</p>
-<h2 id="什么是服务容器"><a href="#什么是服务容器" class="headerlink" title="什么是服务容器"></a>什么是服务容器</h2><p>Laravel <a href="https://laravel-china.org/docs/laravel/5.7/container/2249#introduction" target="_blank" rel="noopener">文档</a> 中介绍：</p>
-<pre><code>Laravel 服务容器是一个用于 管理类的依赖 和 执行依赖注入 的强大工具。
-依赖注入这个花哨名词实质上是指：类的依赖通过构造函数，或者某些情况下通过 &quot;setter&quot; 方法 &quot;注入&quot; 到类中。
-</code></pre><p>如果对 <code>依赖注入（DI）</code>、<code>控制反转（IOC）</code> 不太了解，自己去搜一下，我自己也总结过一篇关于<a href="/laravel/ioc.html">控制反转 与 依赖注入</a>的文章，也可以看一下。</p>
+        <p>刚开始，从 Go 的语言结构开始学习。</p>
+<h2 id="基础组成部分"><a href="#基础组成部分" class="headerlink" title="基础组成部分"></a>基础组成部分</h2><p>Go 语言的基础组成包括的几个部分：<code>声明包</code>、<code>引入包</code>、<code>函数</code>、<code>变量</code>、<code>语句&amp;表达式</code>、<code>注释</code>，看下面Go的例子：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// 打印输出 Hello  World!!!</span></span><br><span class="line">    fmt.Println(<span class="string">"Hello World!!!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>PHP代码实现：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Hello World!!!"</span>;</span><br></pre></td></tr></table></figure>
+<p>上面的代码很简单，只是学习一种语言的第一步，输出 <code>Hello  World!!!</code>，虽然简单，但和 PHP 的还是不太一样，逐行分析一下上面 Go 的代码，</p>
+<ul>
+<li><p>第一行：<code>package main</code> 定义包名，必须在文件的非注释的第一行指明。package main表示一个可独立执行的程序，每个 Go 应用程序都包含一个名为 main 的包</p>
+</li>
+<li><p>第二行：<code>import &quot;fmt&quot;</code> 引入 fmt 包，fmt 包实现了格式化 IO（输入/输出）的函数</p>
+</li>
+<li><p>第三行：<code>func main() {}</code> 是程序开始执行的函数。main 函数是每一个可执行程序所必须包含的，一般来说都是在启动后第一个执行的函数（如果有 init() 函数则会先执行该函数），<code>func main</code> 和大括号<code>{</code>，必须写在同一行，不能分开写</p>
+</li>
+<li><p>标识符：包括常量、变量、类型、函数名、结构字段等等</p>
+<ul>
+<li>大写字母开头：如：Group，那么使用这种形式的标识符的对象就可以被外部包的代码所使用，这被称为导出（像面向对象语言中的 public）</li>
+<li>小写字母开头：如：group，则对包外是不可见的，但是他们在整个包的内部是可见并且可用的（像面向对象语言中的 protected ）</li>
+</ul>
+</li>
+</ul>
+<h2 id="执行-Go-程序"><a href="#执行-Go-程序" class="headerlink" title="执行 Go 程序"></a>执行 Go 程序</h2><p>1、执行 <code>go run hello.go</code> 命令，直接运行程序</p>
+<p>2、使用 <code>go build</code> 命令来生成二进制文件：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">21</span>:<span class="number">23</span>:<span class="number">28</span>] liushuaicai:examples $ ls</span><br><span class="line">ex1.go</span><br><span class="line">[<span class="number">21</span>:<span class="number">23</span>:<span class="number">30</span>] liushuaicai:examples $ go build ex1.go </span><br><span class="line">[<span class="number">21</span>:<span class="number">23</span>:<span class="number">42</span>] liushuaicai:examples $ ls</span><br><span class="line">ex1    ex1.go</span><br><span class="line">[<span class="number">21</span>:<span class="number">23</span>:<span class="number">44</span>] liushuaicai:examples $ ./ex1 </span><br><span class="line">Hello World!!!</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -124,7 +141,7 @@
   <!-- 
     <section id="comment">
         <h1 class="title">留言</h1>
-        <div class="ds-thread" data-thread-key="laravel/provider-base.html"></div>
+        <div class="ds-thread" data-thread-key="go/verbal_construction.html"></div>
     </section>
  -->
 </article>
@@ -133,7 +150,7 @@
          <!--02-->
         <div id="toc" class="toc-article">
     <div class="toc-title">目录</div>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是服务容器"><span class="toc-text">什么是服务容器</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础组成部分"><span class="toc-text">基础组成部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行-Go-程序"><span class="toc-text">执行 Go 程序</span></a></li></ol>
 </div>
       
   </aside>
