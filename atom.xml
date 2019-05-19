@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.feifan.news/"/>
-  <updated>2019-05-07T14:18:36.515Z</updated>
+  <updated>2019-05-06T15:50:38.788Z</updated>
   <id>http://blog.feifan.news/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Golang 学习笔记</title>
-    <link href="http://blog.feifan.news/2019/05/07/go/"/>
-    <id>http://blog.feifan.news/2019/05/07/go/</id>
-    <published>2019-05-06T16:04:00.000Z</published>
-    <updated>2019-05-07T14:18:36.515Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/go.png" alt="go"><br><a id="more"></a></p><h2 id="了解-Go-的语言结构"><a href="#了解-Go-的语言结构" class="headerlink" title="了解 Go 的语言结构"></a><a href="/go/verbal_construction.html">了解 Go 的语言结构</a></h2><p>刚开始，从 Go 的语言结构开始学习。</p><p>Go 语言的基础组成包括的几个部分：<code>声明包</code>、<code>引入包</code>、<code>函数</code>、<code>变量</code>、<code>语句&amp;表达式</code>、<code>注释</code>，看下面Go的例子：</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/go.png&quot; alt=&quot;go&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Go" scheme="http://blog.feifan.news/categories/Go/"/>
-    
-    
-      <category term="Go" scheme="http://blog.feifan.news/tags/Go/"/>
-    
-  </entry>
   
   <entry>
     <title>Monolog - 为PHP创建</title>
