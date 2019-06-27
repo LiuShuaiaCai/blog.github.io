@@ -4,7 +4,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Laravel 系列笔记 | Lsc’s Home</title>
+  <title>Laravel 常用库 | Lsc’s Home</title>
   <meta name="author" content="LiuShuaiCai">
   
   <meta name="description" content="能力支撑不起自己的野心！">
@@ -12,7 +12,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Laravel 系列笔记">
+  <meta property="og:title" content="Laravel 常用库">
   <meta property="og:site_name" content="Lsc’s Home">
 
   
@@ -56,26 +56,41 @@
     <header>
       <!--  -->
       <div class="icon"></div>
-        <time datetime="2019-01-23T15:35:36.000Z"><a href="/laravel/index.html">2019-01-23</a></time>
+        <time datetime="2019-06-27T05:33:33.000Z"><a href="/laravel/tools.html">2019-06-27</a></time>
       
   
-    <h1 class="title">Laravel 系列笔记</h1>
+    <h1 class="title">Laravel 常用库</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="服务容器原理"><a href="#服务容器原理" class="headerlink" title="服务容器原理"></a><a href="/laravel/provider-base.html">服务容器原理</a></h2><p>一直在使用 Laravel 框架，也没有深入学习和总结，由于年后要项目重构，趁此机会提前再学习总结一下 Laravel 的一些功能，在新项目中能够发挥其作用<br>本篇是 <code>服务容器</code> 的学习笔记，如有错误，欢迎指出👏👏👏</p>
-<!-- ## [服务容器绑定](/laravel/binding.html)
-本文是依赖注入（Depeendency Injection）系列教程的第 5 篇文章，本系列教程主要讲解如何使用 PHP 实现一个轻量级服务容器，教程包括： -->
-<h2 id="控制反转-与-依赖注入"><a href="#控制反转-与-依赖注入" class="headerlink" title="控制反转 与 依赖注入"></a><a href="/laravel/ioc.html">控制反转 与 依赖注入</a></h2><p>本篇是关于<code>控制反转(IoC) 与 依赖注入(DI)</code>的学习笔记，如有错误，欢迎指出👏👏👏</p>
-<h2 id="绑定-bind-与-singleton-的区别"><a href="#绑定-bind-与-singleton-的区别" class="headerlink" title="绑定 bind 与 singleton 的区别"></a><a href="/laravel/bind-singleton.html">绑定 bind 与 singleton 的区别</a></h2><p>bind 与 singleton 的区别</p>
-<pre><code>相同：都返回一个类的实例  
-区别：singleton 是单例模式，而 bind 每次都返回一个新的实例
-</code></pre><h2 id="ORM-模型属性"><a href="#ORM-模型属性" class="headerlink" title="ORM - 模型属性"></a><a href="/laravel/model-attribute.html">ORM - 模型属性</a></h2><p>这几天又把文档缕了一遍，发现模型的很多属性都很方便，但是不经常使用，看了有忘，忘了又看，所以干脆敲一遍，加深一下印象。</p>
-<h2 id="Laravel-Docker-快速搭建WEB"><a href="#Laravel-Docker-快速搭建WEB" class="headerlink" title="Laravel-Docker 快速搭建WEB"></a><a href="/laravel/laravel-docker.html">Laravel-Docker 快速搭建WEB</a></h2><p>利用 docker-compose 搭建了一个简单的Web环境，在Laravel中测试的时候，遇到了一些问题，简单的做下总结。</p>
-<h2 id="Laravel-中使用-RabbitMQ"><a href="#Laravel-中使用-RabbitMQ" class="headerlink" title="Laravel 中使用 RabbitMQ"></a><a href="/laravel/laravel-rabbitmq.html">Laravel 中使用 RabbitMQ</a></h2><p>为了自己之后使用方便，对在 Laravel 中使用 RabbitMQ 做了简单的总结。</p>
-<h2 id="Laravel-常用库"><a href="#Laravel-常用库" class="headerlink" title="Laravel 常用库"></a><a href="/laravel/tools.html">Laravel 常用库</a></h2>
+        <h2 id="1、reliese-laravel"><a href="#1、reliese-laravel" class="headerlink" title="1、reliese/laravel"></a><a href="https://github.com/codemaxbr/reliese" target="_blank" rel="noopener">1、reliese/laravel</a></h2><p><code>reliese/laravel</code> 可以很方便的创建数据表模型，包括各种属性，前提是：数据库必须已经可以连接。<br>Github地址：<a href="https://github.com/codemaxbr/reliese" target="_blank" rel="noopener">https://github.com/codemaxbr/reliese</a></p>
+<h2 id="2、larave-ide-helper"><a href="#2、larave-ide-helper" class="headerlink" title="2、larave-ide-helper"></a><a href="https://packagist.org/packages/barryvdh/laravel-ide-helper" target="_blank" rel="noopener">2、larave-ide-helper</a></h2><p>Laravel IDE Helper 是一个极其好用的代码提示及补全工具，可以给编写代码带来极大的便利。<br>库地址：<a href="https://packagist.org/packages/barryvdh/laravel-ide-helper" target="_blank" rel="noopener">https://packagist.org/packages/barryvdh/laravel-ide-helper</a></p>
+<h3 id="安装-larave-ide-helper"><a href="#安装-larave-ide-helper" class="headerlink" title="安装 larave-ide-helper"></a>安装 <code>larave-ide-helper</code></h3><pre><code>composer require barryvdh/laravel-ide-helper --dev
+</code></pre><h3 id="安装-doctrine-dbal"><a href="#安装-doctrine-dbal" class="headerlink" title="安装 doctrine/dbal"></a>安装 <code>doctrine/dbal</code></h3><p>在为模型注释字段的时候必须用到它，所以尽量安装上它</p>
+<pre><code>composer require doctrine/dbal --dev
+</code></pre><h3 id="添加配置"><a href="#添加配置" class="headerlink" title="添加配置"></a>添加配置</h3><p>在 「config/app.php」文件的 「providers」数组中添加下面的配置：</p>
+<pre><code>Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+</code></pre><p>因为该包主要在开发环境中使用，所以最好的方法是只在开发环境中调用，所以可以在「app/Providers/AppServiceProvider.php」文件中的「register」方法中添加下面代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;app-&gt;environment() !== <span class="string">'production'</span>) &#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;app-&gt;register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="导出配置文件"><a href="#导出配置文件" class="headerlink" title="导出配置文件"></a>导出配置文件</h3><p>一般默认配置就可以满足需求，如果满足需求，也可以忽略这一步。</p>
+<pre><code>php artisan vendor:publish --provider=&quot;Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider&quot; --tag=config
+</code></pre><p>到这里，包已经安装完成了，下面可以愉快的使用了。。。</p>
+<h3 id="按照以下顺序编译生成提示："><a href="#按照以下顺序编译生成提示：" class="headerlink" title="按照以下顺序编译生成提示："></a>按照以下顺序编译生成提示：</h3><pre><code>+ php artisan clear-compiled - 删除文件 「bootstrap/compiled.php」清楚缓存
++ php artisan ide-helper:generate - 为 Facades 生成注释
++ php artisan ide-helper:models - 为数据模型生成注释
++ php artisan ide-helper:meta - 生成 PhpStorm Meta file
+</code></pre><h3 id="自动运行-generate"><a href="#自动运行-generate" class="headerlink" title="自动运行 generate"></a>自动运行 generate</h3><p>想在依赖包更新是自动更新注释，可以在 composer.json 文件中做如下配置：</p>
+<pre><code>&quot;scripts&quot;:{
+    &quot;post-update-cmd&quot;: [
+        &quot;Illuminate\\Foundation\\ComposerScripts::postUpdate&quot;,
+        &quot;php artisan ide-helper:generate&quot;,
+        &quot;php artisan ide-helper:meta&quot;,
+        &quot;php artisan optimize&quot;
+    ]
+},
+</code></pre><p>提示：如果只在 dev 环境下部署 ide helper 还是不要这么做了，防止在生产环境中报错导致不必要的麻烦。</p>
+
       
     </div>
 
@@ -87,7 +102,7 @@
         
   
   <div class="tags">
-    <a href="/undefined">undefined</a>
+    <a href="/undefined">undefined</a>, <a href="/undefined">undefined</a>
   </div>
 
         <div class="bdsharebuttonbox">
@@ -129,7 +144,7 @@
   <!-- 
     <section id="comment">
         <h1 class="title">留言</h1>
-        <div class="ds-thread" data-thread-key="laravel/index.html"></div>
+        <div class="ds-thread" data-thread-key="laravel/tools.html"></div>
     </section>
  -->
 </article>
@@ -138,7 +153,7 @@
          <!--02-->
         <div id="toc" class="toc-article">
     <div class="toc-title">目录</div>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务容器原理"><span class="toc-text">服务容器原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控制反转-与-依赖注入"><span class="toc-text">控制反转 与 依赖注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绑定-bind-与-singleton-的区别"><span class="toc-text">绑定 bind 与 singleton 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ORM-模型属性"><span class="toc-text">ORM - 模型属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Laravel-Docker-快速搭建WEB"><span class="toc-text">Laravel-Docker 快速搭建WEB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Laravel-中使用-RabbitMQ"><span class="toc-text">Laravel 中使用 RabbitMQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Laravel-常用库"><span class="toc-text">Laravel 常用库</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、reliese-laravel"><span class="toc-text">1、reliese/laravel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、larave-ide-helper"><span class="toc-text">2、larave-ide-helper</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-larave-ide-helper"><span class="toc-text">安装 larave-ide-helper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-doctrine-dbal"><span class="toc-text">安装 doctrine/dbal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加配置"><span class="toc-text">添加配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导出配置文件"><span class="toc-text">导出配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按照以下顺序编译生成提示："><span class="toc-text">按照以下顺序编译生成提示：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动运行-generate"><span class="toc-text">自动运行 generate</span></a></li></ol></li></ol>
 </div>
       
   </aside>
