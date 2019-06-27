@@ -1,0 +1,354 @@
+
+  <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Laravel 中使用 RabbitMQ | Lsc’s Home</title>
+  <meta name="author" content="LiuShuaiCai">
+  
+  <meta name="description" content="能力支撑不起自己的野心！">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Laravel 中使用 RabbitMQ">
+  <meta property="og:site_name" content="Lsc’s Home">
+
+  
+    <meta property="og:image" content>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Lsc’s Home" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+</html>
+  <body>
+    <a name="top"></a>
+  	<header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Lsc’s Home</a></h1>
+  <h2>学习笔记 - 能力支撑不起自己的野心！</h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/laravel">Laravel</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/about">我</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  	<div id="content" class="inner">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="page hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!--  -->
+      <div class="icon"></div>
+        <time datetime="2019-06-27T03:50:00.000Z"><a href="/laravel/laravel-rabbitmq.html">2019-06-27</a></time>
+      
+  
+    <h1 class="title">Laravel 中使用 RabbitMQ</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1、安装扩展"><a href="#1、安装扩展" class="headerlink" title="1、安装扩展"></a>1、安装扩展</h2><p>安装 laravel-queue-rabbitmq 扩展</p>
+<pre><code>composer require vladimir-yuldashev/laravel-queue-rabbitmq
+</code></pre><h2 id="2、添加provider"><a href="#2、添加provider" class="headerlink" title="2、添加provider"></a>2、添加provider</h2><p>在 config/app.php 文件中，providers 中添加：</p>
+<pre><code>VladimirYuldashev\LaravelQueueRabbitMQ\LaravelQueueRabbitMQServiceProvider::class,
+</code></pre><h2 id="3、配置队列信息"><a href="#3、配置队列信息" class="headerlink" title="3、配置队列信息"></a>3、配置队列信息</h2><p>在 app/config/queue.php 配置文件中的 connections 数组中加入以下配置</p>
+<pre><code>&#39;connections&#39; =&gt; [
+    // ...
+    &#39;rabbitmq&#39; =&gt; [
+
+        &#39;driver&#39; =&gt; &#39;rabbitmq&#39;,
+
+        /*
+        * Set to &quot;horizon&quot; if you wish to use Laravel Horizon.
+        */
+        &#39;worker&#39; =&gt; env(&#39;RABBITMQ_WORKER&#39;, &#39;default&#39;),
+
+        &#39;dsn&#39; =&gt; env(&#39;RABBITMQ_DSN&#39;, null),
+
+        /*
+        * Could be one a class that implements \Interop\Amqp\AmqpConnectionFactory for example:
+        *  - \EnqueueAmqpExt\AmqpConnectionFactory if you install enqueue/amqp-ext
+        *  - \EnqueueAmqpLib\AmqpConnectionFactory if you install enqueue/amqp-lib
+        *  - \EnqueueAmqpBunny\AmqpConnectionFactory if you install enqueue/amqp-bunny
+        */
+
+        &#39;factory_class&#39; =&gt; Enqueue\AmqpLib\AmqpConnectionFactory::class,
+
+        &#39;host&#39; =&gt; env(&#39;RABBITMQ_HOST&#39;, &#39;127.0.0.1&#39;),
+        &#39;port&#39; =&gt; env(&#39;RABBITMQ_PORT&#39;, 5672),
+
+        &#39;vhost&#39; =&gt; env(&#39;RABBITMQ_VHOST&#39;, &#39;/&#39;),
+        &#39;login&#39; =&gt; env(&#39;RABBITMQ_LOGIN&#39;, &#39;guest&#39;),
+        &#39;password&#39; =&gt; env(&#39;RABBITMQ_PASSWORD&#39;, &#39;guest&#39;),
+
+        &#39;queue&#39; =&gt; env(&#39;RABBITMQ_QUEUE&#39;, &#39;default&#39;),
+
+        &#39;options&#39; =&gt; [
+
+            &#39;exchange&#39; =&gt; [
+
+                &#39;name&#39; =&gt; env(&#39;RABBITMQ_EXCHANGE_NAME&#39;),
+
+                /*
+                * Determine if exchange should be created if it does not exist.
+                */
+
+                &#39;declare&#39; =&gt; env(&#39;RABBITMQ_EXCHANGE_DECLARE&#39;, true),
+
+                /*
+                * Read more about possible values at https://www.rabbitmq.com/tutorials/amqp-concepts.html
+                */
+
+                &#39;type&#39; =&gt; env(&#39;RABBITMQ_EXCHANGE_TYPE&#39;, \Interop\Amqp\AmqpTopic::TYPE_DIRECT),
+                &#39;passive&#39; =&gt; env(&#39;RABBITMQ_EXCHANGE_PASSIVE&#39;, false),
+                &#39;durable&#39; =&gt; env(&#39;RABBITMQ_EXCHANGE_DURABLE&#39;, true),
+                &#39;auto_delete&#39; =&gt; env(&#39;RABBITMQ_EXCHANGE_AUTODELETE&#39;, false),
+                &#39;arguments&#39; =&gt; env(&#39;RABBITMQ_EXCHANGE_ARGUMENTS&#39;),
+            ],
+
+            &#39;queue&#39; =&gt; [
+
+                /*
+                * Determine if queue should be created if it does not exist.
+                */
+
+                &#39;declare&#39; =&gt; env(&#39;RABBITMQ_QUEUE_DECLARE&#39;, true),
+
+                /*
+                * Determine if queue should be binded to the exchange created.
+                */
+
+                &#39;bind&#39; =&gt; env(&#39;RABBITMQ_QUEUE_DECLARE_BIND&#39;, true),
+
+                /*
+                * Read more about possible values at https://www.rabbitmq.com/tutorials/amqp-concepts.html
+                */
+
+                &#39;passive&#39; =&gt; env(&#39;RABBITMQ_QUEUE_PASSIVE&#39;, false),
+                &#39;durable&#39; =&gt; env(&#39;RABBITMQ_QUEUE_DURABLE&#39;, true),
+                &#39;exclusive&#39; =&gt; env(&#39;RABBITMQ_QUEUE_EXCLUSIVE&#39;, false),
+                &#39;auto_delete&#39; =&gt; env(&#39;RABBITMQ_QUEUE_AUTODELETE&#39;, false),
+                &#39;arguments&#39; =&gt; env(&#39;RABBITMQ_QUEUE_ARGUMENTS&#39;),
+            ],
+        ],
+
+        /*
+        * Determine the number of seconds to sleep if there&#39;s an error communicating with rabbitmq
+        * If set to false, it&#39;ll throw an exception rather than doing the sleep for X seconds.
+        */
+
+        &#39;sleep_on_error&#39; =&gt; env(&#39;RABBITMQ_ERROR_SLEEP&#39;, 5),
+
+        /*
+        * Optional SSL params if an SSL connection is used
+        * Using an SSL connection will also require to configure your RabbitMQ to enable SSL. More details can be founds here: https://www.rabbitmq.com/ssl.html
+        */
+
+        &#39;ssl_params&#39; =&gt; [
+            &#39;ssl_on&#39; =&gt; env(&#39;RABBITMQ_SSL&#39;, false),
+            &#39;cafile&#39; =&gt; env(&#39;RABBITMQ_SSL_CAFILE&#39;, null),
+            &#39;local_cert&#39; =&gt; env(&#39;RABBITMQ_SSL_LOCALCERT&#39;, null),
+            &#39;local_key&#39; =&gt; env(&#39;RABBITMQ_SSL_LOCALKEY&#39;, null),
+            &#39;verify_peer&#39; =&gt; env(&#39;RABBITMQ_SSL_VERIFY_PEER&#39;, true),
+            &#39;passphrase&#39; =&gt; env(&#39;RABBITMQ_SSL_PASSPHRASE&#39;, null),
+        ],   
+
+    ],
+    // ...    
+],
+</code></pre><h2 id="4、配置env"><a href="#4、配置env" class="headerlink" title="4、配置env"></a>4、配置env</h2><pre><code>QUEUE_CONNECTION=rabbitmq    #这个配置env一般会有先找到修改为这个
+
+#以下是新增配置
+
+RABBITMQ_HOST=rabbitmq  #mq的服务器地址，我这里用的是laradock，具体的就具体修改咯
+RABBITMQ_PORT=5672  #mq的端口
+RABBITMQ_VHOST=/
+RABBITMQ_LOGIN=guest    #mq的登录名
+RABBITMQ_PASSWORD=guest   #mq的密码
+RABBITMQ_QUEUE=queue_name   #mq的队列名称
+</code></pre><h2 id="5、创建队列任务"><a href="#5、创建队列任务" class="headerlink" title="5、创建队列任务"></a>5、创建队列任务</h2><p>创建一个测试队列：TestQueue</p>
+<pre><code>php artisan make:job TestQueue
+</code></pre><p>生成文件 <code>app/Jobs/TestQueue.php</code>，简单的向 users 数据表中添加数据<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Jobs</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">User</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Bus</span>\<span class="title">Queueable</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Queue</span>\<span class="title">SerializesModels</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Queue</span>\<span class="title">InteractsWithQueue</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Queue</span>\<span class="title">ShouldQueue</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Foundation</span>\<span class="title">Bus</span>\<span class="title">Dispatchable</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestQueue</span> <span class="keyword">implements</span> <span class="title">ShouldQueue</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">Dispatchable</span>, <span class="title">InteractsWithQueue</span>, <span class="title">Queueable</span>, <span class="title">SerializesModels</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> $data;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Create a new job instance.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($data)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;data = $data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Execute the job.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            $insert = [</span><br><span class="line">                <span class="string">'passport_id'</span> =&gt; <span class="keyword">$this</span>-&gt;data[<span class="string">'passportId'</span>],</span><br><span class="line">                <span class="string">'company_id'</span> =&gt; <span class="keyword">$this</span>-&gt;data[<span class="string">'companyId'</span>],</span><br><span class="line">                <span class="string">'name'</span> =&gt; <span class="keyword">$this</span>-&gt;data[<span class="string">'name'</span>],</span><br><span class="line">                <span class="string">'sign'</span> =&gt; <span class="keyword">$this</span>-&gt;data[<span class="string">'sign'</span>],</span><br><span class="line">            ];</span><br><span class="line">            $result = User::create($insert);</span><br><span class="line">            <span class="keyword">echo</span> json_encode([<span class="string">'code'</span> =&gt; <span class="number">0</span>, <span class="string">'msg'</span> =&gt; $result]);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (\<span class="keyword">Exception</span> $exception) &#123;</span><br><span class="line">            <span class="keyword">echo</span> json_encode([<span class="string">'code'</span> =&gt; <span class="number">0</span>, <span class="string">'msg'</span> =&gt; $exception-&gt;getMessage()]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="6、队列的调用"><a href="#6、队列的调用" class="headerlink" title="6、队列的调用"></a>6、队列的调用</h2><p>创建一个 Controller 来调用刚才创建好的队列 TestQueue，往队列中添加数据。</p>
+<pre><code>php artisan make:controller RabbitMqController
+</code></pre><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Jobs</span>\<span class="title">TestQueue</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RabbitMqController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $data = collect([</span><br><span class="line">            <span class="string">'passportId'</span> =&gt; <span class="number">2</span>,</span><br><span class="line">            <span class="string">'companyId'</span> =&gt; <span class="number">2</span>,</span><br><span class="line">            <span class="string">'name'</span> =&gt; <span class="string">'sweet'</span>,</span><br><span class="line">            <span class="string">'sign'</span> =&gt; <span class="string">'liusweet521!'</span>,</span><br><span class="line">        ]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">$this</span>-&gt;dispatch(<span class="keyword">new</span> TestQueue($data));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7、消费队列数据"><a href="#7、消费队列数据" class="headerlink" title="7、消费队列数据"></a>7、消费队列数据</h2><p>执行命令：</p>
+<pre><code>php artisan queue:work --queue=test
+</code></pre><p>执行效果如下：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">13</span>:<span class="number">15</span>:<span class="number">47</span>] liushuaicai:rabbit.lsc.com $ php artisan queue:work --queue=test</span><br><span class="line">[<span class="number">2019</span><span class="number">-06</span><span class="number">-27</span> <span class="number">05</span>:<span class="number">15</span>:<span class="number">55</span>][<span class="number">5</span>d14390dae86e3<span class="number">.72918490</span>] Processing: App\Jobs\TestQueue</span><br><span class="line">&#123;<span class="string">"code"</span>:<span class="number">0</span>,<span class="string">"msg"</span>:&#123;<span class="string">"passport_id"</span>:<span class="number">2</span>,<span class="string">"company_id"</span>:<span class="number">2</span>,<span class="string">"name"</span>:<span class="string">"sweet"</span>,<span class="string">"sign"</span>:<span class="string">"liusweet521!"</span>,<span class="string">"updated_at"</span>:<span class="string">"2019-06-27 05:15:55"</span>,<span class="string">"created_at"</span>:<span class="string">"2019-06-27 05:15:55"</span>,<span class="string">"id"</span>:<span class="number">2</span>&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>数据库添加了一条：</p>
+<pre><code>2    2    2    sweet                liusweet521!        2019-06-27 05:15:55    2019-06-27 05:15:55    
+</code></pre>
+      
+    </div>
+
+
+    <footer>
+      
+        
+
+        
+  
+  <div class="tags">
+    <a href="/undefined">undefined</a>, <a href="/undefined">undefined</a>
+  </div>
+
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="laravel/laravel-rabbitmq.html"></div>
+    </section>
+ -->
+</article>
+
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、安装扩展"><span class="toc-text">1、安装扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、添加provider"><span class="toc-text">2、添加provider</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、配置队列信息"><span class="toc-text">3、配置队列信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、配置env"><span class="toc-text">4、配置env</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、创建队列任务"><span class="toc-text">5、创建队列任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、队列的调用"><span class="toc-text">6、队列的调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、消费队列数据"><span class="toc-text">7、消费队列数据</span></a></li></ol>
+</div>
+      
+  </aside>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+</div></div>
+      <div class="clearfix"></div>
+  	</div>
+    <div id="r_top">
+	<ul>
+		<li class="top"><a href="#top"></a></li>
+		<li class="close" data="0"><a href="javascript:;"></a></li>
+		<li class="bottom"><a href="#bottom"></a></li>
+	</ul>
+</div>
+
+    <footer id="footer" class="inner"><div id="foot">
+  <a name="bottom"></a>
+  <div id="youmeng">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277138807'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277138807%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+  </div>
+  <div class="alignleft2">
+    
+    &copy; 2019 LiuShuaiCai
+    
+  我相信自己会成功的！
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+</footer>
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+var duoshuo_shortname = 'feifan';
+var duoshuoQuery = {short_name:duoshuo_shortname};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'https://unpkg.com/embed-js@5.0.3/umd/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<script src="/js/toc.js"></script>
+<script src="/js/top.js"></script>
+<script src="/js/syntax.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+  </html>
+
