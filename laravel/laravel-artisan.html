@@ -1,0 +1,869 @@
+
+  <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Artisan命令大全 | Lsc’s Home</title>
+  <meta name="author" content="LiuShuaiCai">
+  
+  <meta name="description" content="能力支撑不起自己的野心！">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Artisan命令大全">
+  <meta property="og:site_name" content="Lsc’s Home">
+
+  
+    <meta property="og:image" content>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Lsc’s Home" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+</html>
+  <body>
+    <a name="top"></a>
+  	<header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Lsc’s Home</a></h1>
+  <h2>学习笔记 - 能力支撑不起自己的野心！</h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/laravel">Laravel</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/about">我</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  	<div id="content" class="inner">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="page hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!--  -->
+      <div class="icon"></div>
+        <time datetime="2019-10-10T06:32:36.000Z"><a href="/laravel/laravel-artisan.html">2019-10-10</a></time>
+      
+  
+    <h1 class="title">Artisan命令大全</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="1、Available-commands"><a href="#1、Available-commands" class="headerlink" title="1、Available commands"></a>1、Available commands</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clear-compiled</td>
+<td>删除已编译的类文件</td>
+<td>Remove the compiled class file</td>
+</tr>
+<tr>
+<td>down</td>
+<td>将应用程序置于维护模式</td>
+<td>Put the application into maintenance mode</td>
+</tr>
+<tr>
+<td>dump-server</td>
+<td>启动转储服务器以收集转储信息</td>
+<td>Start the dump server to collect dump information</td>
+</tr>
+<tr>
+<td>env</td>
+<td>显示当前的框架环境</td>
+<td>Display the current framework environment</td>
+</tr>
+<tr>
+<td>help</td>
+<td>显示命令的帮助</td>
+<td>Displays help for a command</td>
+</tr>
+<tr>
+<td>inspire</td>
+<td>—</td>
+<td>Display an inspiring quote</td>
+</tr>
+<tr>
+<td>list</td>
+<td>列出命令</td>
+<td>Lists commands</td>
+</tr>
+<tr>
+<td>migrate</td>
+<td>运行数据库迁移</td>
+<td>Run the database migrations</td>
+</tr>
+<tr>
+<td>optimize</td>
+<td>缓存框架引导程序文件</td>
+<td>Cache the framework bootstrap files</td>
+</tr>
+<tr>
+<td>preset</td>
+<td>为应用程序交换前端脚手架</td>
+<td>Swap the front-end scaffolding for the application</td>
+</tr>
+<tr>
+<td>serve</td>
+<td>在 PHP 开发服务器上提供应用程序</td>
+<td>Serve the application on the PHP development server</td>
+</tr>
+<tr>
+<td>tinker</td>
+<td>应用程序互动</td>
+<td>Interact with your application</td>
+</tr>
+<tr>
+<td>up</td>
+<td>使应用程序退出维护模式</td>
+<td>Bring the application out of maintenance mode</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2、app"><a href="#2、app" class="headerlink" title="2、app"></a>2、app</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app:name</td>
+<td>设置应用程序命名空间</td>
+<td>Set the application namespace</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="3、auth"><a href="#3、auth" class="headerlink" title="3、auth"></a>3、auth</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth:clear-resets</td>
+<td>刷新过期的密码重置令牌</td>
+<td>Flush expired password reset tokens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="4、cache"><a href="#4、cache" class="headerlink" title="4、cache"></a>4、cache</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cache:clear</td>
+<td>刷新应用程序缓存</td>
+<td>Flush the application cache</td>
+</tr>
+<tr>
+<td>cache:forget</td>
+<td>从缓存中删除项目</td>
+<td>Remove an item from the cache</td>
+</tr>
+<tr>
+<td>cache:table</td>
+<td>为缓存数据库表创建迁移</td>
+<td>Create a migration for the cache database table</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="5、config"><a href="#5、config" class="headerlink" title="5、config"></a>5、config</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>config:cache</td>
+<td>创建缓存文件以加快配置速度</td>
+<td>Create a cache file for faster configuration loading</td>
+</tr>
+<tr>
+<td>config:clear</td>
+<td>删除配置缓存文件</td>
+<td>Remove the configuration cache file</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="6、db"><a href="#6、db" class="headerlink" title="6、db"></a>6、db</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db:seed</td>
+<td>填充数据库</td>
+<td>Seed the database with records</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="7、event"><a href="#7、event" class="headerlink" title="7、event"></a>7、event</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>event:generate</td>
+<td>根据注册生成缺少的事件和侦听器</td>
+<td>Generate the missing events and listeners based on registration</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="8、key"><a href="#8、key" class="headerlink" title="8、key"></a>8、key</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key:generate</td>
+<td>生成应用程序key</td>
+<td>Set the application key</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="9、lang"><a href="#9、lang" class="headerlink" title="9、lang"></a>9、lang</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lang:publish</td>
+<td>将语言文件发布到资源目录</td>
+<td>publish language files to resources directory</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="10、make"><a href="#10、make" class="headerlink" title="10、make"></a>10、make</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>make:auth</td>
+<td>—-</td>
+<td>Scaffold basic login and registration views and routes</td>
+</tr>
+<tr>
+<td>make:channel</td>
+<td>创建一个新的 channel 类</td>
+<td>Create a new channel class</td>
+</tr>
+<tr>
+<td>make:command</td>
+<td>创建一个新的 Artisan 命令</td>
+<td>Create a new Artisan command</td>
+</tr>
+<tr>
+<td>make:controller</td>
+<td>创建一个新的控制器类</td>
+<td>Create a new controller class</td>
+</tr>
+<tr>
+<td>make:event</td>
+<td>创建一个新的 event 类</td>
+<td>Create a new event class</td>
+</tr>
+<tr>
+<td>make:exception</td>
+<td>创建一个新的自定义异常类</td>
+<td>Create a new custom exception class</td>
+</tr>
+<tr>
+<td>make:factory</td>
+<td>创建一个新的模型工厂</td>
+<td>Create a new model factory</td>
+</tr>
+<tr>
+<td>make:job</td>
+<td>创建一个新的工作类</td>
+<td>Create a new job class</td>
+</tr>
+<tr>
+<td>make:listener</td>
+<td>创建一个新的事件监听器类</td>
+<td>Create a new event listener class</td>
+</tr>
+<tr>
+<td>make:mail</td>
+<td>创建一个新的电子邮件类</td>
+<td>Create a new email class</td>
+</tr>
+<tr>
+<td>make:middleware</td>
+<td>创建一个新的中间件类</td>
+<td>Create a new middleware class</td>
+</tr>
+<tr>
+<td>make:migration</td>
+<td>创建一个新的迁移文件</td>
+<td>Create a new migration file</td>
+</tr>
+<tr>
+<td>make:model</td>
+<td>创建一个新的 Eloquent 模型类</td>
+<td>Create a new Eloquent model class</td>
+</tr>
+<tr>
+<td>make:notification</td>
+<td>创建一个新的通知类</td>
+<td>Create a new notification class</td>
+</tr>
+<tr>
+<td>make:observer</td>
+<td>创建一个新的观察者类</td>
+<td>Create a new observer class</td>
+</tr>
+<tr>
+<td>make:policy</td>
+<td>创建一个新的策略类</td>
+<td>Create a new policy class</td>
+</tr>
+<tr>
+<td>make:provider</td>
+<td>创建一个新的服务提供者类</td>
+<td>Create a new service provider class</td>
+</tr>
+<tr>
+<td>make:request</td>
+<td>创建一个新的表单请求类</td>
+<td>Create a new form request class</td>
+</tr>
+<tr>
+<td>make:resource</td>
+<td>创建一个新资源</td>
+<td>Create a new resource</td>
+</tr>
+<tr>
+<td>make:rule</td>
+<td>创建新的验证规则</td>
+<td>Create a new validation rule</td>
+</tr>
+<tr>
+<td>make:scaffold</td>
+<td>代码生成器 —— Laravel 5.x Scaffold Generator</td>
+<td>Create a laralib scaffold</td>
+</tr>
+<tr>
+<td>make:seeder</td>
+<td>创建一个新的 seeder 类</td>
+<td>Create a new seeder class</td>
+</tr>
+<tr>
+<td>make:test</td>
+<td>创建一个新的测试类</td>
+<td>Create a new test class</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="11、migrate"><a href="#11、migrate" class="headerlink" title="11、migrate"></a>11、migrate</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>migrate:fresh</td>
+<td>删除所有表并重新运行所有迁移</td>
+<td>Drop all tables and re-run all migrations</td>
+</tr>
+<tr>
+<td>migrate:install</td>
+<td>创建迁移存储库</td>
+<td>Create the migration repository</td>
+</tr>
+<tr>
+<td>migrate:refresh</td>
+<td>重置并重新运行所有迁移</td>
+<td>Reset and re-run all migrations</td>
+</tr>
+<tr>
+<td>migrate:reset</td>
+<td>回滚所有数据库迁移</td>
+<td>Rollback all database migrations</td>
+</tr>
+<tr>
+<td>migrate:rollback</td>
+<td>回滚上次数据库迁移</td>
+<td>Rollback the last database migration</td>
+</tr>
+<tr>
+<td>migrate:status</td>
+<td>显示每次迁移的状态</td>
+<td>Show the status of each migration</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="12、notifications"><a href="#12、notifications" class="headerlink" title="12、notifications"></a>12、notifications</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>notifications:table</td>
+<td>为通知表创建迁移</td>
+<td>Create a migration for the notifications table</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="13、optimize"><a href="#13、optimize" class="headerlink" title="13、optimize"></a>13、optimize</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>optimize:clear</td>
+<td>删除缓存的引导程序文件</td>
+<td>Remove the cached bootstrap files</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="14、package"><a href="#14、package" class="headerlink" title="14、package"></a>14、package</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>package:discover</td>
+<td>重建缓存的包清单</td>
+<td>Rebuild the cached package manifest</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="15、queue"><a href="#15、queue" class="headerlink" title="15、queue"></a>15、queue</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>queue:failed</td>
+<td>列出所有 failed 队列工作</td>
+<td>List all of the failed queue jobs</td>
+</tr>
+<tr>
+<td>queue:failed-table</td>
+<td>为 failed 队列工作数据库表创建迁移</td>
+<td>Create a migration for the failed queue jobs database table</td>
+</tr>
+<tr>
+<td>queue:flush</td>
+<td>刷新所有 failed 队列工作</td>
+<td>Flush all of the failed queue jobs</td>
+</tr>
+<tr>
+<td>queue:forget</td>
+<td>删除 failed 队列工作</td>
+<td>Delete a failed queue job</td>
+</tr>
+<tr>
+<td>queue:listen</td>
+<td>监听一个给定的队列</td>
+<td>Listen to a given queue</td>
+</tr>
+<tr>
+<td>queue:restart</td>
+<td>在当前工作之后重新启动队列工作器守护程序</td>
+<td>Restart queue worker daemons after their current job</td>
+</tr>
+<tr>
+<td>queue:retry</td>
+<td>重试 failed 队列作业</td>
+<td>Retry a failed queue job</td>
+</tr>
+<tr>
+<td>queue:table</td>
+<td>为队列工作数据库表创建迁移</td>
+<td>Create a migration for the queue jobs database table</td>
+</tr>
+<tr>
+<td>queue:work</td>
+<td>开始将队列上的工作作为守护程序处理</td>
+<td>Start processing jobs on the queue as a daemon</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="16、route"><a href="#16、route" class="headerlink" title="16、route"></a>16、route</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>route:cache</td>
+<td>创建路由缓存文件以加快路由注册速度</td>
+<td>Create a route cache file for faster route registration</td>
+</tr>
+<tr>
+<td>route:clear</td>
+<td>删除路由缓存文件</td>
+<td>Remove the route cache file</td>
+</tr>
+<tr>
+<td>route:list</td>
+<td>列出所有注册的路由</td>
+<td>List all registered routes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="17、schedule"><a href="#17、schedule" class="headerlink" title="17、schedule"></a>17、schedule</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>schedule:run</td>
+<td>运行预定的命令</td>
+<td>Run the scheduled commands</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="18、session"><a href="#18、session" class="headerlink" title="18、session"></a>18、session</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>session:table</td>
+<td>为会话数据库表创建迁移</td>
+<td>Create a migration for the session database table</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="19、storage"><a href="#19、storage" class="headerlink" title="19、storage"></a>19、storage</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>storage:link</td>
+<td>创建从 “公共 / 存储” 到 “存储 / 应用 / 公共” 的符号链接</td>
+<td>Create a symbolic link from “public/storage” to “storage/app/public”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="20、vendor"><a href="#20、vendor" class="headerlink" title="20、vendor"></a>20、vendor</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vendor:publish</td>
+<td>从供应商包中发布任何可发布的资产</td>
+<td>Publish any publishable assets from vendor packages</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="21、view"><a href="#21、view" class="headerlink" title="21、view"></a>21、view</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>view:cache</td>
+<td>编译所有应用程序的 Blade 模板</td>
+<td>Compile all of the application’s Blade templates</td>
+</tr>
+<tr>
+<td>view:clear</td>
+<td>清除所有编译的视图文件</td>
+<td>Clear all compiled view files</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>原文：<a href="https://learnku.com/articles/22514" target="_blank" rel="noopener">https://learnku.com/articles/22514</a></p>
+<p><a href="https://www.cnblogs.com/BeautyFuture/articles/6253438.html" target="_blank" rel="noopener">https://www.cnblogs.com/BeautyFuture/articles/6253438.html</a></p>
+
+      
+    </div>
+
+
+    <footer>
+      
+        
+
+        
+  
+  <div class="tags">
+    <a href="/undefined">undefined</a>
+  </div>
+
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="laravel/laravel-artisan.html"></div>
+    </section>
+ -->
+</article>
+
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、Available-commands"><span class="toc-text">1、Available commands</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、app"><span class="toc-text">2、app</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、auth"><span class="toc-text">3、auth</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、cache"><span class="toc-text">4、cache</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、config"><span class="toc-text">5、config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、db"><span class="toc-text">6、db</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、event"><span class="toc-text">7、event</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、key"><span class="toc-text">8、key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9、lang"><span class="toc-text">9、lang</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10、make"><span class="toc-text">10、make</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11、migrate"><span class="toc-text">11、migrate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12、notifications"><span class="toc-text">12、notifications</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13、optimize"><span class="toc-text">13、optimize</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14、package"><span class="toc-text">14、package</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15、queue"><span class="toc-text">15、queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16、route"><span class="toc-text">16、route</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17、schedule"><span class="toc-text">17、schedule</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18、session"><span class="toc-text">18、session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19、storage"><span class="toc-text">19、storage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20、vendor"><span class="toc-text">20、vendor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21、view"><span class="toc-text">21、view</span></a></li></ol>
+</div>
+      
+  </aside>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+</div></div>
+      <div class="clearfix"></div>
+  	</div>
+    <div id="r_top">
+	<ul>
+		<li class="top"><a href="#top"></a></li>
+		<li class="close" data="0"><a href="javascript:;"></a></li>
+		<li class="bottom"><a href="#bottom"></a></li>
+	</ul>
+</div>
+
+    <footer id="footer" class="inner"><div id="foot">
+  <a name="bottom"></a>
+  <div id="youmeng">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277138807'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277138807%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+  </div>
+  <div class="alignleft2">
+    
+    &copy; 2019 LiuShuaiCai
+    
+  我相信自己会成功的！
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+</footer>
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+var duoshuo_shortname = 'feifan';
+var duoshuoQuery = {short_name:duoshuo_shortname};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'https://unpkg.com/embed-js@5.0.3/umd/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<script src="/js/toc.js"></script>
+<script src="/js/top.js"></script>
+<script src="/js/syntax.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+  </html>
+
