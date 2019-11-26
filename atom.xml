@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.feifan.news/"/>
-  <updated>2019-05-06T15:50:38.788Z</updated>
+  <updated>2019-11-26T11:54:32.062Z</updated>
   <id>http://blog.feifan.news/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GCC基本使用</title>
+    <link href="http://blog.feifan.news/2019/11/25/gcc/"/>
+    <id>http://blog.feifan.news/2019/11/25/gcc/</id>
+    <published>2019-11-25T14:02:30.000Z</published>
+    <updated>2019-11-26T11:54:32.062Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、GCC编译流程"><a href="#1、GCC编译流程" class="headerlink" title="1、GCC编译流程"></a>1、GCC编译流程</h2><p><code>GCC</code>编译器在编译<code>C语言</code>程序时需要经过以下四步：</p><ol><li>预处理：将C语言源程序预处理，生成<code>.i</code>文件</li><li>编译：预处理后的<code>.i</code>文件编译成为汇编语言，生成<code>.s</code>文件</li><li>汇编：将汇编语言文件经过汇编，生成目标文件<code>.o</code>文件</li><li>链接：将各个模块的<code>.o</code>文件链接起来，生成可执行的程序文件<a id="more"></a>备注：可执行程序的内部是一系列计算机指令和数据的集合，它们都是二进制形式的，CPU 可以直接识别，毫无障碍</li></ol><h2 id="2、GCC常用命令"><a href="#2、GCC常用命令" class="headerlink" title="2、GCC常用命令"></a>2、GCC常用命令</h2><div class="table-container"><table><thead><tr><th style="text-align:center">编译选项</th><th style="text-align:center">选项意义 </th></tr></thead><tbody><tr><td style="text-align:center">-E</td><td style="text-align:center">预处理指定的源文件，但不进行编译，生成.i文件</td></tr><tr><td style="text-align:center">-S</td><td style="text-align:center">编译指定的源文件，但不进行汇编，生成.s文件</td></tr><tr><td style="text-align:center">-c</td><td style="text-align:center">编译、汇编指定的源文件，但不进行链接，生成.o文件</td></tr><tr><td style="text-align:center"> -o [file1] [file2]</td><td style="text-align:center">将文件 file2 编译成可执行文件 file1</td></tr><tr><td style="text-align:center"> -I directory</td><td style="text-align:center">指定 include 包含文件的搜索目录 </td></tr><tr><td style="text-align:center"> -g</td><td style="text-align:center">生成调试信息，该程序可以被调试器调试</td></tr></tbody></table></div><h2 id="3、GCC实例"><a href="#3、GCC实例" class="headerlink" title="3、GCC实例"></a>3、GCC实例</h2><p>下面展示GCC的编译过程，实例如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"GCC常用命令"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="3-1、预处理-Pre-processing"><a href="#3-1、预处理-Pre-processing" class="headerlink" title="3.1、预处理(Pre-processing)"></a>3.1、预处理(Pre-processing)</h3><p>在该阶段，编译器将C源代码中的包含的头文件如stdio.h编译进来，用户可以使用gcc的选项”-E”进行查看。<br>执行命令：<code>gcc -E gcc.c -o gcc.i</code>。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0</span>:<span class="number">18</span>:<span class="number">35</span>] liushuaicai:gcc $ gcc -E gcc.c -o gcc.i</span><br><span class="line">[<span class="number">0</span>:<span class="number">18</span>:<span class="number">59</span>] liushuaicai:gcc $ ls</span><br><span class="line">gcc.c gcc.i</span><br></pre></td></tr></table></figure><h3 id="3-2、编译阶段-Compiling"><a href="#3-2、编译阶段-Compiling" class="headerlink" title="3.2、编译阶段(Compiling)"></a>3.2、编译阶段(Compiling)</h3><p>第二步进行的是编译阶段，在这个阶段中，Gcc首先要检查代码的规范性、是否有语法错误等，以确定代码的实际要做的工作，在检查无误后，Gcc把代码翻译 成汇编语言。用户可以使用”-S”选项来进行查看，该选项只进行编译而不进行汇编，生成汇编代码。<br>执行命令：<code>gcc -S gcc.i -o gcc.s</code></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0</span>:<span class="number">24</span>:<span class="number">44</span>] liushuaicai:gcc $ gcc -S gcc.i -o gcc.s</span><br><span class="line">[<span class="number">0</span>:<span class="number">25</span>:<span class="number">18</span>] liushuaicai:gcc $ ls</span><br><span class="line">gcc.c gcc.i gcc.s</span><br></pre></td></tr></table></figure><h3 id="3-3、汇编阶段-Assembling"><a href="#3-3、汇编阶段-Assembling" class="headerlink" title="3.3、汇编阶段(Assembling)"></a>3.3、汇编阶段(Assembling)</h3><p>汇编阶段是把编译阶段生成的”.s”文件转成二进制目标代码，选项 -c。<br>执行命令：<code>gcc -c gcc.s -o gcc.o</code></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0</span>:<span class="number">25</span>:<span class="number">19</span>] liushuaicai:gcc $ gcc -c gcc.s -o gcc.o</span><br><span class="line">[<span class="number">0</span>:<span class="number">28</span>:<span class="number">17</span>] liushuaicai:gcc $ ls</span><br><span class="line">gcc.c gcc.i gcc.o gcc.s</span><br></pre></td></tr></table></figure><h3 id="3-4、链接阶段-Link"><a href="#3-4、链接阶段-Link" class="headerlink" title="3.4、链接阶段(Link)"></a>3.4、链接阶段(Link)</h3><p>在成功编译之后，就进入了链接阶段。<br>执行命令：<code>gcc gcc.o -o gcc.out</code></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>:<span class="number">30</span>:<span class="number">04</span>] liushuaicai:gcc $ gcc gcc.o -o gcc.out</span><br><span class="line">[<span class="number">0</span>:<span class="number">32</span>:<span class="number">50</span>] liushuaicai:gcc $ ls</span><br><span class="line">gcc.c   gcc.i   gcc.o   gcc.out gcc.s</span><br><span class="line">[<span class="number">0</span>:<span class="number">32</span>:<span class="number">51</span>] liushuaicai:gcc $ ./gcc.out</span><br><span class="line">GCC常用命令</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1、GCC编译流程&quot;&gt;&lt;a href=&quot;#1、GCC编译流程&quot; class=&quot;headerlink&quot; title=&quot;1、GCC编译流程&quot;&gt;&lt;/a&gt;1、GCC编译流程&lt;/h2&gt;&lt;p&gt;&lt;code&gt;GCC&lt;/code&gt;编译器在编译&lt;code&gt;C语言&lt;/code&gt;程序时需要经过以下四步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;预处理：将C语言源程序预处理，生成&lt;code&gt;.i&lt;/code&gt;文件&lt;/li&gt;
+&lt;li&gt;编译：预处理后的&lt;code&gt;.i&lt;/code&gt;文件编译成为汇编语言，生成&lt;code&gt;.s&lt;/code&gt;文件&lt;/li&gt;
+&lt;li&gt;汇编：将汇编语言文件经过汇编，生成目标文件&lt;code&gt;.o&lt;/code&gt;文件&lt;/li&gt;
+&lt;li&gt;链接：将各个模块的&lt;code&gt;.o&lt;/code&gt;文件链接起来，生成可执行的程序文件
+    
+    </summary>
+    
+      <category term="GCC" scheme="http://blog.feifan.news/categories/GCC/"/>
+    
+    
+      <category term="GCC" scheme="http://blog.feifan.news/tags/GCC/"/>
+    
+      <category term="CC" scheme="http://blog.feifan.news/tags/CC/"/>
+    
+  </entry>
   
   <entry>
     <title>Monolog - 为PHP创建</title>
