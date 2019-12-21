@@ -1,0 +1,360 @@
+
+  <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>RPC学习总结 | Lsc’s Home</title>
+  <meta name="author" content="LiuShuaiCai">
+  
+  <meta name="description" content="能力支撑不起自己的野心！">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="RPC学习总结">
+  <meta property="og:site_name" content="Lsc’s Home">
+
+  
+    <meta property="og:image" content>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Lsc’s Home" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+</html>
+  <body>
+    <a name="top"></a>
+  	<header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Lsc’s Home</a></h1>
+  <h2>学习笔记 - 能力支撑不起自己的野心！</h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/laravel">Laravel</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/about">我</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  	<div id="content" class="inner">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="post hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!-- 
+        <div class="icon"></div>
+        <time datetime="2019-12-21T04:49:56.000Z"><a href="/2019/12/21/rpc/">2019-12-21</a></time>
+       -->
+      <div class="icon"></div>
+        <time datetime="2019-12-21T04:49:56.000Z"><a href="/2019/12/21/rpc/">2019-12-21</a></time>
+      
+  
+    <h1 class="title">RPC学习总结</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>学习背景：由于公司内部项目之间的相互调用很多，并且很慢，有时会导致我们项目的接口超时，所以就决定使用RPC替换之前的REST请求。<br><a id="more"></a></p>
+<h2 id="1、什么是RPC"><a href="#1、什么是RPC" class="headerlink" title="1、什么是RPC"></a>1、什么是RPC</h2><p><code>RPC</code>（Remote Procedure Call）远程过程调用，是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的“协议”。</p>
+<p>简单的说就是对 <span style="color:cornflowerblue">一个服务器能够直接调用另一台服务器方法</span> 的封装。</p>
+<p><span style="color:darkgoldenrod">备注：“协议”之所以加上引号是因为不太确定RPC是不是一种真的协议，也有人说它是一种技术思想而非一种规范或者协议。</span></p>
+<h2 id="2、RPC执行流程"><a href="#2、RPC执行流程" class="headerlink" title="2、RPC执行流程"></a>2、RPC执行流程</h2><p><img src="/images/rpc.jpg" alt="RPC"></p>
+<blockquote>
+<p>执行流程如下（<a href="https://wiki.tw.wjbk.site/wiki/%E9%81%A0%E7%A8%8B%E9%81%8E%E7%A8%8B%E8%AA%BF%E7%94%A8" target="_blank" rel="noopener">WIKI</a>)：</p>
+</blockquote>
+<pre><code>1、客户端（Client）接收到请求，调用客户端Stub。
+2、客户端存根（Client Stub）将这些方法、参数进行序列化（serialize），常见方式：XML、JSON、二进制编码。
+3、客户端（Client）通过网络（NetWork）把包装后的信息发送到服务端（Service）。
+4、服务端（Service）接收到消息，把消息发送到服务端存根（Service Stub）。
+5、服务端存根（Service Stub）把接收到的消息进行反序列化（unserialize）。
+6、服务端存根（Service Stub）调用服务端（Service）的程序，获取执行结果，并通过类似的方式返回给客户端。
+</code></pre><p>从上面的流程可以看出，RPC主要有<code>Client</code>，<code>Client Sub</code>，<code>NetWork</code>，<code>Server</code>，<code>Server Sub</code>五部分组成，</p>
+<h2 id="3、RPC标准化沟通机制"><a href="#3、RPC标准化沟通机制" class="headerlink" title="3、RPC标准化沟通机制"></a>3、RPC标准化沟通机制</h2><p>为了允许不同种类的客户端（PHP、GO…）都能访问同一个服务端，产生很多标准话的RPC系统，其中大部分采用IDL（Interface Description Language 接口描述语言，protobuf / thrift），方便跨平台的远程调用过程。</p>
+<h2 id="4、RPC调用方式"><a href="#4、RPC调用方式" class="headerlink" title="4、RPC调用方式"></a>4、RPC调用方式</h2><p>调用方式和HTTP请求一样，分为<code>同步调用</code> 和 <code>异步调用</code></p>
+<ul>
+<li>同步调用<br>  客户方等待调用执行完成并等待返回结果。</li>
+<li>异步调用<br>  客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 </li>
+</ul>
+<h2 id="5、RPC-VS-REST"><a href="#5、RPC-VS-REST" class="headerlink" title="5、RPC VS REST"></a>5、RPC VS REST</h2><p>Rest（Representational State Transfer）表述性状态传递，是指某个瞬间状态的资源数据的快照，包括资源数据的内容、表述格式(XML、JSON)等信息；是一种软件架构风格。这种风格的典型应用，就是HTTP。<br>RPC（ Remote Procedure Call Protocol ）远程过程调用，它可以实现客户端像调用本地服务(方法)一样调用服务器的服务(方法)</p>
+<p>可能大家和我一样，第一次听到RPC的时候，第一反应就是RPC和我们经常使用的REST有什么区别？虽然也有大佬说两者是不同的两个东西，不能拿来比较，但是还是忍不住搜了一下。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>比较方向</th>
+<th>RPC</th>
+<th>REST</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>面向对象</td>
+<td>面向方法</td>
+<td>面向资源 </td>
+</tr>
+<tr>
+<td>通信协议</td>
+<td>HTTP、TCP、UDP</td>
+<td>HTTP</td>
+</tr>
+<tr>
+<td>序列化方式</td>
+<td>IDL（protobuf｜thrift）、JSON-RPC、XML-RPC</td>
+<td>JSON、XML</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>较高</td>
+<td>一般</td>
+</tr>
+<tr>
+<td>灵活性</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>内部系统之间的调用</td>
+<td>外部系统之间的调用</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="6、常见框架"><a href="#6、常见框架" class="headerlink" title="6、常见框架"></a>6、常见框架</h2><p>已经有很多的RPC开源框架，下面看一下一些常见的框架：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>Dubbox</th>
+<th>thrift</th>
+<th>gRpc</th>
+<th>rpcx</th>
+<th>Hprose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>支持语言</td>
+<td>Java</td>
+<td>跨语言</td>
+<td>跨语言</td>
+<td>Go</td>
+<td>跨语言</td>
+</tr>
+<tr>
+<td>分布式服务治理</td>
+<td>Y</td>
+<td>可以配合zookeeper,Eureka等实现</td>
+<td>可以配合etcd(go),zookeeper,consul等实现</td>
+<td>自带服务注册中心，也支持zookerper,etcd等发现方式</td>
+<td>可以配合zookeeper, Eureka等实现</td>
+</tr>
+<tr>
+<td>底层协议</td>
+<td>Dubbo 协议、 Rmi 协议、 Hessian 协议、 HTTP 协议、 WebService 协议、Dubbo Thrift 协议、Memcached 协议</td>
+<td>tpc/http/frame</td>
+<td>http2</td>
+<td>tcp长链接</td>
+<td>tpc/http</td>
+</tr>
+<tr>
+<td>消息序列化</td>
+<td>hessian2,json,resr,kyro,FST等，可扩展protobuf等</td>
+<td>thrift</td>
+<td>protobuf</td>
+<td>Gob、Json、MessagePack、gencode、ProtoBuf等</td>
+<td>xml/json等</td>
+</tr>
+<tr>
+<td>注册中心</td>
+<td>zookeeper</td>
+<td>zookeeper</td>
+<td>etcd,zookeeper,consul</td>
+<td>etcd,zookeeper</td>
+<td>zookeeper</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>★★</td>
+<td>★★★★<br>比grpc快2-5倍</td>
+<td>★★★ <br>比dubbox,motan快</td>
+<td>★★★★★ <br>比thrift快1-1.5倍</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>原文链接：<a href="https://blog.csdn.net/xuduorui/article/details/77938644" target="_blank" rel="noopener">thrift,gRPC,rpcx,motan,dubbox等rpc框架对比</a><br>这些框架的性能我并没有去尝试，在网上找了一些文章了解了一下：<br><a href="https://blog.csdn.net/quuqu/article/details/79304614#%E6%9C%AC%E6%96%87%E6%B5%8B%E8%AF%95%E7%9A%84RPC%E6%A1%86%E6%9E%B6" target="_blank" rel="noopener">流行的rpc框架性能测试对比</a><br><a href="https://blog.csdn.net/zixiao217/article/details/53675678" target="_blank" rel="noopener">分布式RPC框架性能大比拼 dubbo、motan、rpcx、gRPC、thrift的性能比较</a><br><a href="https://developer.51cto.com/art/201908/601617.htm" target="_blank" rel="noopener">6种微服务RPC框架，你知道几个？</a></p>
+
+      
+    </div>
+
+
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/RPC/">RPC</a>
+  </div>
+
+
+        
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="2019/12/21/rpc/"></div>
+    </section>
+ -->
+</article>
+
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、什么是RPC"><span class="toc-text">1、什么是RPC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、RPC执行流程"><span class="toc-text">2、RPC执行流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、RPC标准化沟通机制"><span class="toc-text">3、RPC标准化沟通机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、RPC调用方式"><span class="toc-text">4、RPC调用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、RPC-VS-REST"><span class="toc-text">5、RPC VS REST</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、常见框架"><span class="toc-text">6、常见框架</span></a></li></ol>
+</div>
+      
+  </aside>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+
+</div></div>
+      <div class="clearfix"></div>
+  	</div>
+    <div id="r_top">
+	<ul>
+		<li class="top"><a href="#top"></a></li>
+		<li class="close" data="0"><a href="javascript:;"></a></li>
+		<li class="bottom"><a href="#bottom"></a></li>
+	</ul>
+</div>
+
+    <footer id="footer" class="inner"><div id="foot">
+  <a name="bottom"></a>
+  <div id="youmeng">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277138807'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277138807%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+  </div>
+  <div class="alignleft2">
+    
+    &copy; 2019 LiuShuaiCai
+    
+  我相信自己会成功的！
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+</footer>
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+var duoshuo_shortname = 'feifan';
+var duoshuoQuery = {short_name:duoshuo_shortname};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'https://unpkg.com/embed-js@5.0.3/umd/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<script src="/js/toc.js"></script>
+<script src="/js/top.js"></script>
+<script src="/js/syntax.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+  </html>
+
