@@ -5,9 +5,9 @@
   <subtitle>学习笔记</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.feifan.news/"/>
-  <updated>2019-12-21T16:53:23.722Z</updated>
-  <id>http://blog.feifan.news/</id>
+  <link href="http://blog.liushuaicai.com/"/>
+  <updated>2020-05-07T10:27:01.842Z</updated>
+  <id>http://blog.liushuaicai.com/</id>
   
   <author>
     <name>LiuShuaiCai</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>RPC学习总结</title>
-    <link href="http://blog.feifan.news/2019/12/21/rpc/"/>
-    <id>http://blog.feifan.news/2019/12/21/rpc/</id>
+    <link href="http://blog.liushuaicai.com/2019/12/21/rpc/"/>
+    <id>http://blog.liushuaicai.com/2019/12/21/rpc/</id>
     <published>2019-12-21T04:49:56.000Z</published>
-    <updated>2019-12-21T16:53:23.722Z</updated>
+    <updated>2020-05-07T10:27:01.842Z</updated>
     
     <content type="html"><![CDATA[<p>学习背景：由于公司内部项目之间的相互调用很多，并且很慢，有时会导致我们项目的接口超时，所以就决定使用RPC替换之前的REST请求。<br><a id="more"></a></p><h2 id="1、什么是RPC"><a href="#1、什么是RPC" class="headerlink" title="1、什么是RPC"></a>1、什么是RPC</h2><p><code>RPC</code>（Remote Procedure Call）远程过程调用，是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的“协议”。</p><p>简单的说就是对 <span style="color:cornflowerblue">一个服务器能够直接调用另一台服务器方法</span> 的封装。</p><p><span style="color:darkgoldenrod">备注：“协议”之所以加上引号是因为不太确定RPC是不是一种真的协议，也有人说它是一种技术思想而非一种规范或者协议。</span></p><h2 id="2、RPC执行流程"><a href="#2、RPC执行流程" class="headerlink" title="2、RPC执行流程"></a>2、RPC执行流程</h2><p><img src="/images/rpc.jpg" alt="RPC"></p><blockquote><p>执行流程如下（<a href="https://wiki.tw.wjbk.site/wiki/%E9%81%A0%E7%A8%8B%E9%81%8E%E7%A8%8B%E8%AA%BF%E7%94%A8" target="_blank" rel="noopener">WIKI</a>)：</p></blockquote><pre><code>1、客户端（Client）接收到请求，调用客户端Stub。2、客户端存根（Client Stub）将这些方法、参数进行序列化（serialize），常见方式：XML、JSON、二进制编码。3、客户端（Client）通过网络（NetWork）把包装后的信息发送到服务端（Service）。4、服务端（Service）接收到消息，把消息发送到服务端存根（Service Stub）。5、服务端存根（Service Stub）把接收到的消息进行反序列化（unserialize）。6、服务端存根（Service Stub）调用服务端（Service）的程序，获取执行结果，并通过类似的方式返回给客户端。</code></pre><p>从上面的流程可以看出，RPC主要有<code>Client</code>，<code>Client Sub</code>，<code>NetWork</code>，<code>Server</code>，<code>Server Sub</code>五部分组成，</p><h2 id="3、RPC标准化沟通机制"><a href="#3、RPC标准化沟通机制" class="headerlink" title="3、RPC标准化沟通机制"></a>3、RPC标准化沟通机制</h2><p>为了允许不同种类的客户端（PHP、GO…）都能访问同一个服务端，产生很多标准话的RPC系统，其中大部分采用IDL（Interface Description Language 接口描述语言，protobuf / thrift），方便跨平台的远程调用过程。</p><h2 id="4、RPC调用方式"><a href="#4、RPC调用方式" class="headerlink" title="4、RPC调用方式"></a>4、RPC调用方式</h2><p>调用方式和HTTP请求一样，分为<code>同步调用</code> 和 <code>异步调用</code></p><ul><li>同步调用<br>  客户方等待调用执行完成并等待返回结果。</li><li>异步调用<br>  客户方调用后不用等待执行结果返回，但依然可以通过回调通知等方式获取返回结果。 </li></ul><h2 id="5、RPC-VS-REST"><a href="#5、RPC-VS-REST" class="headerlink" title="5、RPC VS REST"></a>5、RPC VS REST</h2><p>Rest（Representational State Transfer）表述性状态传递，是指某个瞬间状态的资源数据的快照，包括资源数据的内容、表述格式(XML、JSON)等信息；是一种软件架构风格。这种风格的典型应用，就是HTTP。<br>RPC（ Remote Procedure Call Protocol ）远程过程调用，它可以实现客户端像调用本地服务(方法)一样调用服务器的服务(方法)</p><p>可能大家和我一样，第一次听到RPC的时候，第一反应就是RPC和我们经常使用的REST有什么区别？虽然也有大佬说两者是不同的两个东西，不能拿来比较，但是还是忍不住搜了一下。</p><div class="table-container"><table><thead><tr><th>比较方向</th><th>RPC</th><th>REST</th></tr></thead><tbody><tr><td>面向对象</td><td>面向方法</td><td>面向资源 </td></tr><tr><td>通信协议</td><td>HTTP、TCP、UDP</td><td>HTTP</td></tr><tr><td>序列化方式</td><td>IDL（protobuf｜thrift）、JSON-RPC、XML-RPC</td><td>JSON、XML</td></tr><tr><td>性能</td><td>较高</td><td>一般</td></tr><tr><td>灵活性</td><td>低</td><td>高</td></tr><tr><td>使用场景</td><td>内部系统之间的调用</td><td>外部系统之间的调用</td></tr></tbody></table></div><h2 id="6、常见框架"><a href="#6、常见框架" class="headerlink" title="6、常见框架"></a>6、常见框架</h2><p>已经有很多的RPC开源框架，下面看一下一些常见的框架：</p><div class="table-container"><table><thead><tr><th>功能</th><th>Dubbox</th><th>thrift</th><th>gRpc</th><th>rpcx</th><th>Hprose</th></tr></thead><tbody><tr><td>支持语言</td><td>Java</td><td>跨语言</td><td>跨语言</td><td>Go</td><td>跨语言</td></tr><tr><td>分布式服务治理</td><td>Y</td><td>可以配合zookeeper,Eureka等实现</td><td>可以配合etcd(go),zookeeper,consul等实现</td><td>自带服务注册中心，也支持zookerper,etcd等发现方式</td><td>可以配合zookeeper, Eureka等实现</td></tr><tr><td>底层协议</td><td>Dubbo 协议、 Rmi 协议、 Hessian 协议、 HTTP 协议、 WebService 协议、Dubbo Thrift 协议、Memcached 协议</td><td>tpc/http/frame</td><td>http2</td><td>tcp长链接</td><td>tpc/http</td></tr><tr><td>消息序列化</td><td>hessian2,json,resr,kyro,FST等，可扩展protobuf等</td><td>thrift</td><td>protobuf</td><td>Gob、Json、MessagePack、gencode、ProtoBuf等</td><td>xml/json等</td></tr><tr><td>注册中心</td><td>zookeeper</td><td>zookeeper</td><td>etcd,zookeeper,consul</td><td>etcd,zookeeper</td><td>zookeeper</td></tr><tr><td>性能</td><td>★★</td><td>★★★★<br>比grpc快2-5倍</td><td>★★★ <br>比dubbox,motan快</td><td>★★★★★ <br>比thrift快1-1.5倍</td><td>无</td></tr></tbody></table></div><p>原文链接：<a href="https://blog.csdn.net/xuduorui/article/details/77938644" target="_blank" rel="noopener">thrift,gRPC,rpcx,motan,dubbox等rpc框架对比</a><br>这些框架的性能我并没有去尝试，在网上找了一些文章了解了一下：<br><a href="https://blog.csdn.net/quuqu/article/details/79304614#%E6%9C%AC%E6%96%87%E6%B5%8B%E8%AF%95%E7%9A%84RPC%E6%A1%86%E6%9E%B6" target="_blank" rel="noopener">流行的rpc框架性能测试对比</a><br><a href="https://blog.csdn.net/zixiao217/article/details/53675678" target="_blank" rel="noopener">分布式RPC框架性能大比拼 dubbo、motan、rpcx、gRPC、thrift的性能比较</a><br><a href="https://developer.51cto.com/art/201908/601617.htm" target="_blank" rel="noopener">6种微服务RPC框架，你知道几个？</a></p>]]></content>
     
@@ -31,15 +31,15 @@
     
     </summary>
     
-      <category term="RPC" scheme="http://blog.feifan.news/categories/RPC/"/>
+      <category term="RPC" scheme="http://blog.liushuaicai.com/categories/RPC/"/>
     
     
   </entry>
   
   <entry>
     <title>GCC基本使用</title>
-    <link href="http://blog.feifan.news/2019/11/25/gcc/"/>
-    <id>http://blog.feifan.news/2019/11/25/gcc/</id>
+    <link href="http://blog.liushuaicai.com/2019/11/25/gcc/"/>
+    <id>http://blog.liushuaicai.com/2019/11/25/gcc/</id>
     <published>2019-11-25T14:02:30.000Z</published>
     <updated>2019-12-17T05:48:28.270Z</updated>
     
@@ -56,19 +56,19 @@
     
     </summary>
     
-      <category term="GCC" scheme="http://blog.feifan.news/categories/GCC/"/>
+      <category term="GCC" scheme="http://blog.liushuaicai.com/categories/GCC/"/>
     
     
-      <category term="GCC" scheme="http://blog.feifan.news/tags/GCC/"/>
+      <category term="GCC" scheme="http://blog.liushuaicai.com/tags/GCC/"/>
     
-      <category term="CC" scheme="http://blog.feifan.news/tags/CC/"/>
+      <category term="CC" scheme="http://blog.liushuaicai.com/tags/CC/"/>
     
   </entry>
   
   <entry>
     <title>Supervisor 进程管理</title>
-    <link href="http://blog.feifan.news/2019/06/28/supervisor/"/>
-    <id>http://blog.feifan.news/2019/06/28/supervisor/</id>
+    <link href="http://blog.liushuaicai.com/2019/06/28/supervisor/"/>
+    <id>http://blog.liushuaicai.com/2019/06/28/supervisor/</id>
     <published>2019-06-27T23:21:43.000Z</published>
     <updated>2019-12-17T05:48:34.311Z</updated>
     
@@ -80,17 +80,17 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://blog.feifan.news/categories/Linux/"/>
+      <category term="Linux" scheme="http://blog.liushuaicai.com/categories/Linux/"/>
     
     
-      <category term="supervisor" scheme="http://blog.feifan.news/tags/supervisor/"/>
+      <category term="supervisor" scheme="http://blog.liushuaicai.com/tags/supervisor/"/>
     
   </entry>
   
   <entry>
     <title>Monolog - 为PHP创建</title>
-    <link href="http://blog.feifan.news/2019/05/04/monolog/"/>
-    <id>http://blog.feifan.news/2019/05/04/monolog/</id>
+    <link href="http://blog.liushuaicai.com/2019/05/04/monolog/"/>
+    <id>http://blog.liushuaicai.com/2019/05/04/monolog/</id>
     <published>2019-05-04T04:58:07.000Z</published>
     <updated>2019-05-06T15:50:38.788Z</updated>
     
@@ -102,17 +102,17 @@
     
     </summary>
     
-      <category term="PHP" scheme="http://blog.feifan.news/categories/PHP/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/categories/PHP/"/>
     
     
-      <category term="PHP" scheme="http://blog.feifan.news/tags/PHP/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/tags/PHP/"/>
     
   </entry>
   
   <entry>
     <title>JWT 小结</title>
-    <link href="http://blog.feifan.news/2019/04/15/jwt-php/"/>
-    <id>http://blog.feifan.news/2019/04/15/jwt-php/</id>
+    <link href="http://blog.liushuaicai.com/2019/04/15/jwt-php/"/>
+    <id>http://blog.liushuaicai.com/2019/04/15/jwt-php/</id>
     <published>2019-04-15T04:30:34.000Z</published>
     <updated>2019-05-06T15:38:02.753Z</updated>
     
@@ -124,17 +124,17 @@
     
     </summary>
     
-      <category term="用户认证" scheme="http://blog.feifan.news/categories/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/"/>
+      <category term="用户认证" scheme="http://blog.liushuaicai.com/categories/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/"/>
     
     
-      <category term="JWT" scheme="http://blog.feifan.news/tags/JWT/"/>
+      <category term="JWT" scheme="http://blog.liushuaicai.com/tags/JWT/"/>
     
   </entry>
   
   <entry>
     <title>PHP 新特性</title>
-    <link href="http://blog.feifan.news/2019/04/13/php-new-features/"/>
-    <id>http://blog.feifan.news/2019/04/13/php-new-features/</id>
+    <link href="http://blog.liushuaicai.com/2019/04/13/php-new-features/"/>
+    <id>http://blog.liushuaicai.com/2019/04/13/php-new-features/</id>
     <published>2019-04-13T06:24:07.000Z</published>
     <updated>2019-05-06T15:38:02.754Z</updated>
     
@@ -146,15 +146,15 @@
     
     </summary>
     
-      <category term="PHP" scheme="http://blog.feifan.news/categories/PHP/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/categories/PHP/"/>
     
     
   </entry>
   
   <entry>
     <title>JWT 简介</title>
-    <link href="http://blog.feifan.news/2019/04/11/jwt/"/>
-    <id>http://blog.feifan.news/2019/04/11/jwt/</id>
+    <link href="http://blog.liushuaicai.com/2019/04/11/jwt/"/>
+    <id>http://blog.liushuaicai.com/2019/04/11/jwt/</id>
     <published>2019-04-11T07:33:56.000Z</published>
     <updated>2019-05-06T15:38:02.752Z</updated>
     
@@ -166,17 +166,17 @@
     
     </summary>
     
-      <category term="用户认证" scheme="http://blog.feifan.news/categories/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/"/>
+      <category term="用户认证" scheme="http://blog.liushuaicai.com/categories/%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/"/>
     
     
-      <category term="JWT" scheme="http://blog.feifan.news/tags/JWT/"/>
+      <category term="JWT" scheme="http://blog.liushuaicai.com/tags/JWT/"/>
     
   </entry>
   
   <entry>
     <title>VundleVim 安装 NERDTree</title>
-    <link href="http://blog.feifan.news/2019/04/02/vundle-vim/"/>
-    <id>http://blog.feifan.news/2019/04/02/vundle-vim/</id>
+    <link href="http://blog.liushuaicai.com/2019/04/02/vundle-vim/"/>
+    <id>http://blog.liushuaicai.com/2019/04/02/vundle-vim/</id>
     <published>2019-04-02T10:09:25.000Z</published>
     <updated>2019-05-06T15:38:02.749Z</updated>
     
@@ -188,17 +188,17 @@
     
     </summary>
     
-      <category term="Vim" scheme="http://blog.feifan.news/categories/Vim/"/>
+      <category term="Vim" scheme="http://blog.liushuaicai.com/categories/Vim/"/>
     
     
-      <category term="Vim" scheme="http://blog.feifan.news/tags/Vim/"/>
+      <category term="Vim" scheme="http://blog.liushuaicai.com/tags/Vim/"/>
     
   </entry>
   
   <entry>
     <title>phpDocumentor 标签</title>
-    <link href="http://blog.feifan.news/2019/03/14/phpdoc/"/>
-    <id>http://blog.feifan.news/2019/03/14/phpdoc/</id>
+    <link href="http://blog.liushuaicai.com/2019/03/14/phpdoc/"/>
+    <id>http://blog.liushuaicai.com/2019/03/14/phpdoc/</id>
     <published>2019-03-14T05:29:06.000Z</published>
     <updated>2019-05-06T15:38:02.755Z</updated>
     
@@ -211,21 +211,21 @@
     
     </summary>
     
-      <category term="PHP" scheme="http://blog.feifan.news/categories/PHP/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/categories/PHP/"/>
     
     
-      <category term="PHP" scheme="http://blog.feifan.news/tags/PHP/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/tags/PHP/"/>
     
   </entry>
   
   <entry>
     <title>phptrace 简单使用</title>
-    <link href="http://blog.feifan.news/2019/03/02/phptrace/"/>
-    <id>http://blog.feifan.news/2019/03/02/phptrace/</id>
+    <link href="http://blog.liushuaicai.com/2019/03/02/phptrace/"/>
+    <id>http://blog.liushuaicai.com/2019/03/02/phptrace/</id>
     <published>2019-03-02T06:29:16.000Z</published>
     <updated>2019-05-06T15:38:02.761Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h2><p>phptrace 是一个 <code>Qihoo360</code> 开源的一个低开销的用于跟踪(trace)、分析PHP运行情况的工具。</p><p>它可以跟踪PHP在运行时的函数调用、请求信息、执行流程，并且提供有过滤器、统计信息、当前状态等实用功能。 在任何环境下，它都能很好的定位阻塞问题以及在高负载下Debug，尤其是线上生产环境。<br><a id="more"></a><br>具有以下特性：</p><pre><code>低开销，在只加载模块不开启Trace功能时对性能影响极低稳定性，已经稳定运行在Qihoo 360线上服务中，并针对主流框架进行测试易用性，对于未安装trace扩展的环境，也能够追踪运行状态</code></pre><p>phptrace是类strace的一个实现，不同的是，strace用来追踪系统调用，而phptrace用来追踪PHP函数调用。无论是开发测试 还是线上追查问题，代码执行流程往往会提供许多有用的信息，大大提高了开发人员的工作效率；</p><h2 id="2、安装"><a href="#2、安装" class="headerlink" title="2、安装"></a>2、安装</h2><h3 id="2-1、下载地址："><a href="#2-1、下载地址：" class="headerlink" title="2.1、下载地址："></a>2.1、下载地址：</h3><ul><li>GitHub: <a href="https://github.com/Qihoo360/phptrace" target="_blank" rel="noopener">https://github.com/Qihoo360/phptrace</a></li><li>PECL: <a href="https://pecl.php.net/package/trace" target="_blank" rel="noopener">https://pecl.php.net/package/trace</a></li></ul><h3 id="2-2、下载解压"><a href="#2-2、下载解压" class="headerlink" title="2.2、下载解压"></a>2.2、下载解压</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -LOk https:<span class="comment">//github.com/Qihoo360/phptrace/archive/master.zip</span></span><br><span class="line">unzip master.zip    <span class="comment">// unzip解压</span></span><br><span class="line">cd phptrace-master/extension/  <span class="comment">// 进入解压后的扩展目录</span></span><br></pre></td></tr></table></figure><h3 id="2-3、源码编译"><a href="#2-3、源码编译" class="headerlink" title="2.3、源码编译"></a>2.3、源码编译</h3><p>2.3.1、PHP 扩展安装（以下命令是在 phptrace-master/extension/ 目录中执行的）<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">phpize</span><br><span class="line">./configure --with-php-config=/usr/<span class="built_in">local</span>/php7/bin/php-config</span><br><span class="line">make</span><br></pre></td></tr></table></figure></p><p>php-config 的路径要根据自己的位置进行修改。</p><p>2.3.2、命令行工具<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make cli</span><br></pre></td></tr></table></figure></p><p>2.3.3、安装PHP扩展、命令行工具至PHP目录<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install-all</span><br></pre></td></tr></table></figure></p><h3 id="2-4、添加扩展"><a href="#2-4、添加扩展" class="headerlink" title="2.4、添加扩展"></a>2.4、添加扩展</h3><p>编辑配置文件php.ini(如果没有 php.ini 文件，复制源码中的 php.ini-development 或者 php.ini-production 到安装目录的 etc文件夹下，命名为 php.ini )，增加下面配置信息。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[phptrace]</span><br><span class="line">extension=trace.so</span><br><span class="line">phptrace.enabled = <span class="number">1</span></span><br></pre></td></tr></table></figure></p><p>php-fpm需要手动重启。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -USR2 24612</span><br></pre></td></tr></table></figure></p><p>master进程可以理解以下信号</p><pre><code>INT, TERM 立刻终止QUIT 平滑终止USR1 重新打开日志文件USR2 平滑重载所有worker进程并重新载入配置和二进制模块</code></pre><p>查看扩展安装：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@VM_173_23_centos:/usr/local/php7<span class="comment"># php -m | grep trace</span></span><br><span class="line">trace</span><br></pre></td></tr></table></figure></p><p>或者查看 phpinfo()，查看 /usr/local/php7/bin 下已经有了 phptrace<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@VM_173_23_centos:/usr/<span class="built_in">local</span>/php7/bin<span class="comment"># ls</span></span><br><span class="line">pear  peardev  pecl  phar  phar.phar  php  php-cgi  php-config  phpdbg  phpize  phptrace</span><br></pre></td></tr></table></figure></p><p>创建一个软连接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/php7/bin/phptrace /usr/local/bin/phptrace</span><br></pre></td></tr></table></figure></p><h2 id="3、使用"><a href="#3、使用" class="headerlink" title="3、使用"></a>3、使用</h2><h3 id="3-1、查看命令参数"><a href="#3-1、查看命令参数" class="headerlink" title="3.1、查看命令参数"></a>3.1、查看命令参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">root@VM_173_23_centos:/usr/local/php7/bin# phptrace -h</span><br><span class="line">phptrace - A low-overhead tracing tool for PHP</span><br><span class="line"></span><br><span class="line">Usage: phptrace -p &lt;pid&gt;...</span><br><span class="line">       phptrace -h | --help</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">    trace               Trace a running PHP process [default]</span><br><span class="line">    status              Display current status of specified PHP process</span><br><span class="line">    version             Show version</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">        --ptrace        Fetch data using ptrace, only in status mode</span><br><span class="line">    -p, --pid           Process id</span><br><span class="line">    -h, --help          Show this screen</span><br><span class="line">    -v, --verbose</span><br><span class="line">    -f, --filter        Filter data by type [url,function,class] and content</span><br><span class="line">    -l, --limit         Limit output count</span><br></pre></td></tr></table></figure><pre><code>trace 追踪运行的PHP进程(默认)status 展示PHP进程的运行状态version 版本-p 指定php进程id(&#39;all&#39;追踪所有的进程)-h 帮助-v 同version-f 通过类型(url,function,class)和内容过滤数据-l 限制输出次数--ptrace 在追踪状态的模式下通过ptrace获取数据</code></pre><h3 id="3-2、官方实例"><a href="#3-2、官方实例" class="headerlink" title="3.2、官方实例"></a>3.2、官方实例</h3><p>phptrace 官方实例 example.php 文件如下：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Me</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">($words)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> $words.<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">sleep</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;say(<span class="string">'sleeping...'</span>);</span><br><span class="line">        sleep(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;say(<span class="string">'good night'</span>);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;sleep();</span><br><span class="line">        <span class="keyword">$this</span>-&gt;say(<span class="string">'wake up'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$pid = getmypid();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"**phptrace sample**\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Type these command in a new console:\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"trace:                    phptrace -p $pid\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"trace with filter:        phptrace -p $pid -f type=function,content=sleep\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"trace with filter:        phptrace -p $pid -f type=class,content=Me\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"trace with count limit:   phptrace -p $pid -l 2\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"view status:              phptrace status -p $pid\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"view status by ptrace:    phptrace status -p $pid --ptrace\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line">printf(<span class="string">"Press enter to continue...\n"</span>);</span><br><span class="line">$fp = fopen(<span class="string">'php://stdin'</span>, <span class="string">'r'</span>);</span><br><span class="line">fgets($fp);</span><br><span class="line">fclose($fp);</span><br><span class="line">usleep(<span class="number">100000</span>);</span><br><span class="line">(<span class="keyword">new</span> Me)-&gt;run();</span><br></pre></td></tr></table></figure></p><p><code>php example.php</code> 运行结果<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@VM_173_23_centos:~/phptrace-master<span class="comment"># php example.php</span></span><br><span class="line">**phptrace sample**</span><br><span class="line">Type these command in a <span class="keyword">new</span> console:</span><br><span class="line"></span><br><span class="line">trace:                    phptrace -p <span class="number">32194</span></span><br><span class="line">trace with filter:        phptrace -p <span class="number">32194</span> -f type=<span class="function"><span class="keyword">function</span>,<span class="title">content</span>=<span class="title">sleep</span></span></span><br><span class="line"><span class="function"><span class="title">trace</span> <span class="title">with</span> <span class="title">filter</span>:        <span class="title">phptrace</span> -<span class="title">p</span> 32194 -<span class="title">f</span> <span class="title">type</span>=<span class="title">class</span>,<span class="title">content</span>=<span class="title">Me</span></span></span><br><span class="line"><span class="function"><span class="title">trace</span> <span class="title">with</span> <span class="title">count</span> <span class="title">limit</span>:   <span class="title">phptrace</span> -<span class="title">p</span> 32194 -<span class="title">l</span> 2</span></span><br><span class="line"><span class="function"><span class="title">view</span> <span class="title">status</span>:              <span class="title">phptrace</span> <span class="title">status</span> -<span class="title">p</span> 32194</span></span><br><span class="line"><span class="function"><span class="title">view</span> <span class="title">status</span> <span class="title">by</span> <span class="title">ptrace</span>:    <span class="title">phptrace</span> <span class="title">status</span> -<span class="title">p</span> 32194 --<span class="title">ptrace</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Press</span> <span class="title">enter</span> <span class="title">to</span> <span class="title">continue</span>...</span></span><br></pre></td></tr></table></figure></p><p>可以看到上面的几个追踪（trace）命令，再开一个窗口，运行 trace 命令</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> root@VM_173_23_centos:~<span class="comment"># phptrace -p 32194</span></span><br><span class="line">process attached</span><br><span class="line">[pid <span class="number">32194</span>]    &gt; Me-&gt;run() called at [/root/phptrace-master/example.php:<span class="number">57</span>]</span><br><span class="line">[pid <span class="number">32194</span>]        &gt; Me-&gt;say(<span class="string">"good night"</span>) called at [/root/phptrace-master/example.php:<span class="number">33</span>]</span><br><span class="line">[pid <span class="number">32194</span>]        &lt; Me-&gt;say(<span class="string">"good night"</span>) = <span class="keyword">NULL</span> called at [/root/phptrace-master/example.php:<span class="number">33</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid <span class="number">32194</span>]        &gt; Me-&gt;sleep() called at [/root/phptrace-master/example.php:<span class="number">34</span>]</span><br><span class="line">[pid <span class="number">32194</span>]            &gt; Me-&gt;say(<span class="string">"sleeping..."</span>) called at [/root/phptrace-master/example.php:<span class="number">27</span>]</span><br><span class="line">[pid <span class="number">32194</span>]            &lt; Me-&gt;say(<span class="string">"sleeping..."</span>) = <span class="keyword">NULL</span> called at [/root/phptrace-master/example.php:<span class="number">27</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid <span class="number">32194</span>]            &gt; sleep(<span class="number">2</span>) called at [/root/phptrace-master/example.php:<span class="number">28</span>]</span><br><span class="line">[pid <span class="number">32194</span>]            &lt; sleep(<span class="number">2</span>) = <span class="number">0</span> called at [/root/phptrace-master/example.php:<span class="number">28</span>] ~ <span class="number">2.000</span>s <span class="number">2.000</span>s</span><br><span class="line">[pid <span class="number">32194</span>]        &lt; Me-&gt;sleep() = <span class="keyword">NULL</span> called at [/root/phptrace-master/example.php:<span class="number">34</span>] ~ <span class="number">2.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid <span class="number">32194</span>]        &gt; Me-&gt;say(<span class="string">"wake up"</span>) called at [/root/phptrace-master/example.php:<span class="number">35</span>]</span><br><span class="line">[pid <span class="number">32194</span>]        &lt; Me-&gt;say(<span class="string">"wake up"</span>) = <span class="keyword">NULL</span> called at [/root/phptrace-master/example.php:<span class="number">35</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid <span class="number">32194</span>]    &lt; Me-&gt;run() = <span class="keyword">NULL</span> called at [/root/phptrace-master/example.php:<span class="number">57</span>] ~ <span class="number">2.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid <span class="number">32194</span>]&lt; cli php example.php</span><br><span class="line">process detached</span><br></pre></td></tr></table></figure><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> root@VM_173_23_centos:~<span class="comment"># phptrace status -p 5368</span></span><br><span class="line">------------------------------- Status --------------------------------</span><br><span class="line">PHP Version:       <span class="number">7.3</span><span class="number">.2</span></span><br><span class="line">SAPI:              cli</span><br><span class="line">script:            /root/phptrace-master/example.php</span><br><span class="line">elapse:            <span class="number">11.902</span>s</span><br><span class="line">memory:            <span class="number">0.40</span>m</span><br><span class="line">memory peak:       <span class="number">0.44</span>m</span><br><span class="line">real-memory:       <span class="number">2.00</span>m</span><br><span class="line">real-memory peak   <span class="number">2.00</span>m</span><br><span class="line">------------------------------ Arguments ------------------------------</span><br><span class="line">$<span class="number">0</span>                 example.php</span><br><span class="line">------------------------------ Backtrace ------------------------------</span><br><span class="line"><span class="comment">#0  Me-&gt;run() called at [/root/phptrace-master/example.php:57]</span></span><br><span class="line"><span class="comment">#1  &#123;main&#125;() called at [/root/phptrace-master/example.php:57]</span></span><br></pre></td></tr></table></figure><p>可以看到在脚本运行过程，以及各个PHP函数的调用。其他几个命令都可以试试，不过我这边运行最后一个命令会出错，没找出问题。</p><h3 id="3-3、验证-PHP-后期静态绑定"><a href="#3-3、验证-PHP-后期静态绑定" class="headerlink" title="3.3、验证 PHP 后期静态绑定"></a>3.3、验证 PHP 后期静态绑定</h3><p><a href="http://blog.feifan.news/2019/02/13/php-callstatic/#4%E3%80%81%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90">PHP 后期静态绑定</a>的例子，我们验证一下两种调用方法的执行过程。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt; Model::find(<span class="number">1</span>, <span class="number">2</span>) called at [/root/php/index.php:<span class="number">39</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]        &gt; Model::__callStatic(<span class="string">"find"</span>, <span class="keyword">array</span>(<span class="number">2</span>)) called at [/root/php/index.php:<span class="number">39</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]            &gt; Model-&gt;find(<span class="number">1</span>) called at [/root/php/index.php:<span class="number">23</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]            &lt; Model-&gt;find(<span class="number">1</span>) = <span class="string">"php"</span> called at [/root/php/index.php:<span class="number">23</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]            &gt; Model-&gt;find(<span class="number">2</span>) called at [/root/php/index.php:<span class="number">23</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]            &lt; Model-&gt;find(<span class="number">2</span>) = <span class="string">"python"</span> called at [/root/php/index.php:<span class="number">23</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]        &lt; Model::__callStatic(<span class="string">"find"</span>, <span class="keyword">array</span>(<span class="number">2</span>)) = <span class="keyword">NULL</span> called at [/root/php/index.php:<span class="number">39</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]    &lt; Model::find(<span class="number">1</span>, <span class="number">2</span>) = <span class="keyword">NULL</span> called at [/root/php/index.php:<span class="number">39</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]    &gt; Model-&gt;find(<span class="number">3</span>, <span class="number">4</span>) called at [/root/php/index.php:<span class="number">42</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]        &gt; Model-&gt;__call(<span class="string">"find"</span>, <span class="keyword">array</span>(<span class="number">2</span>)) called at [/root/php/index.php:<span class="number">42</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]            &gt; Model-&gt;find(<span class="number">3</span>) called at [/root/php/index.php:<span class="number">16</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]            &lt; Model-&gt;find(<span class="number">3</span>) = <span class="string">"go"</span> called at [/root/php/index.php:<span class="number">16</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]            &gt; Model-&gt;find(<span class="number">4</span>) called at [/root/php/index.php:<span class="number">16</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]            &lt; Model-&gt;find(<span class="number">4</span>) = <span class="string">"c"</span> called at [/root/php/index.php:<span class="number">16</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]        &lt; Model-&gt;__call(<span class="string">"find"</span>, <span class="keyword">array</span>(<span class="number">2</span>)) = <span class="keyword">NULL</span> called at [/root/php/index.php:<span class="number">42</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]    &lt; Model-&gt;find(<span class="number">3</span>, <span class="number">4</span>) = <span class="keyword">NULL</span> called at [/root/php/index.php:<span class="number">42</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]    &gt; sleep(<span class="number">2</span>) called at [/root/php/index.php:<span class="number">44</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]    &lt; sleep(<span class="number">2</span>) = <span class="number">0</span> called at [/root/php/index.php:<span class="number">44</span>] ~ <span class="number">2.000</span>s <span class="number">2.000</span>s</span><br></pre></td></tr></table></figure></p><p>可以看到在执行 <code>Product::find(1,2);</code> 的时候，先调用 <code>__callStatic</code> 方法，随后调用 find() 方法；<br>执行 <code>$p = new Product(); $p-&gt;find(3,4);</code> 先调用 <code>__call</code> 方法，随后调用 find() 方法；</p><p>官方教程：<a href="https://github.com/Qihoo360/phptrace/blob/master/README_ZH.md" target="_blank" rel="noopener">https://github.com/Qihoo360/phptrace/blob/master/README_ZH.md</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h2><p>phptrace 是一个 <code>Qihoo360</code> 开源的一个低开销的用于跟踪(trace)、分析PHP运行情况的工具。</p><p>它可以跟踪PHP在运行时的函数调用、请求信息、执行流程，并且提供有过滤器、统计信息、当前状态等实用功能。 在任何环境下，它都能很好的定位阻塞问题以及在高负载下Debug，尤其是线上生产环境。<br><a id="more"></a><br>具有以下特性：</p><pre><code>低开销，在只加载模块不开启Trace功能时对性能影响极低稳定性，已经稳定运行在Qihoo 360线上服务中，并针对主流框架进行测试易用性，对于未安装trace扩展的环境，也能够追踪运行状态</code></pre><p>phptrace是类strace的一个实现，不同的是，strace用来追踪系统调用，而phptrace用来追踪PHP函数调用。无论是开发测试 还是线上追查问题，代码执行流程往往会提供许多有用的信息，大大提高了开发人员的工作效率；</p><h2 id="2、安装"><a href="#2、安装" class="headerlink" title="2、安装"></a>2、安装</h2><h3 id="2-1、下载地址："><a href="#2-1、下载地址：" class="headerlink" title="2.1、下载地址："></a>2.1、下载地址：</h3><ul><li>GitHub: <a href="https://github.com/Qihoo360/phptrace" target="_blank" rel="noopener">https://github.com/Qihoo360/phptrace</a></li><li>PECL: <a href="https://pecl.php.net/package/trace" target="_blank" rel="noopener">https://pecl.php.net/package/trace</a></li></ul><h3 id="2-2、下载解压"><a href="#2-2、下载解压" class="headerlink" title="2.2、下载解压"></a>2.2、下载解压</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -LOk https:<span class="comment">//github.com/Qihoo360/phptrace/archive/master.zip</span></span><br><span class="line">unzip master.zip    <span class="comment">// unzip解压</span></span><br><span class="line">cd phptrace-master/extension/  <span class="comment">// 进入解压后的扩展目录</span></span><br></pre></td></tr></table></figure><h3 id="2-3、源码编译"><a href="#2-3、源码编译" class="headerlink" title="2.3、源码编译"></a>2.3、源码编译</h3><p>2.3.1、PHP 扩展安装（以下命令是在 phptrace-master/extension/ 目录中执行的）<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">phpize</span><br><span class="line">./configure --with-php-config=/usr/<span class="built_in">local</span>/php7/bin/php-config</span><br><span class="line">make</span><br></pre></td></tr></table></figure></p><p>php-config 的路径要根据自己的位置进行修改。</p><p>2.3.2、命令行工具<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make cli</span><br></pre></td></tr></table></figure></p><p>2.3.3、安装PHP扩展、命令行工具至PHP目录<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install-all</span><br></pre></td></tr></table></figure></p><h3 id="2-4、添加扩展"><a href="#2-4、添加扩展" class="headerlink" title="2.4、添加扩展"></a>2.4、添加扩展</h3><p>编辑配置文件php.ini(如果没有 php.ini 文件，复制源码中的 php.ini-development 或者 php.ini-production 到安装目录的 etc文件夹下，命名为 php.ini )，增加下面配置信息。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[phptrace]</span><br><span class="line">extension=trace.so</span><br><span class="line">phptrace.enabled = <span class="number">1</span></span><br></pre></td></tr></table></figure></p><p>php-fpm需要手动重启。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -USR2 24612</span><br></pre></td></tr></table></figure></p><p>master进程可以理解以下信号</p><pre><code>INT, TERM 立刻终止QUIT 平滑终止USR1 重新打开日志文件USR2 平滑重载所有worker进程并重新载入配置和二进制模块</code></pre><p>查看扩展安装：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@VM_173_23_centos:/usr/local/php7<span class="comment"># php -m | grep trace</span></span><br><span class="line">trace</span><br></pre></td></tr></table></figure></p><p>或者查看 phpinfo()，查看 /usr/local/php7/bin 下已经有了 phptrace<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@VM_173_23_centos:/usr/<span class="built_in">local</span>/php7/bin<span class="comment"># ls</span></span><br><span class="line">pear  peardev  pecl  phar  phar.phar  php  php-cgi  php-config  phpdbg  phpize  phptrace</span><br></pre></td></tr></table></figure></p><p>创建一个软连接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/php7/bin/phptrace /usr/local/bin/phptrace</span><br></pre></td></tr></table></figure></p><h2 id="3、使用"><a href="#3、使用" class="headerlink" title="3、使用"></a>3、使用</h2><h3 id="3-1、查看命令参数"><a href="#3-1、查看命令参数" class="headerlink" title="3.1、查看命令参数"></a>3.1、查看命令参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">root@VM_173_23_centos:/usr/local/php7/bin# phptrace -h</span><br><span class="line">phptrace - A low-overhead tracing tool for PHP</span><br><span class="line"></span><br><span class="line">Usage: phptrace -p &lt;pid&gt;...</span><br><span class="line">       phptrace -h | --help</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">    trace               Trace a running PHP process [default]</span><br><span class="line">    status              Display current status of specified PHP process</span><br><span class="line">    version             Show version</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">        --ptrace        Fetch data using ptrace, only in status mode</span><br><span class="line">    -p, --pid           Process id</span><br><span class="line">    -h, --help          Show this screen</span><br><span class="line">    -v, --verbose</span><br><span class="line">    -f, --filter        Filter data by type [url,function,class] and content</span><br><span class="line">    -l, --limit         Limit output count</span><br></pre></td></tr></table></figure><pre><code>trace 追踪运行的PHP进程(默认)status 展示PHP进程的运行状态version 版本-p 指定php进程id(&#39;all&#39;追踪所有的进程)-h 帮助-v 同version-f 通过类型(url,function,class)和内容过滤数据-l 限制输出次数--ptrace 在追踪状态的模式下通过ptrace获取数据</code></pre><h3 id="3-2、官方实例"><a href="#3-2、官方实例" class="headerlink" title="3.2、官方实例"></a>3.2、官方实例</h3><p>phptrace 官方实例 example.php 文件如下：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Me</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">($words)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> $words.<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">sleep</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;say(<span class="string">'sleeping...'</span>);</span><br><span class="line">        sleep(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;say(<span class="string">'good night'</span>);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;sleep();</span><br><span class="line">        <span class="keyword">$this</span>-&gt;say(<span class="string">'wake up'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$pid = getmypid();</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"**phptrace sample**\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Type these command in a new console:\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"trace:                    phptrace -p $pid\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"trace with filter:        phptrace -p $pid -f type=function,content=sleep\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"trace with filter:        phptrace -p $pid -f type=class,content=Me\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"trace with count limit:   phptrace -p $pid -l 2\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"view status:              phptrace status -p $pid\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"view status by ptrace:    phptrace status -p $pid --ptrace\n"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line">printf(<span class="string">"Press enter to continue...\n"</span>);</span><br><span class="line">$fp = fopen(<span class="string">'php://stdin'</span>, <span class="string">'r'</span>);</span><br><span class="line">fgets($fp);</span><br><span class="line">fclose($fp);</span><br><span class="line">usleep(<span class="number">100000</span>);</span><br><span class="line">(<span class="keyword">new</span> Me)-&gt;run();</span><br></pre></td></tr></table></figure></p><p><code>php example.php</code> 运行结果<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@VM_173_23_centos:~/phptrace-master<span class="comment"># php example.php</span></span><br><span class="line">**phptrace sample**</span><br><span class="line">Type these command in a <span class="keyword">new</span> console:</span><br><span class="line"></span><br><span class="line">trace:                    phptrace -p <span class="number">32194</span></span><br><span class="line">trace with filter:        phptrace -p <span class="number">32194</span> -f type=<span class="function"><span class="keyword">function</span>,<span class="title">content</span>=<span class="title">sleep</span></span></span><br><span class="line"><span class="function"><span class="title">trace</span> <span class="title">with</span> <span class="title">filter</span>:        <span class="title">phptrace</span> -<span class="title">p</span> 32194 -<span class="title">f</span> <span class="title">type</span>=<span class="title">class</span>,<span class="title">content</span>=<span class="title">Me</span></span></span><br><span class="line"><span class="function"><span class="title">trace</span> <span class="title">with</span> <span class="title">count</span> <span class="title">limit</span>:   <span class="title">phptrace</span> -<span class="title">p</span> 32194 -<span class="title">l</span> 2</span></span><br><span class="line"><span class="function"><span class="title">view</span> <span class="title">status</span>:              <span class="title">phptrace</span> <span class="title">status</span> -<span class="title">p</span> 32194</span></span><br><span class="line"><span class="function"><span class="title">view</span> <span class="title">status</span> <span class="title">by</span> <span class="title">ptrace</span>:    <span class="title">phptrace</span> <span class="title">status</span> -<span class="title">p</span> 32194 --<span class="title">ptrace</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Press</span> <span class="title">enter</span> <span class="title">to</span> <span class="title">continue</span>...</span></span><br></pre></td></tr></table></figure></p><p>可以看到上面的几个追踪（trace）命令，再开一个窗口，运行 trace 命令</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> root@VM_173_23_centos:~<span class="comment"># phptrace -p 32194</span></span><br><span class="line">process attached</span><br><span class="line">[pid <span class="number">32194</span>]    &gt; Me-&gt;run() called at [/root/phptrace-master/example.php:<span class="number">57</span>]</span><br><span class="line">[pid <span class="number">32194</span>]        &gt; Me-&gt;say(<span class="string">"good night"</span>) called at [/root/phptrace-master/example.php:<span class="number">33</span>]</span><br><span class="line">[pid <span class="number">32194</span>]        &lt; Me-&gt;say(<span class="string">"good night"</span>) = <span class="keyword">NULL</span> called at [/root/phptrace-master/example.php:<span class="number">33</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid <span class="number">32194</span>]        &gt; Me-&gt;sleep() called at [/root/phptrace-master/example.php:<span class="number">34</span>]</span><br><span class="line">[pid <span class="number">32194</span>]            &gt; Me-&gt;say(<span class="string">"sleeping..."</span>) called at [/root/phptrace-master/example.php:<span class="number">27</span>]</span><br><span class="line">[pid <span class="number">32194</span>]            &lt; Me-&gt;say(<span class="string">"sleeping..."</span>) = <span class="keyword">NULL</span> called at [/root/phptrace-master/example.php:<span class="number">27</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid <span class="number">32194</span>]            &gt; sleep(<span class="number">2</span>) called at [/root/phptrace-master/example.php:<span class="number">28</span>]</span><br><span class="line">[pid <span class="number">32194</span>]            &lt; sleep(<span class="number">2</span>) = <span class="number">0</span> called at [/root/phptrace-master/example.php:<span class="number">28</span>] ~ <span class="number">2.000</span>s <span class="number">2.000</span>s</span><br><span class="line">[pid <span class="number">32194</span>]        &lt; Me-&gt;sleep() = <span class="keyword">NULL</span> called at [/root/phptrace-master/example.php:<span class="number">34</span>] ~ <span class="number">2.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid <span class="number">32194</span>]        &gt; Me-&gt;say(<span class="string">"wake up"</span>) called at [/root/phptrace-master/example.php:<span class="number">35</span>]</span><br><span class="line">[pid <span class="number">32194</span>]        &lt; Me-&gt;say(<span class="string">"wake up"</span>) = <span class="keyword">NULL</span> called at [/root/phptrace-master/example.php:<span class="number">35</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid <span class="number">32194</span>]    &lt; Me-&gt;run() = <span class="keyword">NULL</span> called at [/root/phptrace-master/example.php:<span class="number">57</span>] ~ <span class="number">2.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid <span class="number">32194</span>]&lt; cli php example.php</span><br><span class="line">process detached</span><br></pre></td></tr></table></figure><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> root@VM_173_23_centos:~<span class="comment"># phptrace status -p 5368</span></span><br><span class="line">------------------------------- Status --------------------------------</span><br><span class="line">PHP Version:       <span class="number">7.3</span><span class="number">.2</span></span><br><span class="line">SAPI:              cli</span><br><span class="line">script:            /root/phptrace-master/example.php</span><br><span class="line">elapse:            <span class="number">11.902</span>s</span><br><span class="line">memory:            <span class="number">0.40</span>m</span><br><span class="line">memory peak:       <span class="number">0.44</span>m</span><br><span class="line">real-memory:       <span class="number">2.00</span>m</span><br><span class="line">real-memory peak   <span class="number">2.00</span>m</span><br><span class="line">------------------------------ Arguments ------------------------------</span><br><span class="line">$<span class="number">0</span>                 example.php</span><br><span class="line">------------------------------ Backtrace ------------------------------</span><br><span class="line"><span class="comment">#0  Me-&gt;run() called at [/root/phptrace-master/example.php:57]</span></span><br><span class="line"><span class="comment">#1  &#123;main&#125;() called at [/root/phptrace-master/example.php:57]</span></span><br></pre></td></tr></table></figure><p>可以看到在脚本运行过程，以及各个PHP函数的调用。其他几个命令都可以试试，不过我这边运行最后一个命令会出错，没找出问题。</p><h3 id="3-3、验证-PHP-后期静态绑定"><a href="#3-3、验证-PHP-后期静态绑定" class="headerlink" title="3.3、验证 PHP 后期静态绑定"></a>3.3、验证 PHP 后期静态绑定</h3><p><a href="http://blog.feifan.news/2019/02/13/php-callstatic/#4%E3%80%81%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90" target="_blank" rel="noopener">PHP 后期静态绑定</a>的例子，我们验证一下两种调用方法的执行过程。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt; Model::find(<span class="number">1</span>, <span class="number">2</span>) called at [/root/php/index.php:<span class="number">39</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]        &gt; Model::__callStatic(<span class="string">"find"</span>, <span class="keyword">array</span>(<span class="number">2</span>)) called at [/root/php/index.php:<span class="number">39</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]            &gt; Model-&gt;find(<span class="number">1</span>) called at [/root/php/index.php:<span class="number">23</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]            &lt; Model-&gt;find(<span class="number">1</span>) = <span class="string">"php"</span> called at [/root/php/index.php:<span class="number">23</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]            &gt; Model-&gt;find(<span class="number">2</span>) called at [/root/php/index.php:<span class="number">23</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]            &lt; Model-&gt;find(<span class="number">2</span>) = <span class="string">"python"</span> called at [/root/php/index.php:<span class="number">23</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]        &lt; Model::__callStatic(<span class="string">"find"</span>, <span class="keyword">array</span>(<span class="number">2</span>)) = <span class="keyword">NULL</span> called at [/root/php/index.php:<span class="number">39</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]    &lt; Model::find(<span class="number">1</span>, <span class="number">2</span>) = <span class="keyword">NULL</span> called at [/root/php/index.php:<span class="number">39</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]    &gt; Model-&gt;find(<span class="number">3</span>, <span class="number">4</span>) called at [/root/php/index.php:<span class="number">42</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]        &gt; Model-&gt;__call(<span class="string">"find"</span>, <span class="keyword">array</span>(<span class="number">2</span>)) called at [/root/php/index.php:<span class="number">42</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]            &gt; Model-&gt;find(<span class="number">3</span>) called at [/root/php/index.php:<span class="number">16</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]            &lt; Model-&gt;find(<span class="number">3</span>) = <span class="string">"go"</span> called at [/root/php/index.php:<span class="number">16</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]            &gt; Model-&gt;find(<span class="number">4</span>) called at [/root/php/index.php:<span class="number">16</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]            &lt; Model-&gt;find(<span class="number">4</span>) = <span class="string">"c"</span> called at [/root/php/index.php:<span class="number">16</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]        &lt; Model-&gt;__call(<span class="string">"find"</span>, <span class="keyword">array</span>(<span class="number">2</span>)) = <span class="keyword">NULL</span> called at [/root/php/index.php:<span class="number">42</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]    &lt; Model-&gt;find(<span class="number">3</span>, <span class="number">4</span>) = <span class="keyword">NULL</span> called at [/root/php/index.php:<span class="number">42</span>] ~ <span class="number">0.000</span>s <span class="number">0.000</span>s</span><br><span class="line">[pid  <span class="number">7715</span>]    &gt; sleep(<span class="number">2</span>) called at [/root/php/index.php:<span class="number">44</span>]</span><br><span class="line">[pid  <span class="number">7715</span>]    &lt; sleep(<span class="number">2</span>) = <span class="number">0</span> called at [/root/php/index.php:<span class="number">44</span>] ~ <span class="number">2.000</span>s <span class="number">2.000</span>s</span><br></pre></td></tr></table></figure></p><p>可以看到在执行 <code>Product::find(1,2);</code> 的时候，先调用 <code>__callStatic</code> 方法，随后调用 find() 方法；<br>执行 <code>$p = new Product(); $p-&gt;find(3,4);</code> 先调用 <code>__call</code> 方法，随后调用 find() 方法；</p><p>官方教程：<a href="https://github.com/Qihoo360/phptrace/blob/master/README_ZH.md" target="_blank" rel="noopener">https://github.com/Qihoo360/phptrace/blob/master/README_ZH.md</a></p>]]></content>
     
     <summary type="html">
     
@@ -234,19 +234,19 @@
     
     </summary>
     
-      <category term="PHP" scheme="http://blog.feifan.news/categories/PHP/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/categories/PHP/"/>
     
     
-      <category term="调试工具" scheme="http://blog.feifan.news/tags/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/tags/PHP/"/>
     
-      <category term="PHP" scheme="http://blog.feifan.news/tags/PHP/"/>
+      <category term="调试工具" scheme="http://blog.liushuaicai.com/tags/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>PHP 后期静态绑定</title>
-    <link href="http://blog.feifan.news/2019/02/13/php-callstatic/"/>
-    <id>http://blog.feifan.news/2019/02/13/php-callstatic/</id>
+    <link href="http://blog.liushuaicai.com/2019/02/13/php-callstatic/"/>
+    <id>http://blog.liushuaicai.com/2019/02/13/php-callstatic/</id>
     <published>2019-02-13T13:53:45.000Z</published>
     <updated>2019-05-06T15:38:02.747Z</updated>
     
@@ -258,17 +258,17 @@
     
     </summary>
     
-      <category term="PHP" scheme="http://blog.feifan.news/categories/PHP/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/categories/PHP/"/>
     
     
-      <category term="PHP" scheme="http://blog.feifan.news/tags/PHP/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/tags/PHP/"/>
     
   </entry>
   
   <entry>
     <title>ElasticSearch集群搭建</title>
-    <link href="http://blog.feifan.news/2018/09/13/es-cluster/"/>
-    <id>http://blog.feifan.news/2018/09/13/es-cluster/</id>
+    <link href="http://blog.liushuaicai.com/2018/09/13/es-cluster/"/>
+    <id>http://blog.liushuaicai.com/2018/09/13/es-cluster/</id>
     <published>2018-09-13T10:04:05.000Z</published>
     <updated>2019-05-06T15:38:02.750Z</updated>
     
@@ -283,17 +283,17 @@
     
     </summary>
     
-      <category term="ElasticSearch" scheme="http://blog.feifan.news/categories/ElasticSearch/"/>
+      <category term="ElasticSearch" scheme="http://blog.liushuaicai.com/categories/ElasticSearch/"/>
     
     
-      <category term="ES" scheme="http://blog.feifan.news/tags/ES/"/>
+      <category term="ES" scheme="http://blog.liushuaicai.com/tags/ES/"/>
     
   </entry>
   
   <entry>
     <title>自然语言处理（一）</title>
-    <link href="http://blog.feifan.news/2018/09/10/nlp-v1/"/>
-    <id>http://blog.feifan.news/2018/09/10/nlp-v1/</id>
+    <link href="http://blog.liushuaicai.com/2018/09/10/nlp-v1/"/>
+    <id>http://blog.liushuaicai.com/2018/09/10/nlp-v1/</id>
     <published>2018-09-10T07:17:34.000Z</published>
     <updated>2019-05-06T15:38:02.759Z</updated>
     
@@ -306,17 +306,17 @@
     
     </summary>
     
-      <category term="机器学习" scheme="http://blog.feifan.news/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://blog.liushuaicai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="NLP" scheme="http://blog.feifan.news/tags/NLP/"/>
+      <category term="NLP" scheme="http://blog.liushuaicai.com/tags/NLP/"/>
     
   </entry>
   
   <entry>
     <title>ElasticSearch学习笔记（一）</title>
-    <link href="http://blog.feifan.news/2018/09/06/elasticsearch/"/>
-    <id>http://blog.feifan.news/2018/09/06/elasticsearch/</id>
+    <link href="http://blog.liushuaicai.com/2018/09/06/elasticsearch/"/>
+    <id>http://blog.liushuaicai.com/2018/09/06/elasticsearch/</id>
     <published>2018-09-06T00:43:11.000Z</published>
     <updated>2019-05-06T15:38:02.758Z</updated>
     
@@ -328,17 +328,17 @@
     
     </summary>
     
-      <category term="ElasticSearch" scheme="http://blog.feifan.news/categories/ElasticSearch/"/>
+      <category term="ElasticSearch" scheme="http://blog.liushuaicai.com/categories/ElasticSearch/"/>
     
     
-      <category term="ES" scheme="http://blog.feifan.news/tags/ES/"/>
+      <category term="ES" scheme="http://blog.liushuaicai.com/tags/ES/"/>
     
   </entry>
   
   <entry>
     <title>常用激活函数</title>
-    <link href="http://blog.feifan.news/2018/08/30/active_funcation/"/>
-    <id>http://blog.feifan.news/2018/08/30/active_funcation/</id>
+    <link href="http://blog.liushuaicai.com/2018/08/30/active_funcation/"/>
+    <id>http://blog.liushuaicai.com/2018/08/30/active_funcation/</id>
     <published>2018-08-30T06:06:08.000Z</published>
     <updated>2019-05-06T15:38:02.748Z</updated>
     
@@ -350,17 +350,17 @@
     
     </summary>
     
-      <category term="机器学习" scheme="http://blog.feifan.news/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://blog.liushuaicai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="MachineLearning" scheme="http://blog.feifan.news/tags/MachineLearning/"/>
+      <category term="MachineLearning" scheme="http://blog.liushuaicai.com/tags/MachineLearning/"/>
     
   </entry>
   
   <entry>
     <title>word2vec原理分析笔记</title>
-    <link href="http://blog.feifan.news/2018/08/30/word2vec/"/>
-    <id>http://blog.feifan.news/2018/08/30/word2vec/</id>
+    <link href="http://blog.liushuaicai.com/2018/08/30/word2vec/"/>
+    <id>http://blog.liushuaicai.com/2018/08/30/word2vec/</id>
     <published>2018-08-30T03:46:09.000Z</published>
     <updated>2019-05-06T15:38:02.762Z</updated>
     
@@ -372,17 +372,17 @@
     
     </summary>
     
-      <category term="机器学习" scheme="http://blog.feifan.news/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://blog.liushuaicai.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="Word2Vec" scheme="http://blog.feifan.news/tags/Word2Vec/"/>
+      <category term="Word2Vec" scheme="http://blog.liushuaicai.com/tags/Word2Vec/"/>
     
   </entry>
   
   <entry>
     <title>隐马尔可夫模型</title>
-    <link href="http://blog.feifan.news/2018/08/30/hmm-1/"/>
-    <id>http://blog.feifan.news/2018/08/30/hmm-1/</id>
+    <link href="http://blog.liushuaicai.com/2018/08/30/hmm-1/"/>
+    <id>http://blog.liushuaicai.com/2018/08/30/hmm-1/</id>
     <published>2018-08-30T01:45:06.000Z</published>
     <updated>2019-05-06T15:38:02.761Z</updated>
     
@@ -395,17 +395,17 @@
     
     </summary>
     
-      <category term="算法" scheme="http://blog.feifan.news/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://blog.liushuaicai.com/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="HMM" scheme="http://blog.feifan.news/tags/HMM/"/>
+      <category term="HMM" scheme="http://blog.liushuaicai.com/tags/HMM/"/>
     
   </entry>
   
   <entry>
     <title>在 hexo 中支持 Mathjax</title>
-    <link href="http://blog.feifan.news/2018/08/30/mathjax/"/>
-    <id>http://blog.feifan.news/2018/08/30/mathjax/</id>
+    <link href="http://blog.liushuaicai.com/2018/08/30/mathjax/"/>
+    <id>http://blog.liushuaicai.com/2018/08/30/mathjax/</id>
     <published>2018-08-29T17:57:54.000Z</published>
     <updated>2019-05-06T15:38:02.758Z</updated>
     
@@ -418,17 +418,17 @@
     
     </summary>
     
-      <category term="hexo" scheme="http://blog.feifan.news/categories/hexo/"/>
+      <category term="hexo" scheme="http://blog.liushuaicai.com/categories/hexo/"/>
     
     
-      <category term="Hexo" scheme="http://blog.feifan.news/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://blog.liushuaicai.com/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>python2.7学习总结</title>
-    <link href="http://blog.feifan.news/2017/05/03/python/"/>
-    <id>http://blog.feifan.news/2017/05/03/python/</id>
+    <link href="http://blog.liushuaicai.com/2017/05/03/python/"/>
+    <id>http://blog.liushuaicai.com/2017/05/03/python/</id>
     <published>2017-05-03T02:12:32.000Z</published>
     <updated>2019-05-06T15:38:02.749Z</updated>
     
@@ -443,17 +443,17 @@
     
     </summary>
     
-      <category term="Python" scheme="http://blog.feifan.news/categories/Python/"/>
+      <category term="Python" scheme="http://blog.liushuaicai.com/categories/Python/"/>
     
     
-      <category term="python" scheme="http://blog.feifan.news/tags/python/"/>
+      <category term="python" scheme="http://blog.liushuaicai.com/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>PHP进程管理pcntl</title>
-    <link href="http://blog.feifan.news/2017/04/24/pcntl/"/>
-    <id>http://blog.feifan.news/2017/04/24/pcntl/</id>
+    <link href="http://blog.liushuaicai.com/2017/04/24/pcntl/"/>
+    <id>http://blog.liushuaicai.com/2017/04/24/pcntl/</id>
     <published>2017-04-24T09:01:33.000Z</published>
     <updated>2019-05-06T15:38:02.752Z</updated>
     
@@ -468,17 +468,17 @@
     
     </summary>
     
-      <category term="PHP" scheme="http://blog.feifan.news/categories/PHP/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/categories/PHP/"/>
     
     
-      <category term="pcntl" scheme="http://blog.feifan.news/tags/pcntl/"/>
+      <category term="pcntl" scheme="http://blog.liushuaicai.com/tags/pcntl/"/>
     
   </entry>
   
   <entry>
     <title>git 知识总结</title>
-    <link href="http://blog.feifan.news/2017/04/24/git/"/>
-    <id>http://blog.feifan.news/2017/04/24/git/</id>
+    <link href="http://blog.liushuaicai.com/2017/04/24/git/"/>
+    <id>http://blog.liushuaicai.com/2017/04/24/git/</id>
     <published>2017-04-24T01:32:11.000Z</published>
     <updated>2019-12-17T05:41:18.585Z</updated>
     
@@ -490,17 +490,17 @@
     
     </summary>
     
-      <category term="PHP" scheme="http://blog.feifan.news/categories/PHP/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/categories/PHP/"/>
     
     
-      <category term="git" scheme="http://blog.feifan.news/tags/git/"/>
+      <category term="git" scheme="http://blog.liushuaicai.com/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>Memcached的工作原理及内存分配</title>
-    <link href="http://blog.feifan.news/2017/04/20/memcached/"/>
-    <id>http://blog.feifan.news/2017/04/20/memcached/</id>
+    <link href="http://blog.liushuaicai.com/2017/04/20/memcached/"/>
+    <id>http://blog.liushuaicai.com/2017/04/20/memcached/</id>
     <published>2017-04-20T06:41:21.000Z</published>
     <updated>2019-05-06T15:38:02.757Z</updated>
     
@@ -513,14 +513,14 @@
     </summary>
     
     
-      <category term="memcached" scheme="http://blog.feifan.news/tags/memcached/"/>
+      <category term="memcached" scheme="http://blog.liushuaicai.com/tags/memcached/"/>
     
   </entry>
   
   <entry>
     <title>了解Apache的配置http.conf</title>
-    <link href="http://blog.feifan.news/2017/04/18/http-conf/"/>
-    <id>http://blog.feifan.news/2017/04/18/http-conf/</id>
+    <link href="http://blog.liushuaicai.com/2017/04/18/http-conf/"/>
+    <id>http://blog.liushuaicai.com/2017/04/18/http-conf/</id>
     <published>2017-04-18T07:50:06.000Z</published>
     <updated>2019-05-06T15:38:02.760Z</updated>
     
@@ -534,17 +534,17 @@
     
     </summary>
     
-      <category term="PHP" scheme="http://blog.feifan.news/categories/PHP/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/categories/PHP/"/>
     
     
-      <category term="Apache" scheme="http://blog.feifan.news/tags/Apache/"/>
+      <category term="Apache" scheme="http://blog.liushuaicai.com/tags/Apache/"/>
     
   </entry>
   
   <entry>
     <title>apache性能测试工具ab</title>
-    <link href="http://blog.feifan.news/2017/04/17/ab/"/>
-    <id>http://blog.feifan.news/2017/04/17/ab/</id>
+    <link href="http://blog.liushuaicai.com/2017/04/17/ab/"/>
+    <id>http://blog.liushuaicai.com/2017/04/17/ab/</id>
     <published>2017-04-17T04:37:56.000Z</published>
     <updated>2019-05-06T15:38:02.755Z</updated>
     
@@ -556,17 +556,17 @@
     
     </summary>
     
-      <category term="Tool" scheme="http://blog.feifan.news/categories/Tool/"/>
+      <category term="Tool" scheme="http://blog.liushuaicai.com/categories/Tool/"/>
     
     
-      <category term="调试工具" scheme="http://blog.feifan.news/tags/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/"/>
+      <category term="调试工具" scheme="http://blog.liushuaicai.com/tags/%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>win常用命令</title>
-    <link href="http://blog.feifan.news/2017/04/11/win-dos/"/>
-    <id>http://blog.feifan.news/2017/04/11/win-dos/</id>
+    <link href="http://blog.liushuaicai.com/2017/04/11/win-dos/"/>
+    <id>http://blog.liushuaicai.com/2017/04/11/win-dos/</id>
     <published>2017-04-11T02:54:06.000Z</published>
     <updated>2019-05-06T15:38:02.753Z</updated>
     
@@ -583,14 +583,14 @@
     </summary>
     
     
-      <category term="win" scheme="http://blog.feifan.news/tags/win/"/>
+      <category term="win" scheme="http://blog.liushuaicai.com/tags/win/"/>
     
   </entry>
   
   <entry>
     <title>三月份工作总结</title>
-    <link href="http://blog.feifan.news/2017/04/10/summary-3/"/>
-    <id>http://blog.feifan.news/2017/04/10/summary-3/</id>
+    <link href="http://blog.liushuaicai.com/2017/04/10/summary-3/"/>
+    <id>http://blog.liushuaicai.com/2017/04/10/summary-3/</id>
     <published>2017-04-10T06:58:30.000Z</published>
     <updated>2019-12-21T05:17:14.047Z</updated>
     
@@ -603,19 +603,19 @@
     
     </summary>
     
-      <category term="前端" scheme="http://blog.feifan.news/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://blog.liushuaicai.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="ajax分页" scheme="http://blog.feifan.news/tags/ajax%E5%88%86%E9%A1%B5/"/>
+      <category term="ajax分页" scheme="http://blog.liushuaicai.com/tags/ajax%E5%88%86%E9%A1%B5/"/>
     
-      <category term="多文件上传" scheme="http://blog.feifan.news/tags/%E5%A4%9A%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+      <category term="多文件上传" scheme="http://blog.liushuaicai.com/tags/%E5%A4%9A%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
     
   </entry>
   
   <entry>
     <title>学习 CGI 和 Fast CGI</title>
-    <link href="http://blog.feifan.news/2017/04/10/cgi/"/>
-    <id>http://blog.feifan.news/2017/04/10/cgi/</id>
+    <link href="http://blog.liushuaicai.com/2017/04/10/cgi/"/>
+    <id>http://blog.liushuaicai.com/2017/04/10/cgi/</id>
     <published>2017-04-10T03:47:32.000Z</published>
     <updated>2019-05-06T15:38:02.759Z</updated>
     
@@ -627,17 +627,17 @@
     
     </summary>
     
-      <category term="PHP" scheme="http://blog.feifan.news/categories/PHP/"/>
+      <category term="PHP" scheme="http://blog.liushuaicai.com/categories/PHP/"/>
     
     
-      <category term="CGI" scheme="http://blog.feifan.news/tags/CGI/"/>
+      <category term="CGI" scheme="http://blog.liushuaicai.com/tags/CGI/"/>
     
   </entry>
   
   <entry>
     <title>实际项目中的常用的JS函数总结</title>
-    <link href="http://blog.feifan.news/2017/04/09/js-func/"/>
-    <id>http://blog.feifan.news/2017/04/09/js-func/</id>
+    <link href="http://blog.liushuaicai.com/2017/04/09/js-func/"/>
+    <id>http://blog.liushuaicai.com/2017/04/09/js-func/</id>
     <published>2017-04-09T15:50:35.000Z</published>
     <updated>2019-05-06T15:38:02.751Z</updated>
     
@@ -649,17 +649,17 @@
     
     </summary>
     
-      <category term="前端" scheme="http://blog.feifan.news/categories/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://blog.liushuaicai.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="JS" scheme="http://blog.feifan.news/tags/JS/"/>
+      <category term="JS" scheme="http://blog.liushuaicai.com/tags/JS/"/>
     
   </entry>
   
   <entry>
     <title>Mysql的sql分析（explain|profile）</title>
-    <link href="http://blog.feifan.news/2017/04/05/mysql-explain-profile/"/>
-    <id>http://blog.feifan.news/2017/04/05/mysql-explain-profile/</id>
+    <link href="http://blog.liushuaicai.com/2017/04/05/mysql-explain-profile/"/>
+    <id>http://blog.liushuaicai.com/2017/04/05/mysql-explain-profile/</id>
     <published>2017-04-05T13:44:51.000Z</published>
     <updated>2019-05-06T15:38:02.761Z</updated>
     
@@ -671,17 +671,17 @@
     
     </summary>
     
-      <category term="Mysql" scheme="http://blog.feifan.news/categories/Mysql/"/>
+      <category term="Mysql" scheme="http://blog.liushuaicai.com/categories/Mysql/"/>
     
     
-      <category term="mysql" scheme="http://blog.feifan.news/tags/mysql/"/>
+      <category term="mysql" scheme="http://blog.liushuaicai.com/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>hexo+github 搭建个人博客</title>
-    <link href="http://blog.feifan.news/2017/04/04/hexo-github/"/>
-    <id>http://blog.feifan.news/2017/04/04/hexo-github/</id>
+    <link href="http://blog.liushuaicai.com/2017/04/04/hexo-github/"/>
+    <id>http://blog.liushuaicai.com/2017/04/04/hexo-github/</id>
     <published>2017-04-04T14:25:16.000Z</published>
     <updated>2019-05-06T15:38:02.748Z</updated>
     
@@ -694,12 +694,12 @@
     
     </summary>
     
-      <category term="hexo" scheme="http://blog.feifan.news/categories/hexo/"/>
+      <category term="hexo" scheme="http://blog.liushuaicai.com/categories/hexo/"/>
     
     
-      <category term="Hexo" scheme="http://blog.feifan.news/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://blog.liushuaicai.com/tags/Hexo/"/>
     
-      <category term="github" scheme="http://blog.feifan.news/tags/github/"/>
+      <category term="github" scheme="http://blog.liushuaicai.com/tags/github/"/>
     
   </entry>
   
