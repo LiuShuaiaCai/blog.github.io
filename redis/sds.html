@@ -4,7 +4,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>CGI | Lsc’s Home</title>
+  <title>动态字符串SDS | Lsc’s Home</title>
   <meta name="author" content="LiuShuaiCai">
   
   <meta name="description" content="Napoléon Bonaparte">
@@ -12,7 +12,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="动态字符串SDS">
   <meta property="og:site_name" content="Lsc’s Home">
 
   
@@ -54,140 +54,97 @@
 <div class="clearfix"></div>
 </header>
   	<div id="content" class="inner">
-  	<div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">CGI</h2>
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="page hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!--  -->
+      <!-- <div class="icon"></div> -->
+      
+  
+    <h1 class="title">动态字符串SDS</h1>
+  
+
+      <!-- <time datetime="2022-05-28T05:33:11.000Z"><a href="/redis/sds.html">2022-05-28</a></time> -->
+    </header>
+    <div class="entry">
+      
+        <h2 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h2><ul>
+<li>Mac x86_64</li>
+<li>Redis：5.0.3</li>
+</ul>
+<h2 id="SDS的数据结构"><a href="#SDS的数据结构" class="headerlink" title="SDS的数据结构"></a>SDS的数据结构</h2><p><img src="/images/redis-sds.jpg" alt="redis-sds"></p>
+
+      
+    </div>
 
 
-  <div class="archive hidden_show">
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2017-04-10T03:47:32.000Z"><a href="/2017/04/10/cgi/">2017-04-10</a></time>
-            
-              <h1 class="title"><a href="/2017/04/10/cgi/">学习 CGI 和 Fast CGI</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
+    <footer>
+      
+        
+
+        
+  
+  <div class="tags">
+    <a href="/undefined">undefined</a>
   </div>
 
-
-<aside id="sidebar" class="alignright">
-	
-	  	<div id="site_search" class="search">
-  <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
-  <div id="local-search-result"></div>
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
 </div>
 
-<script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/search.js"></script>
-<script type="text/javascript">      
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    searchFunc(path, 'local-search-input', 'local-search-result');
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
 </script>
-	
-	  	
-<div class="widget tag">
-  <h3 class="title">分类</h3>
-  <ul class="entry">
-  
-    <li><a href="/categories/ElasticSearch/">ElasticSearch</a><small>2</small></li>
-  
-    <li><a href="/categories/GCC/">GCC</a><small>1</small></li>
-  
-    <li><a href="/categories/Linux/">Linux</a><small>1</small></li>
-  
-    <li><a href="/categories/Mysql/">Mysql</a><small>1</small></li>
-  
-    <li><a href="/categories/PHP/">PHP</a><small>9</small></li>
-  
-    <li><a href="/categories/Python/">Python</a><small>1</small></li>
-  
-    <li><a href="/categories/Tool/">Tool</a><small>1</small></li>
-  
-    <li><a href="/categories/Vim/">Vim</a><small>1</small></li>
-  
-    <li><a href="/categories/hexo/">hexo</a><small>2</small></li>
-  
-    <li><a href="/categories/前端/">前端</a><small>2</small></li>
-  
-    <li><a href="/categories/机器学习/">机器学习</a><small>3</small></li>
-  
-    <li><a href="/categories/用户认证/">用户认证</a><small>2</small></li>
-  
-    <li><a href="/categories/算法/">算法</a><small>1</small></li>
-  
-  </ul>
-</div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="redis/sds.html"></div>
+    </section>
+ -->
+</article>
 
-	
-	  	
-<div class="widget tag">
-  <h3 class="title">标签</h3>
-  <ul class="entry">
-  
-    <li><a href="/tags/Apache/">Apache</a><small>1</small></li>
-  
-    <li><a href="/tags/CC/">CC</a><small>1</small></li>
-  
-    <li><a href="/tags/CGI/">CGI</a><small>1</small></li>
-  
-    <li><a href="/tags/ES/">ES</a><small>2</small></li>
-  
-    <li><a href="/tags/GCC/">GCC</a><small>1</small></li>
-  
-    <li><a href="/tags/HMM/">HMM</a><small>1</small></li>
-  
-    <li><a href="/tags/Hexo/">Hexo</a><small>2</small></li>
-  
-    <li><a href="/tags/JS/">JS</a><small>1</small></li>
-  
-    <li><a href="/tags/JWT/">JWT</a><small>2</small></li>
-  
-    <li><a href="/tags/MachineLearning/">MachineLearning</a><small>1</small></li>
-  
-    <li><a href="/tags/NLP/">NLP</a><small>1</small></li>
-  
-    <li><a href="/tags/PHP/">PHP</a><small>4</small></li>
-  
-    <li><a href="/tags/Vim/">Vim</a><small>1</small></li>
-  
-    <li><a href="/tags/Word2Vec/">Word2Vec</a><small>1</small></li>
-  
-    <li><a href="/tags/ajax分页/">ajax分页</a><small>1</small></li>
-  
-    <li><a href="/tags/git/">git</a><small>1</small></li>
-  
-    <li><a href="/tags/github/">github</a><small>1</small></li>
-  
-    <li><a href="/tags/memcached/">memcached</a><small>1</small></li>
-  
-    <li><a href="/tags/mysql/">mysql</a><small>1</small></li>
-  
-    <li><a href="/tags/pcntl/">pcntl</a><small>1</small></li>
-  
-    <li><a href="/tags/python/">python</a><small>1</small></li>
-  
-    <li><a href="/tags/supervisor/">supervisor</a><small>1</small></li>
-  
-    <li><a href="/tags/win/">win</a><small>1</small></li>
-  
-    <li><a href="/tags/多文件上传/">多文件上传</a><small>1</small></li>
-  
-    <li><a href="/tags/调试工具/">调试工具</a><small>2</small></li>
-  
-  </ul>
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#测试环境"><span class="toc-text">测试环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SDS的数据结构"><span class="toc-text">SDS的数据结构</span></a></li></ol>
 </div>
+      
+  </aside>
 
-	
-</aside>
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
 </div></div>
       <div class="clearfix"></div>
   	</div>

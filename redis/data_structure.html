@@ -1,0 +1,223 @@
+
+  <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Lsc’s Home</title>
+  <meta name="author" content="LiuShuaiCai">
+  
+  <meta name="description" content="Napoléon Bonaparte">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Lsc’s Home">
+
+  
+    <meta property="og:image" content>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Lsc’s Home" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+</html>
+  <body>
+    <a name="top"></a>
+  	<header id="header" class="inner"><div class="header">
+  <div>
+    <h1 class="alignleft"><a href="/">Lsc’s Home</a></h1>
+  <nav id="main-nav">
+    <ul>
+      
+        <li><a href="/">首页</a></li>
+      
+        <li><a href="/laravel">Laravel</a></li>
+      
+        <li><a href="/go">Go</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/about">我</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  </div>
+  <h2>Soldiers who don&#39;t want to be generals are not good soldiers - Napoléon Bonaparte</h2>
+</div>
+<div class="clearfix"></div>
+</header>
+  	<div id="content" class="inner">
+  	<div id="main-col" class="alignleft"><div id="wrapper"><article class="page hidden_show">
+  
+  <div class="post-content">
+    <header>
+      <!--  -->
+      <!-- <div class="icon"></div> -->
+      
+  
+    <h1 class="title"></h1>
+  
+
+      <!-- <time datetime="2022-05-29T02:09:37.663Z"><a href="/redis/data_structure.html">2022-05-29</a></time> -->
+    </header>
+    <div class="entry">
+      
+        <h1 id><a href="#" class="headerlink" title=" "></a> </h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">typedef struct client &#123;</span><br><span class="line">    uint64_t id;            /* Client incremental unique ID. */</span><br><span class="line">    connection *conn;</span><br><span class="line">    int resp;               /* RESP protocol version. Can be 2 or 3. */</span><br><span class="line">    redisDb *db;            /* Pointer to currently SELECTed DB. */</span><br><span class="line">    robj *name;             /* As set by CLIENT SETNAME. */</span><br><span class="line">    sds querybuf;           /* Buffer we use to accumulate client queries. */</span><br><span class="line">    size_t qb_pos;          /* The position we have read in querybuf. */</span><br><span class="line">    sds pending_querybuf;   /* If this client is flagged as master, this buffer</span><br><span class="line">                               represents the yet not applied portion of the</span><br><span class="line">                               replication stream that we are receiving from</span><br><span class="line">                               the master. */</span><br><span class="line">    size_t querybuf_peak;   /* Recent (100ms or more) peak of querybuf size. */</span><br><span class="line">    int argc;               /* Num of arguments of current command. */</span><br><span class="line">    robj **argv;            /* Arguments of current command. */</span><br><span class="line">    size_t argv_len_sum;    /* Sum of lengths of objects in argv list. */</span><br><span class="line">    struct redisCommand *cmd, *lastcmd;  /* Last command executed. */</span><br><span class="line">    user *user;             /* User associated with this connection. If the</span><br><span class="line">                               user is set to NULL the connection can do</span><br><span class="line">                               anything (admin). */</span><br><span class="line">    int reqtype;            /* Request protocol type: PROTO_REQ_* */</span><br><span class="line">    int multibulklen;       /* Number of multi bulk arguments left to read. */</span><br><span class="line">    long bulklen;           /* Length of bulk argument in multi bulk request. */</span><br><span class="line">    list *reply;            /* List of reply objects to send to the client. */</span><br><span class="line">    unsigned long long reply_bytes; /* Tot bytes of objects in reply list. */</span><br><span class="line">    size_t sentlen;         /* Amount of bytes already sent in the current</span><br><span class="line">                               buffer or object being sent. */</span><br><span class="line">    time_t ctime;           /* Client creation time. */</span><br><span class="line">    time_t lastinteraction; /* Time of the last interaction, used for timeout */</span><br><span class="line">    time_t obuf_soft_limit_reached_time;</span><br><span class="line">    uint64_t flags;         /* Client flags: CLIENT_* macros. */</span><br><span class="line">    int authenticated;      /* Needed when the default user requires auth. */</span><br><span class="line">    int replstate;          /* Replication state if this is a slave. */</span><br><span class="line">    int repl_put_online_on_ack; /* Install slave write handler on first ACK. */</span><br><span class="line">    int repldbfd;           /* Replication DB file descriptor. */</span><br><span class="line">    off_t repldboff;        /* Replication DB file offset. */</span><br><span class="line">    off_t repldbsize;       /* Replication DB file size. */</span><br><span class="line">    sds replpreamble;       /* Replication DB preamble. */</span><br><span class="line">    long long read_reploff; /* Read replication offset if this is a master. */</span><br><span class="line">    long long reploff;      /* Applied replication offset if this is a master. */</span><br><span class="line">    long long repl_ack_off; /* Replication ack offset, if this is a slave. */</span><br><span class="line">    long long repl_ack_time;/* Replication ack time, if this is a slave. */</span><br><span class="line">    long long repl_last_partial_write; /* The last time the server did a partial write from the RDB child pipe to this replica  */</span><br><span class="line">    long long psync_initial_offset; /* FULLRESYNC reply offset other slaves</span><br><span class="line">                                       copying this slave output buffer</span><br><span class="line">                                       should use. */</span><br><span class="line">    char replid[CONFIG_RUN_ID_SIZE+1]; /* Master replication ID (if master). */</span><br><span class="line">    int slave_listening_port; /* As configured with: REPLCONF listening-port */</span><br><span class="line">    char slave_ip[NET_IP_STR_LEN]; /* Optionally given by REPLCONF ip-address */</span><br><span class="line">    int slave_capa;         /* Slave capabilities: SLAVE_CAPA_* bitwise OR. */</span><br><span class="line">    multiState mstate;      /* MULTI/EXEC state */</span><br><span class="line">    int btype;              /* Type of blocking op if CLIENT_BLOCKED. */</span><br><span class="line">    blockingState bpop;     /* blocking state */</span><br><span class="line">    long long woff;         /* Last write global replication offset. */</span><br><span class="line">    list *watched_keys;     /* Keys WATCHED for MULTI/EXEC CAS */</span><br><span class="line">    dict *pubsub_channels;  /* channels a client is interested in (SUBSCRIBE) */</span><br><span class="line">    list *pubsub_patterns;  /* patterns a client is interested in (SUBSCRIBE) */</span><br><span class="line">    sds peerid;             /* Cached peer ID. */</span><br><span class="line">    listNode *client_list_node; /* list node in client list */</span><br><span class="line">    RedisModuleUserChangedFunc auth_callback; /* Module callback to execute</span><br><span class="line">                                               * when the authenticated user</span><br><span class="line">                                               * changes. */</span><br><span class="line">    void *auth_callback_privdata; /* Private data that is passed when the auth</span><br><span class="line">                                   * changed callback is executed. Opaque for</span><br><span class="line">                                   * Redis Core. */</span><br><span class="line">    void *auth_module;      /* The module that owns the callback, which is used</span><br><span class="line">                             * to disconnect the client if the module is</span><br><span class="line">                             * unloaded for cleanup. Opaque for Redis Core.*/</span><br><span class="line"></span><br><span class="line">    /* If this client is in tracking mode and this field is non zero,</span><br><span class="line">     * invalidation messages for keys fetched by this client will be send to</span><br><span class="line">     * the specified client ID. */</span><br><span class="line">    uint64_t client_tracking_redirection;</span><br><span class="line">    rax *client_tracking_prefixes; /* A dictionary of prefixes we are already</span><br><span class="line">                                      subscribed to in BCAST mode, in the</span><br><span class="line">                                      context of client side caching. */</span><br><span class="line">    /* In clientsCronTrackClientsMemUsage() we track the memory usage of</span><br><span class="line">     * each client and add it to the sum of all the clients of a given type,</span><br><span class="line">     * however we need to remember what was the old contribution of each</span><br><span class="line">     * client, and in which categoty the client was, in order to remove it</span><br><span class="line">     * before adding it the new value. */</span><br><span class="line">    uint64_t client_cron_last_memory_usage;</span><br><span class="line">    int      client_cron_last_memory_type;</span><br><span class="line">    /* Response buffer */</span><br><span class="line">    int bufpos;</span><br><span class="line">    char buf[PROTO_REPLY_CHUNK_BYTES];</span><br><span class="line">&#125; client;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+
+    <footer>
+      
+        
+
+        
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+    <a href="#" class="bds_renren" data-cmd="renren"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin"></a>
+</div>
+
+<script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {},
+        "image": {
+            "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+            "viewText": "分享到",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+        }
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+  <!-- 
+    <section id="comment">
+        <h1 class="title">留言</h1>
+        <div class="ds-thread" data-thread-key="redis/data_structure.html"></div>
+    </section>
+ -->
+</article>
+
+  <aside id="sidebar" class="alignright">
+         <!--02-->
+        <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text"> </span></a></li></ol>
+</div>
+      
+  </aside>
+
+<!-- <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/syntax.js"></script> -->
+
+</div></div>
+      <div class="clearfix"></div>
+  	</div>
+    <div id="r_top">
+	<ul>
+		<li class="top"><a href="#top"></a></li>
+		<li class="close" data="0"><a href="javascript:;"></a></li>
+		<li class="bottom"><a href="#bottom"></a></li>
+	</ul>
+</div>
+
+    <footer id="footer" class="inner"><div id="foot">
+  <a name="bottom"></a>
+  <div id="youmeng">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277138807'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277138807%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+  </div>
+  <div class="alignleft2">
+    
+    &copy; 2022 LiuShuaiCai
+    
+    Believe in yourself
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+</footer>
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+var duoshuo_shortname = 'feifan';
+var duoshuoQuery = {short_name:duoshuo_shortname};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'https://unpkg.com/embed-js@5.0.3/umd/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+
+<script src="/js/toc.js"></script>
+<script src="/js/top.js"></script>
+<script src="/js/syntax.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+  </html>
+
